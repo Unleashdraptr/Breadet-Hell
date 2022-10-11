@@ -9,7 +9,7 @@ public class BulletSpeed : MonoBehaviour
     void Update()
     {
         //Bullet with travel along the Y axis every frame
-        transform.Translate(0, 0.1f, 0);
+        transform.Translate(0, 1f, 0);
         //Tells the bullet to delete itself once it's far from the battle and no longer needed
         Timer += 1 * Time.deltaTime;
         if(Timer >= 10)

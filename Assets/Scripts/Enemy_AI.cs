@@ -45,6 +45,7 @@ public class Enemy_AI : MonoBehaviour
     {
         //Same as palyer where the character cant be hit for a bit and loses health
         gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        Destroy(collision.gameObject);
         InvisTimer = 0;
         Health -= 1;
         //Also checks if the enemy is dead

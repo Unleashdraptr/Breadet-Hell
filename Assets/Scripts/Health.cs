@@ -42,10 +42,11 @@ public class Health : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.tag == "Enemy_Bullet")
         {
             //If a bullet hits the player they lose some health and can't be hit for a bit
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Destroy(collision.gameObject);
             InvisTimer = 0;
             ReduceHealth();
             //Checks if theyre dead
