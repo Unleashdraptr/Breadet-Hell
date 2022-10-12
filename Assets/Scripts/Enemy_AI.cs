@@ -10,6 +10,10 @@ public class Enemy_AI : MonoBehaviour
     public int Health;
     public float InvisTimer;
 
+    public void Start()
+    {
+        Health = Random.Range(5, 20);
+    }
 
     void Update()
     {
@@ -41,14 +45,17 @@ public class Enemy_AI : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        //Same as palyer where the character cant be hit for a bit and loses health
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
-        Destroy(collision.gameObject);
-        InvisTimer = 0;
-        Health -= 1;
-        //Also checks if the enemy is dead
-        DeathCheck();
+        if (collision.gameObject.tag == "Bullet")
+        {
+            //Same as player where the character cant be hit for a bit and loses health
+            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            Destroy(collision.gameObject);
+            InvisTimer = 0;
+            Health -= 1;
+            //Also checks if the enemy is dead
+            DeathCheck();
+        }
     }
 }

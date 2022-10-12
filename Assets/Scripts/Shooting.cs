@@ -15,7 +15,11 @@ public class Shooting : MonoBehaviour
         //Spawns the bullet at the player everytime the screen is touched (Work in progress)
         if (Input.touchCount > 0)
         {
-            transform.SetPositionAndRotation(Input.GetTouch(0).position, transform.rotation);
+            
+            if(transform.position.x <= 860 && transform.position.x >= 215)
+            {
+                transform.SetPositionAndRotation(Input.GetTouch(0).position, transform.rotation);
+            }
             if (Reload >= 0.2f)
             {
                 Instantiate(Bullet, Pos, Quaternion.identity, BulletStorage.transform);
