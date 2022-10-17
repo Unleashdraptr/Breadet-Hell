@@ -8,53 +8,68 @@ public class EnemyControls : MonoBehaviour
     public int Health;
     public float InvisTimer;
     public bool Moving;
+    public bool Stopped;
+    public int ShootTimes;
+    public int ShootMovment;
+    public float MoveSpeed;
     public void Start()
     {
+        //Sets up all the stats and gets the enemy moving to its location to fire
         Health = Random.Range(3, 15);
         Moving = true;
-        gameObject.GetComponent<BoxCollider2D>().enabled = false;
+        ShootMovment = Random.Range(1, 10);
+        MoveSpeed = 0.5f;
     }
 
     void Update()
     {
-        if(Moving == true)
+        //Tells the enemy to move unless it hits its target
+        if (Moving == true)
         {
-            transform.Translate(0, 0.5f, 0);
-            float GhostingTime = Random.Range(1, 30);
-            GhostingTime -= 1 * Time.deltaTime;
-            if(GhostingTime <= 0)
-            {
-                gameObject.GetComponent<BoxCollider2D>().enabled = true;
-            }
+            transform.Translate(0, MoveSpeed, 0);
         }
         //its invinciblity frames and when it will shoot at certain times
         InvisTimer += 1 * Time.deltaTime;
-        int ShootDelay = Random.Range(2,10);
+        int ShootDelay = Random.Range(Variables.ShootDelayMin[Variables.Difficulties-1], Variables.ShootDelayMax[Variables.Difficulties-1]);
         if (InvisTimer >= ShootDelay && Moving == false)
         {
-            int RandomAttack = Random.Range(1, 6);
-            if(RandomAttack == 1)
+            //To remove spamming the 5th Attack when moving off screen
+            if (ShootTimes != ShootMovment - 1)
             {
-                GetComponentInParent<BulletAttackLibrary>().Attack1(gameObject);
+                int RandomAttack = Random.Range(1, 100);
+                if (RandomAttack >= 1 && RandomAttack < Variables.Attack1Chances[Variables.Difficulties - 1])
+                {
+                    GetComponentInParent<BulletAttackLibrary>().Attack1(gameObject);
+                }
+                if (RandomAttack >= Variables.Attack1Chances[Variables.Difficulties - 1] && RandomAttack < Variables.Attack2Chances[Variables.Difficulties - 1])
+                {
+                    StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack2(gameObject));
+                }
+                if (RandomAttack >= Variables.Attack2Chances[Variables.Difficulties - 1] && RandomAttack < Variables.Attack3Chances[Variables.Difficulties - 1])
+                {
+                    StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack3(gameObject));
+                }
+                if (RandomAttack >= Variables.Attack3Chances[Variables.Difficulties - 1] && RandomAttack < Variables.Attack4Chances[Variables.Difficulties - 1])
+                {
+                    StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack4(gameObject));
+                }
+                if (RandomAttack >= Variables.Attack5Chances[Variables.Difficulties - 1])
+                {
+                    StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack5(gameObject));
+                }
             }
-            if (RandomAttack == 2)
+            //It will instead shoot 2nd attack as it leaves
+            if (ShootTimes == ShootMovment - 1)
             {
-                GetComponentInParent<BulletAttackLibrary>().Attack2(gameObject);
+                StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack2(gameObject));
             }
-            if (RandomAttack == 3)
-            {
-                GetComponentInParent<BulletAttackLibrary>().Attack3(gameObject);
-            }
-            if (RandomAttack == 4)
-            {
-                GetComponentInParent<BulletAttackLibrary>().Attack4(gameObject);
-            }
-            if (RandomAttack == 5)
-            {
-                StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack5(gameObject));
-            }
-            Debug.Log(RandomAttack);
-            InvisTimer = 1;
+                InvisTimer = 1;
+                ShootTimes += 1;
+        }
+        //Once shootTimes is as many as the random chance said it should shoot, it will start to move again
+        if(ShootTimes == ShootMovment)
+        {
+            Moving = true;
         }
         //It's invincibility timer
         if (InvisTimer >= 0.1f)
@@ -89,9 +104,12 @@ public class EnemyControls : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "EndPos")
+        //Checks if it the enemy has hit its intented target to start shooting.
+        if (collision.gameObject.tag == "EndPos" && Stopped == false)
         {
             Moving = false;
+            MoveSpeed = 1.5f;
+            Stopped = true;
         }
     }
 }

@@ -13,16 +13,16 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         //Sets healthbar in UI
-        HealthNum.maxValue = 10;
-        HealthNum.value = 10;
+        HealthNum.maxValue = Variables.PlayerHealth[Variables.Difficulties-1];
+        HealthNum.value = Variables.PlayerHealth[Variables.Difficulties - 1];
     }
     private void Update()
     {
         //Timer after getting hit
         InvisTimer += 1 * Time.deltaTime;
-        if(InvisTimer >= 0.75f)
+        if(InvisTimer >= Variables.InvisTimer[Variables.Difficulties - 1])
         {
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
+            gameObject.GetComponent<CircleCollider2D>().enabled = true;
         }
     }
 
@@ -45,7 +45,7 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.tag == "Enemy_Bullet")
         {
             //If a bullet hits the player they lose some health and can't be hit for a bit
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             Destroy(collision.gameObject);
             InvisTimer = 0;
             ReduceHealth();
