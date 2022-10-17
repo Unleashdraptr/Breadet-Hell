@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class Health : MonoBehaviour
+public class PlayerHealth : MonoBehaviour
 {
     //Healthbar
     public Slider HealthNum;
