@@ -19,9 +19,10 @@ public class CharacterControls : MonoBehaviour
             float Distance = Vector2.Distance(Input.GetTouch(0).position, Player);
             if (Distance < 75)
             {
-                if (Input.GetTouch(0).position.x <= 920 && Input.GetTouch(0).position.x >= 185 && Input.GetTouch(0).position.y >= 8)
+                if (Input.GetTouch(0).position.x <= 2485 && Input.GetTouch(0).position.x >= 460 && Input.GetTouch(0).position.y >= 20)
                 {
-                    transform.SetPositionAndRotation(Input.GetTouch(0).position, transform.rotation);
+                    transform.position = new Vector2(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
+                
                 }
                 if (Reload >= 0.2f)
                 {

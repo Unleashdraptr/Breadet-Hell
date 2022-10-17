@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6781237181533305454}
   - component: {fileID: 334998921040600473}
-  - component: {fileID: 8872376250936268432}
+  - component: {fileID: -5676386577158503393}
   - component: {fileID: 9186350535057518310}
   - component: {fileID: 7494643215785304303}
   m_Layer: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 8244138661295272704}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 7.5, y: 7.5, z: 7.5}
+  m_LocalScale: {x: 17, y: 17, z: 7.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -87,7 +87,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &8872376250936268432
+--- !u!50 &-5676386577158503393
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

@@ -9,6 +9,6 @@ public class BulletSpeed : MonoBehaviour
     void Update()
     {
         //Bullet with travel along the Y axis every frame
-        transform.Translate(0, 100*Time.deltaTime, 0);
+        transform.Translate(0, 150*Time.deltaTime, 0);
     }
 }

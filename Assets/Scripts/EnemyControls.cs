@@ -18,7 +18,7 @@ public class EnemyControls : MonoBehaviour
         Health = Random.Range(3, 15);
         Moving = true;
         ShootMovment = Random.Range(1, 10);
-        MoveSpeed = 0.5f;
+        MoveSpeed = 1.5f;
     }
 
     void Update()
@@ -93,22 +93,22 @@ public class EnemyControls : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
+            Debug.Log("Bullet Hit");
             //Same as player where the character cant be hit for a bit and loses health
             gameObject.GetComponent<BoxCollider2D>().enabled = false;
             Destroy(collision.gameObject);
             InvisTimer = 0;
             Health -= 1;
+            Debug.Log(Health);
             //Also checks if the enemy is dead
             DeathCheck();
         }
-    }
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
+
         //Checks if it the enemy has hit its intented target to start shooting.
         if (collision.gameObject.tag == "EndPos" && Stopped == false)
         {
             Moving = false;
-            MoveSpeed = 1.5f;
+            MoveSpeed = 4.5f;
             Stopped = true;
         }
     }
