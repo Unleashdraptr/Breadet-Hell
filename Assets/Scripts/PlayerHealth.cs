@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 
 public class PlayerHealth : MonoBehaviour
@@ -15,6 +16,7 @@ public class PlayerHealth : MonoBehaviour
         //Sets healthbar in UI
         HealthNum.maxValue = Variables.PlayerHealth[Variables.Difficulties-1];
         HealthNum.value = Variables.PlayerHealth[Variables.Difficulties - 1];
+        GameObject.Find("HP").GetComponent<TextMeshProUGUI>().text = HealthNum.value.ToString();
     }
     private void Update()
     {
@@ -31,6 +33,7 @@ public class PlayerHealth : MonoBehaviour
     {
         //Reduces health on UI aswell as the value
         HealthNum.value -= 1;
+        GameObject.Find("HP").GetComponent<TextMeshProUGUI>().text = HealthNum.value.ToString();
     }
     void DeathCheck()
     {

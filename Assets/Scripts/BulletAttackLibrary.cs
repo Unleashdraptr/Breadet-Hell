@@ -15,9 +15,10 @@ public class BulletAttackLibrary : MonoBehaviour
         int RandomTimes = Random.Range(1, Variables.ShootRandomness[Variables.Difficulties - 1]);
         for (int i = 0; i < RandomTimes; i++)
         {
-            Instantiate(Bullet, Enemy.transform.position, Quaternion.Euler(0, 0, 135), GameObject.Find("ProjectileStorage").transform);
-            Instantiate(Bullet, Enemy.transform.position, Enemy.transform.rotation, GameObject.Find("ProjectileStorage").transform);
-            Instantiate(Bullet, Enemy.transform.position, Quaternion.Euler(0, 0, -135), GameObject.Find("ProjectileStorage").transform);
+            Instantiate(Bullet, Enemy.transform.position, Quaternion.Euler(0, 0, 155), GameObject.Find("ProjectileStorage").transform);
+            Instantiate(Bullet, Enemy.transform.position, Quaternion.Euler(0, 0, 40), GameObject.Find("ProjectileStorage").transform);
+            Instantiate(Bullet, Enemy.transform.position, Quaternion.Euler(0, 0, -40), GameObject.Find("ProjectileStorage").transform);
+            Instantiate(Bullet, Enemy.transform.position, Quaternion.Euler(0, 0, -155), GameObject.Find("ProjectileStorage").transform);
             yield return new WaitForSeconds(0.75f);
         }
     }

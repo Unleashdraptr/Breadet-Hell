@@ -7,7 +7,7 @@ public static class Variables
     public static int Difficulties = 1;
 
     //Player side of stats that change for each difficulty
-    public static int[] PlayerHealth = { 7, 5, 4, 2 };
+    public static int[] PlayerHealth = { 7, 6, 3, 2 };
     public static float[] InvisTimer = { 1, 0.75f, 0.5f, 0.25f };
 
     //Temporary

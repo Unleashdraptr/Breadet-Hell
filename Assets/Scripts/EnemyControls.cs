@@ -15,10 +15,10 @@ public class EnemyControls : MonoBehaviour
     public void Start()
     {
         //Sets up all the stats and gets the enemy moving to its location to fire
-        Health = Random.Range(3, 15);
+        Health = Random.Range(15, 50);
         Moving = true;
         ShootMovment = Random.Range(1, 10);
-        MoveSpeed = 1.5f;
+        MoveSpeed = 150f;
     }
 
     void Update()
@@ -26,7 +26,7 @@ public class EnemyControls : MonoBehaviour
         //Tells the enemy to move unless it hits its target
         if (Moving == true)
         {
-            transform.Translate(0, MoveSpeed, 0);
+            transform.Translate(0, MoveSpeed*Time.deltaTime, 0);
         }
         //its invinciblity frames and when it will shoot at certain times
         InvisTimer += 1 * Time.deltaTime;
@@ -71,11 +71,6 @@ public class EnemyControls : MonoBehaviour
         {
             Moving = true;
         }
-        //It's invincibility timer
-        if (InvisTimer >= 0.1f)
-        {
-            gameObject.GetComponent<BoxCollider2D>().enabled = true;
-        }
     }
 
 
@@ -93,13 +88,9 @@ public class EnemyControls : MonoBehaviour
     {
         if (collision.gameObject.tag == "Bullet")
         {
-            Debug.Log("Bullet Hit");
             //Same as player where the character cant be hit for a bit and loses health
-            gameObject.GetComponent<BoxCollider2D>().enabled = false;
             Destroy(collision.gameObject);
-            InvisTimer = 0;
             Health -= 1;
-            Debug.Log(Health);
             //Also checks if the enemy is dead
             DeathCheck();
         }
