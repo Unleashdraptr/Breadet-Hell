@@ -59,7 +59,7 @@ public class EnemyControls : MonoBehaviour
                 }
             }
             //It will instead shoot 2nd attack as it leaves
-            if (ShootTimes == ShootMovment - 1)
+            if (ShootTimes >= ShootMovment - 1)
             {
                 StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack2(gameObject));
             }
@@ -99,7 +99,7 @@ public class EnemyControls : MonoBehaviour
         if (collision.gameObject.tag == "EndPos" && Stopped == false)
         {
             Moving = false;
-            MoveSpeed = 4.5f;
+            MoveSpeed = 450f;
             Stopped = true;
         }
     }
