@@ -14,7 +14,7 @@ public class PlayerHealth : MonoBehaviour
     void Start()
     {
         //Sets healthbar in UI
-        HealthNum.maxValue = Variables.PlayerHealth[Variables.Difficulties-1];
+        HealthNum.maxValue = Variables.PlayerHealth[Variables.Difficulties - 1];
         HealthNum.value = Variables.PlayerHealth[Variables.Difficulties - 1];
         GameObject.Find("HP").GetComponent<TextMeshProUGUI>().text = HealthNum.value.ToString();
     }
@@ -48,8 +48,8 @@ public class PlayerHealth : MonoBehaviour
         if (collision.gameObject.tag == "Enemy_Bullet")
         {
             //If a bullet hits the player they lose some health and can't be hit for a bit
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             Destroy(collision.gameObject);
+            gameObject.GetComponent<CircleCollider2D>().enabled = false;
             InvisTimer = 0;
             ReduceHealth();
             //Checks if theyre dead
