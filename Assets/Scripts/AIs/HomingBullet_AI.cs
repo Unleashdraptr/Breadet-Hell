@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyControls : MonoBehaviour
+public class HomingBullet_AI : MonoBehaviour
 {
     //Enemy_AI that can shoot and contains health
+    public GameObject Bullet;
     public int Health;
     public float InvisTimer;
     public bool Moving;
@@ -30,38 +31,13 @@ public class EnemyControls : MonoBehaviour
         }
         //its invinciblity frames and when it will shoot at certain times
         InvisTimer += 1 * Time.deltaTime;
-        int ShootDelay = Random.Range(Variables.ShootDelayMin[Variables.Difficulties-1], Variables.ShootDelayMax[Variables.Difficulties-1]);
+        int ShootDelay = Random.Range(1, 5);
         if (InvisTimer >= ShootDelay && Moving == false)
         {
             //To remove spamming the 5th Attack when moving off screen
             if (ShootTimes != ShootMovment - 1)
             {
-                int RandomAttack = Random.Range(1, 100);
-                if (RandomAttack >= 1 && RandomAttack < Variables.Attack1Chances[Variables.Difficulties - 1])
-                {
-                    GetComponentInParent<BulletAttackLibrary>().Attack1(gameObject);
-                }
-                if (RandomAttack >= Variables.Attack1Chances[Variables.Difficulties - 1] && RandomAttack < Variables.Attack2Chances[Variables.Difficulties - 1])
-                {
-                    StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack2(gameObject));
-                }
-                if (RandomAttack >= Variables.Attack2Chances[Variables.Difficulties - 1] && RandomAttack < Variables.Attack3Chances[Variables.Difficulties - 1])
-                {
-                    StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack3(gameObject));
-                }
-                if (RandomAttack >= Variables.Attack3Chances[Variables.Difficulties - 1] && RandomAttack < Variables.Attack4Chances[Variables.Difficulties - 1])
-                {
-                    StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack4(gameObject));
-                }
-                if (RandomAttack >= Variables.Attack5Chances[Variables.Difficulties - 1])
-                {
-                    StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack5(gameObject));
-                }
-            }
-            //It will instead shoot 2nd attack as it leaves
-            if (ShootTimes >= ShootMovment - 1)
-            {
-                StartCoroutine(GetComponentInParent<BulletAttackLibrary>().Attack2(gameObject));
+                HomingBulletAttack();
             }
                 InvisTimer = 1;
                 ShootTimes += 1;
@@ -72,9 +48,6 @@ public class EnemyControls : MonoBehaviour
             Moving = true;
         }
     }
-
-
-
     void DeathCheck()
     {
         //Removes the enemy once killed
@@ -86,7 +59,7 @@ public class EnemyControls : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             //Same as player where the character cant be hit for a bit and loses health
             Destroy(collision.gameObject);
@@ -96,11 +69,21 @@ public class EnemyControls : MonoBehaviour
         }
 
         //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.tag == "EndPos" && Stopped == false)
+        if (collision.gameObject.CompareTag("EndPos") && Stopped == false)
         {
             Moving = false;
             MoveSpeed = 450f;
             Stopped = true;
         }
+    }
+
+
+
+
+    void HomingBulletAttack()
+    {
+        Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);
     }
 }

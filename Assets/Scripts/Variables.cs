@@ -24,4 +24,6 @@ public static class Variables
     public static int[] Attack3Chances = { 85, 75, 60, 55 };
     public static int[] Attack4Chances = { 95, 85, 80, 75 };
     public static int[] Attack5Chances = { 100, 95, 85, 85 };
+
+    public static int[] BossMultiplers = {20 };
 }

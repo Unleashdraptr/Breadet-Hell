@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 726186827911182204}
   - component: {fileID: 726186827911182207}
   - component: {fileID: 726186827911182206}
-  - component: {fileID: 726186827911182193}
+  - component: {fileID: 940307238056521942}
   m_Layer: 0
-  m_Name: Enemy
+  m_Name: Spiral_Enemy
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 726186827911182192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 95, y: 55, z: 25}
+  m_LocalScale: {x: 75, y: 75, z: 75}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -76,7 +76,7 @@ SpriteRenderer:
   m_SortingLayer: 2
   m_SortingOrder: 0
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.3502059, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -112,7 +112,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.0611069, y: 1.0868864}
   m_EdgeRadius: 0
---- !u!114 &726186827911182193
+--- !u!114 &940307238056521942
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -121,9 +121,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 726186827911182192}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf0799b10256e6e47bff354a86c2ec4e, type: 3}
+  m_Script: {fileID: 11500000, guid: dbcd2abb1031e0c49a0f231d699c5567, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Bullet: {fileID: 8244138661295272704, guid: 510ea106c7e760e4396776a097a8cbde, type: 3}
   Health: 0
   InvisTimer: 0
   Moving: 0
