@@ -59,7 +59,7 @@ public class Shotgun_AI : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             //Same as player where the character cant be hit for a bit and loses health
             Destroy(collision.gameObject);
@@ -69,7 +69,7 @@ public class Shotgun_AI : MonoBehaviour
         }
 
         //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.tag == "EndPos" && Stopped == false)
+        if (collision.gameObject.CompareTag("EndPos") && Stopped == false)
         {
             Moving = false;
             MoveSpeed = 450f;
