@@ -7,7 +7,8 @@ public class Snekzel_AI : MonoBehaviour
     public enum BossPhase { PHASE1, PHASE2, PHASE3, WIN, LOSE };
     public BossPhase state;
     public int Health;
-    public float InvisTimer;
+    float InvisTimer;
+    float SaltDropTimer;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,11 +20,25 @@ public class Snekzel_AI : MonoBehaviour
         }
         Health = TempHealth;
     }
-
     // Update is called once per frame
     void Update()
     {
+        SaltDropTimer += 1 * Time.deltaTime;
+        InvisTimer += 1 * Time.deltaTime;
+        if(state == BossPhase.PHASE1 && InvisTimer >= 2)
+        {
+            GetComponent<SnekzelAttackLibrary>().SaltThrow();
+            InvisTimer = 0;
+        }
 
+
+
+        if(SaltDropTimer >= 1.25f)
+        {
+            int SaltPos = Random.Range(1, gameObject.transform.GetChild(0).childCount);
+            GetComponent<SnekzelAttackLibrary>().SaltDrop(gameObject.transform.GetChild(0).GetChild(SaltPos));
+            SaltDropTimer = 0;
+        }
     }
 
 
@@ -34,8 +49,6 @@ public class Snekzel_AI : MonoBehaviour
             state = BossPhase.WIN;
             Destroy(gameObject);
         }
-        else
-
         if (Health <= 0 && state == BossPhase.PHASE2)
         {
             state = BossPhase.PHASE3;

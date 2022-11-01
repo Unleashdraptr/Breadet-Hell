@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spiral_AI : MonoBehaviour
+public class NyaanCat_AI : MonoBehaviour
 {
     //Enemy_AI that can shoot and contains health
     public GameObject Bullet;
@@ -31,13 +31,13 @@ public class Spiral_AI : MonoBehaviour
         }
         //its invinciblity frames and when it will shoot at certain times
         InvisTimer += 1 * Time.deltaTime;
-        int ShootDelay = Random.Range(4, 8);
+        int ShootDelay = Random.Range(2, 6);
         if (InvisTimer >= ShootDelay && Moving == false)
         {
             //To remove spamming the 5th Attack when moving off screen
             if (ShootTimes != ShootMovment - 1)
             {
-                StartCoroutine(SpiralAttack());
+                TripleAttack();
             }
             InvisTimer = 1;
             ShootTimes += 1;
@@ -59,7 +59,7 @@ public class Spiral_AI : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Bullet")
+        if (collision.gameObject.CompareTag("Bullet"))
         {
             //Same as player where the character cant be hit for a bit and loses health
             Destroy(collision.gameObject);
@@ -69,7 +69,7 @@ public class Spiral_AI : MonoBehaviour
         }
 
         //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.tag == "EndPos" && Stopped == false)
+        if (collision.gameObject.CompareTag("EndPos") && Stopped == false)
         {
             Moving = false;
             MoveSpeed = 450f;
@@ -80,19 +80,12 @@ public class Spiral_AI : MonoBehaviour
 
 
 
-    IEnumerator SpiralAttack()
+    void TripleAttack()
     {
-        int RandomTimes = Random.Range(1, Variables.ShootRandomness[Variables.Difficulties - 1]);
-        for (int i = 0; i < 25; i++)
-        {
-            Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, 90 + i * 20), GameObject.Find("ProjectileStorage").transform);
-            Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, 180 + i * 20), GameObject.Find("ProjectileStorage").transform);
-            if (Variables.Difficulties == 3 || Variables.Difficulties == 4)
-            {
-                Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, 270 + i * 20), GameObject.Find("ProjectileStorage").transform);
-                Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, 360 + i * 20), GameObject.Find("ProjectileStorage").transform);
-            }
-            yield return new WaitForSeconds(0.15f);
-        }
+        Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);
+        Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 50), GameObject.Find("ProjectileStorage").transform);
+        Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 130), GameObject.Find("ProjectileStorage").transform);
     }
 }
