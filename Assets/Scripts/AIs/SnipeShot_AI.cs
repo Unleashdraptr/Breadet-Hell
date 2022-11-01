@@ -93,7 +93,7 @@ public class SnipeShot_AI : MonoBehaviour
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);
             yield return new WaitForSeconds(0.3f);
-            if(i == 7)
+            if(i == ShootAmount)
             {
                 transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, angle - 90));
                 Moving = true;
