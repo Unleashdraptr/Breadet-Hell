@@ -10,7 +10,7 @@ public class EnemySpawner : MonoBehaviour
     public GameObject SpiralEnemies;
     public GameObject HomingEnemies;
     public GameObject TripleEnemies;
-    public GameObject ShotgunEnemies;
+    public GameObject SnipeEnemies;
     public GameObject EnemyStorage;
 
     public float Timer;
@@ -58,7 +58,7 @@ public class EnemySpawner : MonoBehaviour
                     }
                     if (EnemySelect == 4)
                     {
-                        Instantiate(ShotgunEnemies, Pos, Quaternion.Euler(0, 0, 180), EnemyStorage.transform);
+                        Instantiate(SnipeEnemies, Pos, Quaternion.Euler(0, 0, 180), EnemyStorage.transform);
                     }
                 }
             }
