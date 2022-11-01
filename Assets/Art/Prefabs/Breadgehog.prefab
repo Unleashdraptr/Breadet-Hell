@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 726186827911182206}
   - component: {fileID: 940307238056521942}
   m_Layer: 0
-  m_Name: Spiral_Enemy
+  m_Name: Breadgehog
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

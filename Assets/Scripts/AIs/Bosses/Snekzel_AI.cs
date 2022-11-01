@@ -7,8 +7,12 @@ public class Snekzel_AI : MonoBehaviour
     public enum BossPhase { PHASE1, PHASE2, PHASE3, WIN, LOSE };
     public BossPhase state;
     public int Health;
-    float InvisTimer;
+    public float InvisTimer;
     float SaltDropTimer;
+    float DropTime;
+    bool Drop;
+    public bool LeaveTransition;
+    public bool Phase2Transition;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +23,8 @@ public class Snekzel_AI : MonoBehaviour
             TempHealth += (150 * Variables.BossMultiplers[0]) / 100;
         }
         Health = TempHealth;
+        DropTime = 1.25f;
+        Drop = true;
     }
     // Update is called once per frame
     void Update()
@@ -30,14 +36,28 @@ public class Snekzel_AI : MonoBehaviour
             GetComponent<SnekzelAttackLibrary>().SaltThrow();
             InvisTimer = 0;
         }
+        if (state == BossPhase.PHASE2 && InvisTimer >= 4 && Phase2Transition == true)
+        {
+            Debug.Log("CHARGE");
+            GetComponent<SnekzelAttackLibrary>().Screencharge();
+            InvisTimer = 0;
+        }
 
 
-
-        if(SaltDropTimer >= 1.25f)
+        if (SaltDropTimer >= DropTime && Drop == true)
         {
             int SaltPos = Random.Range(1, gameObject.transform.GetChild(0).childCount);
             GetComponent<SnekzelAttackLibrary>().SaltDrop(gameObject.transform.GetChild(0).GetChild(SaltPos));
             SaltDropTimer = 0;
+        }
+
+        
+
+
+
+        if(LeaveTransition == true)
+        {
+            transform.Translate(0, -550 * Time.deltaTime, 0);
         }
     }
 
@@ -65,12 +85,15 @@ public class Snekzel_AI : MonoBehaviour
     {
         if (state == BossPhase.PHASE2)
         {
+            LeaveTransition = true;
             int TempHealth = 130;
             for (int i = 0; i < Variables.Difficulties - 1; i++)
             {
                 TempHealth += (TempHealth * Variables.BossMultiplers[0]) / 100;
             }
             Health = TempHealth;
+            DropTime = 0.25f;
+            Drop = false;
         }
 
         if (state == BossPhase.PHASE3)
@@ -83,6 +106,10 @@ public class Snekzel_AI : MonoBehaviour
             Health = TempHealth;
         }
     }
+
+
+
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
@@ -92,6 +119,17 @@ public class Snekzel_AI : MonoBehaviour
             Health -= 1;
             //Also checks if the enemy is dead
             DeathCheck();
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("BoundingBox"))
+        {
+            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            LeaveTransition = false;
+            Phase2Transition = true;
+            InvisTimer = 0;
         }
     }
 }

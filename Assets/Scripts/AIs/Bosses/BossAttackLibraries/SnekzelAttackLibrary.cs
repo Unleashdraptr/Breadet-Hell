@@ -26,7 +26,20 @@ public class SnekzelAttackLibrary : MonoBehaviour
 
     public void Screencharge()
     {
-
+        int ScreenWidth = Random.Range(20, Screen.width - 50);
+        Vector2 Pos = new(0, ScreenWidth);
+        int Screenside = Random.Range(1, 2);
+        if (Screenside == 1)
+        {
+            Pos.x = 200;
+            Pos.x = Screen.height + 100;
+            transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 0, 180));
+        }
+        if(Screenside == 2)
+        {
+            Pos.x = Screen.height + 100;
+            transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 0, 0));
+        }
     }
 
     public void TunnelUp()

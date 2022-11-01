@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 726186827911182206}
   - component: {fileID: 4622840268864763633}
   m_Layer: 0
-  m_Name: Triple Shot
+  m_Name: Nyaan
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

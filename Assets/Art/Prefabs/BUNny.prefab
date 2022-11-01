@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 726186827911182206}
   - component: {fileID: 739780385708307682}
   m_Layer: 0
-  m_Name: HomingShot
+  m_Name: BUNny
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
