@@ -64,6 +64,12 @@ public class HotDog_AI : MonoBehaviour
             MoveSpeed = 450f;
             Stopped = true;
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //Player took contact damage and is telling the player
+            collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
+        }
     }
 
 

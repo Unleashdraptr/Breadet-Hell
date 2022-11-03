@@ -10,7 +10,6 @@ public class Snekzel_AI : MonoBehaviour
     public float InvisTimer;
     float SaltDropTimer;
     float DropTime;
-    bool Drop;
     public bool LeaveTransition;
     public bool Phase2Transition;
     // Start is called before the first frame update
@@ -24,7 +23,6 @@ public class Snekzel_AI : MonoBehaviour
         }
         Health = TempHealth;
         DropTime = 1.25f;
-        Drop = true;
     }
     // Update is called once per frame
     void Update()
@@ -36,33 +34,30 @@ public class Snekzel_AI : MonoBehaviour
             GetComponent<SnekzelAttackLibrary>().SaltThrow();
             InvisTimer = 0;
         }
-        if (state == BossPhase.PHASE2 && InvisTimer >= 4 && Phase2Transition == true)
+        if (state == BossPhase.PHASE2 && InvisTimer >= 5 && Phase2Transition == true)
         {
-            Debug.Log("CHARGE");
-            GetComponent<SnekzelAttackLibrary>().Screencharge();
+            StartCoroutine(GetComponent<SnekzelAttackLibrary>().Screencharge());
             InvisTimer = 0;
         }
 
 
-        if (SaltDropTimer >= DropTime && Drop == true)
+        if (SaltDropTimer >= DropTime)
         {
-            int SaltPos = Random.Range(1, gameObject.transform.GetChild(0).childCount);
-            GetComponent<SnekzelAttackLibrary>().SaltDrop(gameObject.transform.GetChild(0).GetChild(SaltPos));
+            int SaltPos = Random.Range(1, gameObject.transform.GetChild(1).GetChild(0).childCount);
+            GetComponent<SnekzelAttackLibrary>().SaltDrop(gameObject.transform.GetChild(1).GetChild(0).GetChild(SaltPos));
             SaltDropTimer = 0;
         }
 
-        
 
 
-
-        if(LeaveTransition == true)
+        if (LeaveTransition == true)
         {
             transform.Translate(0, -550 * Time.deltaTime, 0);
         }
     }
 
 
-    void DeathCheck()
+    public void DeathCheck()
     {
         if (Health <= 0 && (state == BossPhase.PHASE3 && Variables.Difficulties >= 3) || Health <= 0 && (state == BossPhase.PHASE2 && Variables.Difficulties <= 3))
         {
@@ -93,7 +88,6 @@ public class Snekzel_AI : MonoBehaviour
             }
             Health = TempHealth;
             DropTime = 0.25f;
-            Drop = false;
         }
 
         if (state == BossPhase.PHASE3)
@@ -104,32 +98,6 @@ public class Snekzel_AI : MonoBehaviour
                 TempHealth += (30 * Variables.BossMultiplers[0]) / 100;
             }
             Health = TempHealth;
-        }
-    }
-
-
-
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            //Same as player where the character cant be hit for a bit and loses health
-            Destroy(collision.gameObject);
-            Health -= 1;
-            //Also checks if the enemy is dead
-            DeathCheck();
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if(collision.gameObject.CompareTag("BoundingBox"))
-        {
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
-            gameObject.transform.GetChild(1).gameObject.SetActive(true);
-            LeaveTransition = false;
-            Phase2Transition = true;
-            InvisTimer = 0;
         }
     }
 }

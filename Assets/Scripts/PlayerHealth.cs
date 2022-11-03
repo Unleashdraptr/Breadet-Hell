@@ -43,17 +43,22 @@ public class PlayerHealth : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
+    public void BeenHit()
+    {
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        InvisTimer = 0;
+        ReduceHealth();
+        //Checks if theyre dead
+        DeathCheck();
+    }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy_Bullet"))
         {
             //If a bullet hits the player they lose some health and can't be hit for a bit
             Destroy(collision.gameObject);
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            InvisTimer = 0;
-            ReduceHealth();
-            //Checks if theyre dead
-            DeathCheck();
+            BeenHit();
         }
     }
 }
