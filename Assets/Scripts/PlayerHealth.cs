@@ -40,6 +40,7 @@ public class PlayerHealth : MonoBehaviour
         //Destroys the player gameobject when its has 0HP
         if (HealthNum.value <= 0)
         {
+            GameObject.Find("Canvas").GetComponent<GameState>().PlayerDead = true;
             Destroy(gameObject);
         }
     }

@@ -23,12 +23,12 @@ public class Collision : MonoBehaviour
     
     private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("BoundingBox"))
+        if (collision.gameObject.CompareTag("BoundingBox") && GetComponentInParent<Snekzel_AI>().state == Snekzel_AI.BossPhase.PHASE_2)
         {
             GetComponentInParent<Transform>().gameObject.SetActive(false);
             GetComponentInParent<Transform>().GetChild(1).gameObject.SetActive(true);
+            GetComponentInParent<Snekzel_AI>().UpdateHealth(130);
             GetComponentInParent<Snekzel_AI>().LeaveTransition = false;
-            GetComponentInParent<Snekzel_AI>().Phase2Transition = true;
             GetComponentInParent<Snekzel_AI>().InvisTimer = 0;
         }
     }

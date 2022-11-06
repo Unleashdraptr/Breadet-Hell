@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Snekzel_AI : MonoBehaviour
 {
-    public enum BossPhase { PHASE1, PHASE2, PHASE3, WIN, LOSE };
+    public enum BossPhase { PHASE_1, PHASE_2, PHASE_3, WIN, LOSE };
     public BossPhase state;
     public int Health;
     public float InvisTimer;
     float SaltDropTimer;
     float DropTime;
     public bool LeaveTransition;
-    public bool Phase2Transition;
+    public bool Attacking;
     // Start is called before the first frame update
     void Start()
     {
-        state = BossPhase.PHASE1;
+        state = BossPhase.PHASE_1;
         int TempHealth = 150;
         for (int i = 0; i < Variables.Difficulties - 1; i++)
         {
@@ -27,77 +27,79 @@ public class Snekzel_AI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        SaltDropTimer += 1 * Time.deltaTime;
-        InvisTimer += 1 * Time.deltaTime;
-        if(state == BossPhase.PHASE1 && InvisTimer >= 2)
+        if (Variables.Pause == false)
         {
-            GetComponent<SnekzelAttackLibrary>().SaltThrow();
-            InvisTimer = 0;
-        }
-        if (state == BossPhase.PHASE2 && InvisTimer >= 5 && Phase2Transition == true)
-        {
-            StartCoroutine(GetComponent<SnekzelAttackLibrary>().Screencharge());
-            InvisTimer = 0;
-        }
+            SaltDropTimer += 1 * Time.deltaTime;
+            if (Attacking == false)
+            {
+                InvisTimer += 1 * Time.deltaTime;
+            }
 
 
-        if (SaltDropTimer >= DropTime)
-        {
-            int SaltPos = Random.Range(1, gameObject.transform.GetChild(1).GetChild(0).childCount);
-            GetComponent<SnekzelAttackLibrary>().SaltDrop(gameObject.transform.GetChild(1).GetChild(0).GetChild(SaltPos));
-            SaltDropTimer = 0;
-        }
+            if (state == BossPhase.PHASE_1 && InvisTimer >= 2)
+            {
+                GetComponent<SnekzelAttackLibrary>().SaltThrow();
+                InvisTimer = 0;
+            }
+            if (state == BossPhase.PHASE_2 && InvisTimer >= 5)
+            {
+                Attacking = true;
+                StartCoroutine(GetComponent<SnekzelAttackLibrary>().Screencharge());
+                InvisTimer = 0;
+            }
+            if (state == BossPhase.PHASE_3 && InvisTimer >= 4)
+            {
+                StartCoroutine(GetComponent<SnekzelAttackLibrary>().TunnelUp());
+                InvisTimer = 0;
+            }
+            if (SaltDropTimer >= DropTime && state != BossPhase.PHASE_3)
+            {
+                int SaltPos = Random.Range(1, gameObject.transform.GetChild(1).GetChild(0).childCount);
+                GetComponent<SnekzelAttackLibrary>().SaltDrop(gameObject.transform.GetChild(1).GetChild(0).GetChild(SaltPos));
+                SaltDropTimer = 0;
+            }
 
 
 
-        if (LeaveTransition == true)
-        {
-            transform.Translate(0, -550 * Time.deltaTime, 0);
+            if (LeaveTransition == true && state == BossPhase.PHASE_2)
+            {
+                transform.Translate(0, -550 * Time.deltaTime, 0);
+            }
         }
     }
 
 
     public void DeathCheck()
     {
-        if (Health <= 0 && (state == BossPhase.PHASE3 && Variables.Difficulties >= 3) || Health <= 0 && (state == BossPhase.PHASE2 && Variables.Difficulties <= 3))
+        if (Health <= 0 && (state == BossPhase.PHASE_3 && Variables.Difficulties >= 3 && LeaveTransition == false) || Health <= 0 && (state == BossPhase.PHASE_2 && Variables.Difficulties <= 3 && LeaveTransition == false))
         {
             state = BossPhase.WIN;
+            GameObject.Find("Canvas").GetComponent<GameState>().SnekzelDead = true;
             Destroy(gameObject);
         }
-        if (Health <= 0 && state == BossPhase.PHASE2)
+        if (Health <= 0 && state == BossPhase.PHASE_2 && LeaveTransition == false)
         {
-            state = BossPhase.PHASE3;
-            UpdatePhase();
+            state = BossPhase.PHASE_3;
+            LeaveTransition = true;
         }
-        if (Health <= 0 && state == BossPhase.PHASE1)
+        if (Health <= 0 && state == BossPhase.PHASE_1)
         {
-            state = BossPhase.PHASE2;
-            UpdatePhase();
+            state = BossPhase.PHASE_2;
+            LeaveTransition = true;
         }
     }
 
-    void UpdatePhase()
+    public void UpdateHealth(int LowestHealth)
     {
-        if (state == BossPhase.PHASE2)
+        int TempHealth = LowestHealth;
+        for (int i = 0; i < Variables.Difficulties - 1; i++)
         {
-            LeaveTransition = true;
-            int TempHealth = 130;
-            for (int i = 0; i < Variables.Difficulties - 1; i++)
-            {
-                TempHealth += (TempHealth * Variables.BossMultiplers[0]) / 100;
-            }
-            Health = TempHealth;
-            DropTime = 0.25f;
+            TempHealth += (TempHealth * Variables.BossMultiplers[0]) / 100;
         }
-
-        if (state == BossPhase.PHASE3)
+        Health = TempHealth;
+        if (state == BossPhase.PHASE_2)
         {
-            int TempHealth = 30;
-            for (int i = 0; i < Variables.Difficulties - 1; i++)
-            {
-                TempHealth += (30 * Variables.BossMultiplers[0]) / 100;
-            }
-            Health = TempHealth;
+            DropTime = 0.25f;
         }
     }
 }
