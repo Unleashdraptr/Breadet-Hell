@@ -4,94 +4,115 @@ using UnityEngine;
 
 public class Snekzel_AI : MonoBehaviour
 {
-    public enum BossPhase { PHASE1, PHASE2, PHASE3, WIN, LOSE };
+    public enum BossPhase { PHASE_1, PHASE_2, PHASE_3, WIN, LOSE };
     public BossPhase state;
     public int Health;
-    float InvisTimer;
+    public float InvisTimer;
     float SaltDropTimer;
+    float DropTime;
+    public bool LeaveTransition;
+    public bool Attacking;
     // Start is called before the first frame update
     void Start()
     {
-        state = BossPhase.PHASE1;
-        int TempHealth = 150;
+        //Game will start by setting Snekzel's health to what it should be and the salt drop time
+        state = BossPhase.PHASE_1;
+        int TempHealth = 200;
         for (int i = 0; i < Variables.Difficulties - 1; i++)
         {
             TempHealth += (150 * Variables.BossMultiplers[0]) / 100;
         }
         Health = TempHealth;
+        DropTime = 1.25f;
     }
-    // Update is called once per frame
     void Update()
     {
-        SaltDropTimer += 1 * Time.deltaTime;
-        InvisTimer += 1 * Time.deltaTime;
-        if(state == BossPhase.PHASE1 && InvisTimer >= 2)
+        //Will stop if the game is paused
+        if (Variables.Pause == false)
         {
-            GetComponent<SnekzelAttackLibrary>().SaltThrow();
-            InvisTimer = 0;
-        }
+            //Timer for all salt to drop
+            SaltDropTimer += 1 * Time.deltaTime;
+            //Makes it so Phase 2 is more consistent
+            if (Attacking == false)
+            {
+                InvisTimer += 1 * Time.deltaTime;
+            }
 
+            //After the time period snekzel will perform his salth throw
+            if (state == BossPhase.PHASE_1 && InvisTimer >= 2)
+            {
+                GetComponent<SnekzelAttackLibrary>().SaltThrow();
+                InvisTimer = 0;
+            }
+            //After the time period snekzel will perform his charge across the screen
+            if (state == BossPhase.PHASE_2 && InvisTimer >= 2)
+            {
+                Attacking = true;
+                StartCoroutine(GetComponent<SnekzelAttackLibrary>().Screencharge());
+                InvisTimer = 0;
+            }
+            //After the time period snekzel will perform his Tunneling that has a warning on it
+            if (state == BossPhase.PHASE_3 && InvisTimer >= 4)
+            {
+                StartCoroutine(GetComponent<SnekzelAttackLibrary>().TunnelUp());
+                InvisTimer = 0;
+            }
+            //After the time period salt will drop off of snekzel with the potential to hit the player
+            if (SaltDropTimer >= DropTime && state != BossPhase.PHASE_3)
+            {
+                //Scales with difficulty
+                for (int i = 0; i < Variables.Difficulties; i++)
+                {
+                    int SaltPos = Random.Range(1, gameObject.transform.GetChild(1).GetChild(0).childCount);
+                    GetComponent<SnekzelAttackLibrary>().SaltDrop(gameObject.transform.GetChild(1).GetChild(0).GetChild(SaltPos));
+                }
+                SaltDropTimer = 0;
+            }
 
-
-        if(SaltDropTimer >= 1.25f)
-        {
-            int SaltPos = Random.Range(1, gameObject.transform.GetChild(0).childCount);
-            GetComponent<SnekzelAttackLibrary>().SaltDrop(gameObject.transform.GetChild(0).GetChild(SaltPos));
-            SaltDropTimer = 0;
+            //Snekzel will charge the player at the end of Phase 2
+            if (LeaveTransition == true && state == BossPhase.PHASE_2)
+            {
+                transform.Translate(0, -550 * Time.deltaTime, 0);
+            }
         }
     }
 
 
-    void DeathCheck()
+    public void DeathCheck()
     {
-        if (Health <= 0 && (state == BossPhase.PHASE3 && Variables.Difficulties >= 3) || Health <= 0 && (state == BossPhase.PHASE2 && Variables.Difficulties <= 3))
+        //Checks if its the final phase (Depends on difficulty)
+        if (Health <= 0 && (state == BossPhase.PHASE_3 && Variables.Difficulties >= 3 && LeaveTransition == false) || Health <= 0 && (state == BossPhase.PHASE_2 && Variables.Difficulties <= 3 && LeaveTransition == false))
         {
             state = BossPhase.WIN;
+            GameObject.Find("Canvas").GetComponent<GameState>().SnekzelDead = true;
             Destroy(gameObject);
         }
-        if (Health <= 0 && state == BossPhase.PHASE2)
+        //When in the higher difficulties he will transistion to Phase 3
+        if (Health <= 0 && state == BossPhase.PHASE_2 && LeaveTransition == false)
         {
-            state = BossPhase.PHASE3;
-            UpdatePhase();
+            state = BossPhase.PHASE_3;
+            LeaveTransition = true;
         }
-        if (Health <= 0 && state == BossPhase.PHASE1)
+        //Transition to Phase 2
+        if (Health <= 0 && state == BossPhase.PHASE_1)
         {
-            state = BossPhase.PHASE2;
-            UpdatePhase();
+            state = BossPhase.PHASE_2;
+            LeaveTransition = true;
         }
     }
 
-    void UpdatePhase()
+    //This function updates Snekzel's health everytime he transitions to the next phase
+    public void UpdateHealth(int LowestHealth)
     {
-        if (state == BossPhase.PHASE2)
+        int TempHealth = LowestHealth;
+        for (int i = 0; i < Variables.Difficulties - 1; i++)
         {
-            int TempHealth = 130;
-            for (int i = 0; i < Variables.Difficulties - 1; i++)
-            {
-                TempHealth += (TempHealth * Variables.BossMultiplers[0]) / 100;
-            }
-            Health = TempHealth;
+            TempHealth += (TempHealth * Variables.BossMultiplers[0]) / 100;
         }
-
-        if (state == BossPhase.PHASE3)
+        Health = TempHealth;
+        if (state == BossPhase.PHASE_2)
         {
-            int TempHealth = 30;
-            for (int i = 0; i < Variables.Difficulties - 1; i++)
-            {
-                TempHealth += (30 * Variables.BossMultiplers[0]) / 100;
-            }
-            Health = TempHealth;
-        }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Bullet"))
-        {
-            //Same as player where the character cant be hit for a bit and loses health
-            Destroy(collision.gameObject);
-            Health -= 1;
-            //Also checks if the enemy is dead
-            DeathCheck();
+            DropTime = 0.25f;
         }
     }
 }

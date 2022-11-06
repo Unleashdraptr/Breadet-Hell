@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SnipeShot_AI : MonoBehaviour
+public class BUNny_AI : MonoBehaviour
 {
     //Enemy_AI that can shoot and contains health
     public GameObject Bullet;
@@ -26,24 +26,24 @@ public class SnipeShot_AI : MonoBehaviour
     {
         //Tells the enemy to move unless it hits its target
         if (Moving == true)
-        { 
-            transform.Translate(0, MoveSpeed * Time.deltaTime, 0);
+        {
+            transform.Translate(0, MoveSpeed*Time.deltaTime, 0);
         }
         //its invinciblity frames and when it will shoot at certain times
         InvisTimer += 1 * Time.deltaTime;
-        int ShootDelay = Random.Range(4, 8);
+        int ShootDelay = Random.Range(1, 5);
         if (InvisTimer >= ShootDelay && Moving == false)
         {
             //To remove spamming the 5th Attack when moving off screen
             if (ShootTimes != ShootMovment - 1)
             {
-                StartCoroutine(SnipeAttack());
+                HomingBulletAttack();
             }
-            InvisTimer = 1;
-            ShootTimes += 1;
+                InvisTimer = 1;
+                ShootTimes += 1;
         }
         //Once shootTimes is as many as the random chance said it should shoot, it will start to move again
-        if (ShootTimes == ShootMovment)
+        if(ShootTimes == ShootMovment)
         {
             Moving = true;
         }
@@ -51,7 +51,7 @@ public class SnipeShot_AI : MonoBehaviour
     void DeathCheck()
     {
         //Removes the enemy once killed
-        if (Health <= 0)
+        if(Health <= 0)
         {
             GameObject.Find("Score").GetComponent<ScoreUpKeep>().Score += 1;
             Destroy(gameObject);
@@ -75,29 +75,21 @@ public class SnipeShot_AI : MonoBehaviour
             MoveSpeed = 450f;
             Stopped = true;
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //Player took contact damage and is telling the player
+            collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
+        }
     }
 
 
 
 
-    IEnumerator SnipeAttack()
+    void HomingBulletAttack()
     {
-        int ShootAmount = 1;
-        for(int i =0; i < Variables.Difficulties-1; i++)
-        {
-            ShootAmount *= 2;
-        }
-        for (int i = 0; i < ShootAmount; i++)
-        {
-            Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);
-            yield return new WaitForSeconds(0.3f);
-            if(i == ShootAmount)
-            {
-                transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, angle - 90));
-                Moving = true;
-            }
-        }
+        Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);
     }
 }

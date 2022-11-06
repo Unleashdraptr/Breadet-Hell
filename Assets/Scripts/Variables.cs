@@ -6,8 +6,11 @@ public static class Variables
 {
     public static int Difficulties = 1;
 
+    //Will pause the game state if true
+    public static bool Pause;
+
     //Player side of stats that change for each difficulty
-    public static int[] PlayerHealth = { 7, 6, 3, 2 };
+    public static int[] PlayerHealth = { 7, 6, 3, 200 };
     public static float[] InvisTimer = { 1, 0.75f, 0.5f, 0.25f };
 
     //Temporary
@@ -17,13 +20,6 @@ public static class Variables
     public static int[] ShootRandomness = { 3, 5, 8, 12 };
     public static int[] SpawnChance = { 10, 11, 12, 12 };
 
-    //Temporary
-    //Enemy Attack side that changes the chances of the different type of attacks
-    public static int[] Attack1Chances = { 65, 50, 25, 0 };
-    public static int[] Attack2Chances = { 75, 60, 40, 35 };
-    public static int[] Attack3Chances = { 85, 75, 60, 55 };
-    public static int[] Attack4Chances = { 95, 85, 80, 75 };
-    public static int[] Attack5Chances = { 100, 95, 85, 85 };
-
+    //The multipler each boss will use for health scaling
     public static int[] BossMultiplers = {20 };
 }

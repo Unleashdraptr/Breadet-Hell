@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Shotgun_AI : MonoBehaviour
+public class NyaanCat_AI : MonoBehaviour
 {
     //Enemy_AI that can shoot and contains health
     public GameObject Bullet;
@@ -31,13 +31,13 @@ public class Shotgun_AI : MonoBehaviour
         }
         //its invinciblity frames and when it will shoot at certain times
         InvisTimer += 1 * Time.deltaTime;
-        int ShootDelay = Random.Range(3, 10);
+        int ShootDelay = Random.Range(2, 6);
         if (InvisTimer >= ShootDelay && Moving == false)
         {
             //To remove spamming the 5th Attack when moving off screen
             if (ShootTimes != ShootMovment - 1)
             {
-                ShotgunAttack();
+                TripleAttack();
             }
             InvisTimer = 1;
             ShootTimes += 1;
@@ -75,18 +75,23 @@ public class Shotgun_AI : MonoBehaviour
             MoveSpeed = 450f;
             Stopped = true;
         }
+
+        if (collision.gameObject.CompareTag("Player"))
+        {
+            //Player took contact damage and is telling the player
+            collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
+        }
     }
 
 
 
 
-    void ShotgunAttack()
+    void TripleAttack()
     {
-        int RandomAmount = Random.Range(4, 25);
-        for(int i = 0; i < RandomAmount; i++)
-        {
-            int ShellSpread = Random.Range(-15, 15);
-            Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, 180+ShellSpread), GameObject.Find("ProjectileStorage").transform);
-        }
+        Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);
+        Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 50), GameObject.Find("ProjectileStorage").transform);
+        Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 130), GameObject.Find("ProjectileStorage").transform);
     }
 }

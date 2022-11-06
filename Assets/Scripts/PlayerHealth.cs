@@ -20,7 +20,7 @@ public class PlayerHealth : MonoBehaviour
     }
     private void Update()
     {
-        //Timer after getting hit
+        //Timer after getting hit, is shorter the higher the difficuly
         InvisTimer += 1 * Time.deltaTime;
         if(InvisTimer >= Variables.InvisTimer[Variables.Difficulties - 1])
         {
@@ -37,11 +37,22 @@ public class PlayerHealth : MonoBehaviour
     }
     void DeathCheck()
     {
-        //Destroys the player gameobject when its has 0HP
+        //Destroys the player gameobject when its has 0HP, also updates the UI to tell the player and stop the game completely
         if (HealthNum.value <= 0)
         {
+            GameObject.Find("Canvas").GetComponent<GameState>().PlayerDead = true;
             Destroy(gameObject);
         }
+    }
+
+    public void BeenHit()
+    {
+        //Makes it so the player cant be hit anymore and reduces the players health
+        gameObject.GetComponent<CircleCollider2D>().enabled = false;
+        InvisTimer = 0;
+        ReduceHealth();
+        //Checks if theyre dead
+        DeathCheck();
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -49,11 +60,7 @@ public class PlayerHealth : MonoBehaviour
         {
             //If a bullet hits the player they lose some health and can't be hit for a bit
             Destroy(collision.gameObject);
-            gameObject.GetComponent<CircleCollider2D>().enabled = false;
-            InvisTimer = 0;
-            ReduceHealth();
-            //Checks if theyre dead
-            DeathCheck();
+            BeenHit();
         }
     }
 }

@@ -13,9 +13,16 @@ public class SceneChanging : MonoBehaviour
     {
         SceneManager.LoadScene("Game");
     }
-    //Loads out of game
+    //Loads toi the Snekzel Boss Fight
+    public void SnekzelButton()
+    {
+        SceneManager.LoadScene("Snekzel_Boss_Fight");
+    }
+
+    //Loads out of game & Resets the pause state
     public void QuitButton()
     {
+        Variables.Pause = false;
         SceneManager.LoadScene("Menu");
     }
     //Updates the difficulty button for the player
