@@ -190,6 +190,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Player: {fileID: 102685739}
   Salt: {fileID: 8244138661295272704, guid: 510ea106c7e760e4396776a097a8cbde, type: 3}
+  SuperSalt: {fileID: 8244138661295272704, guid: 99a2608fd786a0a4ab6f972fd3af02bb, type: 3}
   P2Saltshakers: {fileID: 1762966958}
   Charge: 0
 --- !u!1 &72882223
