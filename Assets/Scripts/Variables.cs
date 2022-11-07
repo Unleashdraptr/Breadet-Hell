@@ -5,7 +5,7 @@ using UnityEngine;
 public static class Variables
 {
     public static int Difficulties = 1;
-    public static int Progress = 0;
+    public static int Progress = 4;
     //Will pause the game state if true
     public static bool Pause;
 
