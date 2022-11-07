@@ -9,18 +9,19 @@ public class SnekzelAttackLibrary : MonoBehaviour
     public GameObject SuperSalt;
     public GameObject P2Saltshakers;
     public bool Charge;
-    int ShootDelay = 0;
+    public float ShootDelay = 0;
     float ShootTime = 0;
+    float[] ShootDelayTimes = { 1.45f, 1.475f, 1.5f, 1.525f };
     void Update()
     {
         //If he is charging in the 2nd phase he will perform this
         if (Charge == true)
         {
             //He charges across the screen VERY quickly while shooting out salt
-            transform.Translate(2500 * Time.deltaTime, 0, 0);
-            ShootDelay += 1;
+            transform.Translate(5000 * Time.deltaTime, 0, 0);
+            ShootDelay += 1*Time.deltaTime;
             //ShootDelay depends on the difficulty
-            if (ShootDelay == (14-Variables.Difficulties))
+            if (ShootDelay >= (1.55f-ShootDelayTimes[Variables.Difficulties-1]))
             {
                 //Faster salt is shot out in higher difficulties
                 if (Variables.Difficulties > 1)
@@ -35,7 +36,7 @@ public class SnekzelAttackLibrary : MonoBehaviour
             }
             //The minimum time he will charge across the screen before checking if hes dead/ needs to change forms
             ShootTime += 1*Time.deltaTime;
-            if(ShootTime >= 4)
+            if(ShootTime >= 2)
             {
                 Charge = false;
                 GetComponent<Snekzel_AI>().Attacking = false;

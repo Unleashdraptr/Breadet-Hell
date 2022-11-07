@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class WaveNumbers : MonoBehaviour
 {
-    public int[] EnemyNum = new int[10];
+    public int[] EnemyNum;
     public int[] SpawnerNum;
     private void Start()
     {
-        Mathf.Clamp(EnemyNum.Length, 10, 10);
+        EnemyNum = new int[GameObject.Find("WaveManager").GetComponent<WaveManager>().Waves];
+        SpawnerNum = new int[transform.childCount];
     }
 }
