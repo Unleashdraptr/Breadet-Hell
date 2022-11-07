@@ -13,8 +13,10 @@ public class Bredgehog_AI : MonoBehaviour
     public int ShootTimes;
     public int ShootMovment;
     public float MoveSpeed;
+    private Animator animator;
     public void Start()
     {
+        animator = GetComponent<Animator>();
         //Sets up all the stats and gets the enemy moving to its location to fire
         Health = Random.Range(15, 50);
         Moving = true;
@@ -27,7 +29,7 @@ public class Bredgehog_AI : MonoBehaviour
         //Tells the enemy to move unless it hits its target
         if (Moving == true)
         {
-            transform.Translate(0, MoveSpeed * Time.deltaTime, 0);
+            transform.Translate(0, -MoveSpeed * Time.deltaTime, 0);
         }
         //its invinciblity frames and when it will shoot at certain times
         InvisTimer += 1 * Time.deltaTime;
@@ -37,6 +39,7 @@ public class Bredgehog_AI : MonoBehaviour
             //To remove spamming the 5th Attack when moving off screen
             if (ShootTimes != ShootMovment - 1)
             {
+
                 StartCoroutine(SpiralAttack());
             }
             InvisTimer = 1;
@@ -45,6 +48,7 @@ public class Bredgehog_AI : MonoBehaviour
         //Once shootTimes is as many as the random chance said it should shoot, it will start to move again
         if (ShootTimes == ShootMovment)
         {
+            animator.SetTrigger("UnSpike");
             Moving = true;
         }
     }
@@ -71,6 +75,7 @@ public class Bredgehog_AI : MonoBehaviour
         //Checks if it the enemy has hit its intented target to start shooting.
         if (collision.gameObject.CompareTag("EndPos") && Stopped == false)
         {
+            animator.SetTrigger("Spike");
             Moving = false;
             MoveSpeed = 450f;
             Stopped = true;

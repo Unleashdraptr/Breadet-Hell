@@ -6,33 +6,83 @@ using TMPro;
 
 public class SceneChanging : MonoBehaviour
 {
-    //All difficulty names so they player can tell the difference
-    public string[] DifficultyNames = {"Normal", "Toasty", "Burnt", "Breadendary" };
     //Loads into game
     public void PlayButton()
     {
         SceneManager.LoadScene("Game");
     }
-    //Loads toi the Snekzel Boss Fight
-    public void SnekzelButton()
-    {
-        SceneManager.LoadScene("Snekzel_Boss_Fight");
-    }
-
-    //Loads out of game & Resets the pause state
+    //Loads out of game
     public void QuitButton()
     {
-        Variables.Pause = false;
         SceneManager.LoadScene("Menu");
     }
-    //Updates the difficulty button for the player
-    public void DifficultyButton()
+
+    //Create new variables to hold the button game objects
+    GameObject Normal;
+    GameObject Toasty;
+    GameObject Burnt;
+    GameObject Breadendary;
+
+    //only occurs once when the scene starts
+    private void Start()
     {
-        Variables.Difficulties += 1;
-        if(Variables.Difficulties > 4)
+        //Setting the variables as the game objects now
+        //Important to do here, otherwise script can't find them when SetActive is false
+        Normal = GameObject.Find("Normal");
+        Toasty = GameObject.Find("Toasty");
+        Burnt = GameObject.Find("Burnt");
+        Breadendary = GameObject.Find("Breadendary");
+    }
+    void Update()
+    {
+        //Checks the difficulty 1-Normal, 2-Toasty, 3-Burnt, 4-Breadendary
+        if (Variables.Difficulties == 1)
         {
-            Variables.Difficulties = 1;
+            //Sets all the buttons apart from the clicked button to true
+            Normal.SetActive(false);
+            Toasty.SetActive(true);
+            Burnt.SetActive(true);
+            Breadendary.SetActive(true);
         }
-        GameObject.Find("Difficulty Mode").GetComponent<TextMeshProUGUI>().text = DifficultyNames[Variables.Difficulties - 1];
+        else if (Variables.Difficulties == 2)
+        {
+            Normal.SetActive(true);
+            Toasty.SetActive(false);
+            Burnt.SetActive(true);
+            Breadendary.SetActive(true);
+        }
+        else if (Variables.Difficulties == 3)
+        {
+            Normal.SetActive(true);
+            Toasty.SetActive(true);
+            Burnt.SetActive(false);
+            Breadendary.SetActive(true);
+        }
+        else if (Variables.Difficulties == 4)
+        {
+            Normal.SetActive(true);
+            Toasty.SetActive(true);
+            Burnt.SetActive(true);
+            Breadendary.SetActive(false);
+        }
+    }
+
+
+    //Functions called when clicking the buttons
+    public void NormalButton()
+    {
+        Variables.Difficulties = 1;
+    }
+    public void ToastyButton()
+    {
+        Variables.Difficulties = 2;
+    }
+    public void BurntButton()
+    {
+        Variables.Difficulties = 3;
+    }
+    public void BreadendaryButton()
+    {
+        Variables.Difficulties = 4;
     }
 }

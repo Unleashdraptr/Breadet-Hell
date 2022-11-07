@@ -46,11 +46,20 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Bullets
+  - name: Player Bullets
+    uniqueID: 2193092851
+    locked: 0
+  - name: Player
+    uniqueID: 498212261
+    locked: 0
+  - name: Enemies
+    uniqueID: 2162837159
+    locked: 0
+  - name: Enemy Bullets
     uniqueID: 1027633627
     locked: 0
-  - name: Player/Enemies
-    uniqueID: 498212261
+  - name: Player Hitbox
+    uniqueID: 3711110371
     locked: 0
   - name: Border
     uniqueID: 341086323
