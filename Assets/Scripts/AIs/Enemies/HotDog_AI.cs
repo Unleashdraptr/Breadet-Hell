@@ -12,7 +12,7 @@ public class HotDog_AI : MonoBehaviour
     public bool Stopped;
     public int ShootTimes;
     public int ShootMovment;
-    public float MoveSpeed;
+    public Vector2 MoveSpeed;
     public bool Targeting;
     private Animator animator;
 
@@ -23,7 +23,22 @@ public class HotDog_AI : MonoBehaviour
         Health = Random.Range(30, 30);
         Moving = true;
         ShootMovment = Random.Range(1, 10);
-        MoveSpeed = 150f;
+        if (GameObject.Find("Spawners").transform.GetChild(3).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Left)
+        {
+            MoveSpeed.x = -150;
+        }
+        if (GameObject.Find("Spawners").transform.GetChild(3).GetComponent<WaveInfo>().directions == WaveInfo.Directions.right)
+        {
+            MoveSpeed.x = 150;
+        }
+        if (GameObject.Find("Spawners").transform.GetChild(3).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Up)
+        {
+            MoveSpeed.y = 150;
+        }
+        if (GameObject.Find("Spawners").transform.GetChild(3).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Down)
+        {
+            MoveSpeed.y = -150;
+        }
     }
 
     void Update()
@@ -31,11 +46,11 @@ public class HotDog_AI : MonoBehaviour
         //Tells the enemy to move unless it hits its target
         if (Moving == true && Targeting == true)
         {
-            transform.Translate(MoveSpeed * 3 * Time.deltaTime, 0, 0);
+            transform.Translate(MoveSpeed.x * 3 * Time.deltaTime, MoveSpeed.y * 3 * Time.deltaTime, 0);
         }
         else if (Moving == true)
         {
-            transform.Translate(0, MoveSpeed * Time.deltaTime, 0);
+            transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y * Time.deltaTime, 0);
         }
         //its invinciblity frames and when it will shoot at certain times
         InvisTimer += 1 * Time.deltaTime;
@@ -81,7 +96,6 @@ public class HotDog_AI : MonoBehaviour
         {
             animator.SetBool("Stalling", true);
             Moving = false;
-            MoveSpeed = 450f;
             Stopped = true;
         }
     }

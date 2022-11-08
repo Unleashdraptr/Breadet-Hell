@@ -12,14 +12,29 @@ public class Shotgun_AI : MonoBehaviour
     public bool Stopped;
     public int ShootTimes;
     public int ShootMovment;
-    public float MoveSpeed;
+    public Vector2 MoveSpeed;
     public void Start()
     {
         //Sets up all the stats and gets the enemy moving to its location to fire
         Health = Random.Range(15, 50);
         Moving = true;
         ShootMovment = Random.Range(1, 10);
-        MoveSpeed = 150f;
+        if (GameObject.Find("Spawners").transform.GetChild(4).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Left)
+        {
+            MoveSpeed.x = -150;
+        }
+        if (GameObject.Find("Spawners").transform.GetChild(4).GetComponent<WaveInfo>().directions == WaveInfo.Directions.right)
+        {
+            MoveSpeed.x = 150;
+        }
+        if (GameObject.Find("Spawners").transform.GetChild(4).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Up)
+        {
+            MoveSpeed.y = 150;
+        }
+        if (GameObject.Find("Spawners").transform.GetChild(4).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Down)
+        {
+            MoveSpeed.y = -150;
+        }
     }
 
     void Update()
@@ -27,7 +42,7 @@ public class Shotgun_AI : MonoBehaviour
         //Tells the enemy to move unless it hits its target
         if (Moving == true)
         {
-            transform.Translate(0, MoveSpeed * Time.deltaTime, 0);
+            transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y * Time.deltaTime, 0);
         }
         //its invinciblity frames and when it will shoot at certain times
         InvisTimer += 1 * Time.deltaTime;
@@ -72,7 +87,6 @@ public class Shotgun_AI : MonoBehaviour
         if (collision.gameObject.CompareTag("EndPos") && Stopped == false)
         {
             Moving = false;
-            MoveSpeed = 450f;
             Stopped = true;
         }
 

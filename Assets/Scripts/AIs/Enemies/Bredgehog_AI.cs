@@ -12,7 +12,7 @@ public class Bredgehog_AI : MonoBehaviour
     public bool Stopped;
     public int ShootTimes;
     public int ShootMovment;
-    public float MoveSpeed;
+    public Vector2 MoveSpeed;
     private Animator animator;
     public void Start()
     {
@@ -21,7 +21,23 @@ public class Bredgehog_AI : MonoBehaviour
         Health = Random.Range(15, 50);
         Moving = true;
         ShootMovment = Random.Range(1, 10);
-        MoveSpeed = 150f;
+
+        if (GameObject.Find("Spawners").transform.GetChild(2).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Left)
+        {
+            MoveSpeed.x = -150;
+        }
+        if (GameObject.Find("Spawners").transform.GetChild(2).GetComponent<WaveInfo>().directions == WaveInfo.Directions.right)
+        {
+            MoveSpeed.x = 150;
+        }
+        if (GameObject.Find("Spawners").transform.GetChild(2).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Up)
+        {
+            MoveSpeed.y = 150;
+        }
+        if (GameObject.Find("Spawners").transform.GetChild(2).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Down)
+        {
+            MoveSpeed.y = -150;
+        }
     }
 
     void Update()
@@ -29,7 +45,7 @@ public class Bredgehog_AI : MonoBehaviour
         //Tells the enemy to move unless it hits its target
         if (Moving == true)
         {
-            transform.Translate(0, -MoveSpeed * Time.deltaTime, 0);
+            transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y * Time.deltaTime, 0);
         }
         //its invinciblity frames and when it will shoot at certain times
         InvisTimer += 1 * Time.deltaTime;
@@ -77,7 +93,6 @@ public class Bredgehog_AI : MonoBehaviour
         {
             animator.SetTrigger("Spike");
             Moving = false;
-            MoveSpeed = 450f;
             Stopped = true;
         }
 

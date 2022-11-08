@@ -8,11 +8,12 @@ public class WaveManager : MonoBehaviour
 
 
     public GameObject Spawners;
-    public int WaveNum;
     public int CurrentWave;
     public int[] EnemyNums;
     public float Wait;
 
+    [Range(1, 25)]
+    public int WaveNum;
     private void Start()
     {
         EnemyNums = new int[Spawners.transform.childCount];
@@ -21,10 +22,10 @@ public class WaveManager : MonoBehaviour
     private void Update()
     {
         Wait += 1 * Time.deltaTime;
-        if (Wait >= 10)
+        if (Wait >= 30)
         {
             UpdateWaveInfo();
-            SpawnEnemies();
+            StartCoroutine(SpawnEnemies());
             Wait = 0;
         }
     }
@@ -33,23 +34,30 @@ public class WaveManager : MonoBehaviour
     public int SpawnerNum = 0;
     public int IDK;
     public int NumPerSpawn;
-    void SpawnEnemies()
+    IEnumerator SpawnEnemies()
     {
+        IDK = 0;
+        SpawnerNum = 0;
         for (int i = 0; i < Spawners.transform.childCount; i++)
         {
-            Debug.Log("I = " + i);
             NumPerSpawn = EnemyNums[i] / Spawners.transform.GetChild(i).childCount;
             for (int j = 0; j < EnemyNums[i]; j++)
             {
-                Debug.Log("j = " + j);
                 if(IDK == NumPerSpawn)
                 {
                     SpawnerNum += 1;
                     IDK = 0;
                 }
-                Instantiate(Enemies[i], Spawners.transform.GetChild(i).GetChild(0).position, Quaternion.identity, GameObject.Find("EnemyStorage").transform);
+                if(SpawnerNum >= Spawners.transform.GetChild(i).childCount)
+                {
+                    SpawnerNum = 0;
+                }
+                GameObject Spawned = Instantiate(Enemies[i], Spawners.transform.GetChild(i).GetChild(SpawnerNum).position, Quaternion.identity, GameObject.Find("EnemyStorage").transform);
                 IDK += 1;
+                yield return new WaitForSeconds(0.5f);
             }
+            IDK = 0;
+            SpawnerNum = 0;
         }
         CurrentWave += 1;
     }
