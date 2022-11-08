@@ -251,7 +251,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Difficulty_Practice
+      name: Difficulty_Practice_On
       rect:
         serializedVersion: 2
         x: 254
@@ -469,7 +469,7 @@ TextureImporter:
         width: 23
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -490,7 +490,7 @@ TextureImporter:
         width: 15
         height: 5
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -498,6 +498,27 @@ TextureImporter:
       bones: []
       spriteID: 90428aa2600f41a4283cc771564af865
       internalID: -345045580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Difficulty_Practice_Off
+      rect:
+        serializedVersion: 2
+        x: 254
+        y: 475
+        width: 41
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: facc0774a9e70634f89a66bd5db21872
+      internalID: -806661513
       vertices: []
       indices: 
       edges: []
@@ -516,6 +537,7 @@ TextureImporter:
       Crown_White_Toasty: -326041926
       Crown_White_Normal: 985137501
       Difficulty_Breadendary: 464313798
+      Difficulty_Practice_On: -437745528
       Message_Locked: 698821568
       Crown_Boss_Normal: -329563529
       Crown_White_Breadendary: -1030627754
@@ -526,7 +548,7 @@ TextureImporter:
       Title_1-3: -1347489579
       Crown_White_Burnt: 1643053816
       Crown_Boss_Toasty: 807603771
-      Difficulty_Practice: -437745528
+      Difficulty_Practice_Off: -806661513
       Difficulty_Normal: -836625017
       Crown_Boss_Burnt: 1213619340
       Title_1-4: -932971271

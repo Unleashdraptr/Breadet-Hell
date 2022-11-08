@@ -16,12 +16,17 @@ public class PlayerHealth : MonoBehaviour
         //Sets healthbar in UI
         HealthNum.maxValue = Variables.PlayerHealth[Variables.Difficulties - 1];
         HealthNum.value = Variables.PlayerHealth[Variables.Difficulties - 1];
+        if (Variables.PracticeMode == true)
+        {
+            HealthNum.maxValue = 20;
+            HealthNum.value = 20;
+        }
         GameObject.Find("HP").GetComponent<TextMeshProUGUI>().text = HealthNum.value.ToString();
     }
     private void Update()
     {
         //Timer after getting hit, is shorter the higher the difficuly
-        InvisTimer += 1 * Time.deltaTime;
+        InvisTimer += 2 * Time.deltaTime;
         if(InvisTimer >= Variables.InvisTimer[Variables.Difficulties - 1])
         {
             gameObject.GetComponent<CircleCollider2D>().enabled = true;

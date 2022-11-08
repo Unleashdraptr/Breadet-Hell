@@ -5,13 +5,15 @@ using UnityEngine;
 public static class Variables
 {
     public static int Difficulties = 1;
+    public static bool PracticeMode = false;
+
     public static int Progress = 4;
     //Will pause the game state if true
     public static bool Pause;
 
     //Player side of stats that change for each difficulty
-    public static int[] PlayerHealth = { 7, 6, 3, 200 };
-    public static float[] InvisTimer = { 1, 0.75f, 0.5f, 0.25f };
+    public static int[] PlayerHealth = { 5, 5, 3, 1 };
+    public static float[] InvisTimer = { 2, 1.6f, 1.2f, 0.9f };
 
     //Temporary
     //Enemy Spawning side changing shooting mechanics and spawn chances

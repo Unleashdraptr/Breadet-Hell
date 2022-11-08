@@ -18,6 +18,8 @@ public class SceneChanging : MonoBehaviour
     GameObject Burnt;
     GameObject Breadendary;
 
+    GameObject PracticeON;
+    GameObject PracticeOFF;
     //only occurs once when the scene starts
     private void Start()
     {
@@ -27,6 +29,10 @@ public class SceneChanging : MonoBehaviour
         Toasty = GameObject.Find("Toasty");
         Burnt = GameObject.Find("Burnt");
         Breadendary = GameObject.Find("Breadendary");
+
+        PracticeON = GameObject.Find("Practice (On)");
+        PracticeOFF = GameObject.Find("Practice (Off)");
+
     }
     void Update()
     {
@@ -36,7 +42,7 @@ public class SceneChanging : MonoBehaviour
             //Checks the difficulty 1-Normal, 2-Toasty, 3-Burnt, 4-Breadendary
             if (Variables.Difficulties == 1)
             {
-                //Sets all the buttons apart from the clicked button to true
+                //Sets all the buttons apart from the clicked button to active
                 Normal.SetActive(false);
                 Toasty.SetActive(true);
                 Burnt.SetActive(true);
@@ -63,6 +69,19 @@ public class SceneChanging : MonoBehaviour
                 Burnt.SetActive(true);
                 Breadendary.SetActive(false);
             }
+
+            if (Variables.PracticeMode == true)
+            {
+                //Activates the off button, and disactivates the on button
+                PracticeON.SetActive(false);
+                PracticeOFF.SetActive(true);
+            }
+            else if (Variables.PracticeMode == false)
+            {
+                //Activates the on button, and disactivates the off button
+                PracticeON.SetActive(true);
+                PracticeOFF.SetActive(false);
+            }
         }
         
     }
@@ -84,5 +103,15 @@ public class SceneChanging : MonoBehaviour
     public void BreadendaryButton()
     {
         Variables.Difficulties = 4;
+    }
+
+
+    public void PracticeONButton()
+    {
+        Variables.PracticeMode = true;
+    }
+    public void PracticeOFFButton()
+    {
+        Variables.PracticeMode = false;
     }
 }
