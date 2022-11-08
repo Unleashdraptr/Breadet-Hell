@@ -21,7 +21,10 @@ public class GameState : MonoBehaviour
         if (PlayerDead == true)
         {
             Variables.Pause = true;
-            transform.GetChild(3).GetComponent<TextMeshProUGUI>().SetText(GameObject.Find("Snekzel").GetComponent<Snekzel_AI>().state.ToString());
+            if (Variables.BossFight == true)
+            {
+                transform.GetChild(3).GetComponent<TextMeshProUGUI>().SetText(GameObject.Find("Snekzel").GetComponent<Snekzel_AI>().state.ToString());
+            }
             transform.GetChild(1).gameObject.SetActive(true);
         }
     }

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 940307238056521942}
   - component: {fileID: 7289889581953835871}
   m_Layer: 0
-  m_Name: Breadgehog
+  m_Name: Toaster
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

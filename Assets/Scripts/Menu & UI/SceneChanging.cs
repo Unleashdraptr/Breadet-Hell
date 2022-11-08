@@ -9,6 +9,7 @@ public class SceneChanging : MonoBehaviour
     //Loads out of game
     public void QuitButton()
     {
+        Variables.Pause = false;
         SceneManager.LoadScene("Menu");
     }
 
