@@ -8,59 +8,25 @@ public class BUNny_AI : MonoBehaviour
     public GameObject Bullet;
     public int Health;
     public float InvisTimer;
-    public bool Moving;
-    public bool Stopped;
-    public int ShootTimes;
-    public int ShootMovment;
+    public bool WithinField;
     public Vector2 MoveSpeed;
     public void Start()
     {
-        //Sets up all the stats and gets the enemy moving to its location to fire
         Health = Random.Range(15, 50);
-        Moving = true;
-        ShootMovment = Random.Range(1, 10);
-        if (GameObject.Find("Spawners").transform.GetChild(0).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Left)
-        {
-            MoveSpeed.x = -150;
-        }
-        if (GameObject.Find("Spawners").transform.GetChild(0).GetComponent<WaveInfo>().directions == WaveInfo.Directions.right)
-        {
-            MoveSpeed.x = 150;
-        }
-        if (GameObject.Find("Spawners").transform.GetChild(0).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Up)
-        {
-            MoveSpeed.y = 150;
-        }
-        if (GameObject.Find("Spawners").transform.GetChild(0).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Down)
-        {
-            MoveSpeed.y = -150;
-        }
     }
 
     void Update()
     {
-        //Tells the enemy to move unless it hits its target
-        if (Moving == true)
-        {
-            transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y*Time.deltaTime, 0);
-        }
+        transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y*Time.deltaTime, 0);
         //its invinciblity frames and when it will shoot at certain times
-        InvisTimer += 1 * Time.deltaTime;
-        int ShootDelay = Random.Range(1, 5);
-        if (InvisTimer >= ShootDelay && Moving == false)
+        if (WithinField)
         {
-            //To remove spamming the 5th Attack when moving off screen
-            if (ShootTimes != ShootMovment - 1)
-            {
-                HomingBulletAttack();
-            }
-                InvisTimer = 1;
-                ShootTimes += 1;
+            InvisTimer += 1 * Time.deltaTime;
         }
-        //Once shootTimes is as many as the random chance said it should shoot, it will start to move again
-        if(ShootTimes == ShootMovment)
+        if (InvisTimer >= 2)
         {
-            Moving = true;
+            HomingBulletAttack();
+            InvisTimer = 0;
         }
     }
     void DeathCheck()
@@ -84,10 +50,9 @@ public class BUNny_AI : MonoBehaviour
         }
 
         //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.CompareTag("EndPos") && Stopped == false)
+        if (collision.gameObject.CompareTag("BoundingBox"))
         {
-            Moving = false;
-            Stopped = true;
+            WithinField = true;
         }
 
         if (collision.gameObject.CompareTag("Player"))

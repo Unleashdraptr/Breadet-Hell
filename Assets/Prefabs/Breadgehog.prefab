@@ -132,7 +132,7 @@ MonoBehaviour:
   Stopped: 0
   ShootTimes: 0
   ShootMovment: 0
-  MoveSpeed: 0
+  MoveSpeed: {x: 0, y: 0}
 --- !u!95 &7289889581953835871
 Animator:
   serializedVersion: 4

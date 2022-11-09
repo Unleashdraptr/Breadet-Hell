@@ -19,22 +19,6 @@ public class NyaanCat_AI : MonoBehaviour
         Health = Random.Range(15, 50);
         Moving = true;
         ShootMovment = Random.Range(1, 10);
-        if (GameObject.Find("Spawners").transform.GetChild(1).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Left)
-        {
-            MoveSpeed.x = -150;
-        }
-        if (GameObject.Find("Spawners").transform.GetChild(1).GetComponent<WaveInfo>().directions == WaveInfo.Directions.right)
-        {
-            MoveSpeed.x = 150;
-        }
-        if (GameObject.Find("Spawners").transform.GetChild(1).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Up)
-        {
-            MoveSpeed.y = 150;
-        }
-        if (GameObject.Find("Spawners").transform.GetChild(1).GetComponent<WaveInfo>().directions == WaveInfo.Directions.Down)
-        {
-            MoveSpeed.y = -150;
-        }
     }
 
     void Update()
@@ -84,9 +68,9 @@ public class NyaanCat_AI : MonoBehaviour
         }
 
         //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.CompareTag("EndPos") && Stopped == false)
+        if (collision.gameObject.CompareTag("PlayField") && Stopped == false)
         {
-            Moving = false;
+
             Stopped = true;
         }
 

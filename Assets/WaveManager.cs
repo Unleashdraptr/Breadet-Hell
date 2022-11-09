@@ -22,7 +22,7 @@ public class WaveManager : MonoBehaviour
     private void Update()
     {
         Wait += 1 * Time.deltaTime;
-        if (Wait >= 30)
+        if (Wait >= 15)
         {
             UpdateWaveInfo();
             StartCoroutine(SpawnEnemies());
@@ -32,34 +32,76 @@ public class WaveManager : MonoBehaviour
 
 
     public int SpawnerNum = 0;
-    public int IDK;
-    public int NumPerSpawn;
+    public int RotationNum;
+    public int NumPerLoop;
+    Vector2 MoveDirect;
     IEnumerator SpawnEnemies()
     {
-        IDK = 0;
+        RotationNum = 0;
         SpawnerNum = 0;
         for (int i = 0; i < Spawners.transform.childCount; i++)
         {
-            NumPerSpawn = EnemyNums[i] / Spawners.transform.GetChild(i).childCount;
+            NumPerLoop = EnemyNums[i] / Spawners.transform.GetChild(i).childCount;
+            if (NumPerLoop != 0)
+            {
+                NumPerLoop = EnemyNums[i] / NumPerLoop;
+            }
             for (int j = 0; j < EnemyNums[i]; j++)
             {
-                if(IDK == NumPerSpawn)
+                if(RotationNum == NumPerLoop)
                 {
                     SpawnerNum += 1;
-                    IDK = 0;
+                    RotationNum = 0;
+                    yield return new WaitForSeconds(0.75f);
                 }
-                if(SpawnerNum >= Spawners.transform.GetChild(i).childCount)
-                {
-                    SpawnerNum = 0;
-                }
-                GameObject Spawned = Instantiate(Enemies[i], Spawners.transform.GetChild(i).GetChild(SpawnerNum).position, Quaternion.identity, GameObject.Find("EnemyStorage").transform);
-                IDK += 1;
-                yield return new WaitForSeconds(0.5f);
+                GameObject Clone = Instantiate(Enemies[i], Spawners.transform.GetChild(i).GetChild(RotationNum).position, Quaternion.identity, GameObject.Find("EnemyStorage").transform);
+                SetMove(Spawners.transform.GetChild(i).GetChild(RotationNum).GetComponent<DirectionMove>().directions);
+                CheckAI(Clone);
+                RotationNum += 1;
             }
-            IDK = 0;
+            RotationNum = 0;
             SpawnerNum = 0;
         }
         CurrentWave += 1;
+    }
+
+    void SetMove(DirectionMove.Directions Dir)
+    {
+        if(Dir == DirectionMove.Directions.Left)
+        {
+            MoveDirect = new(-150, 0);
+        }
+        if (Dir == DirectionMove.Directions.Up)
+        {
+            MoveDirect = new(0, 150);
+        }
+        if (Dir == DirectionMove.Directions.right)
+        {
+            MoveDirect = new(150, 0);
+        }
+        if (Dir == DirectionMove.Directions.Down)
+        {
+            MoveDirect = new(0, -150);
+        }
+    }
+    void CheckAI(GameObject Clone)
+    {
+        if(Clone.name == "BUNny(Clone)")
+        {
+            Clone.GetComponent<BUNny_AI>().MoveSpeed = MoveDirect;
+        }
+        if (Clone.name == "Nyaan(Clone)")
+        {
+            Clone.GetComponent<NyaanCat_AI>().MoveSpeed = MoveDirect;
+        }
+        if (Clone.name == "Breadgehog(Clone)")
+        {
+            Clone.GetComponent<Bredgehog_AI>().MoveSpeed = MoveDirect;
+        }
+        if (Clone.name == "SnipeShot(Clone)")
+        {
+            Clone.GetComponent<HotDog_AI>().MoveSpeed = MoveDirect;
+        }
     }
     void UpdateWaveInfo()
     {

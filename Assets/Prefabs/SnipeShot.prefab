@@ -132,7 +132,7 @@ MonoBehaviour:
   Stopped: 0
   ShootTimes: 0
   ShootMovment: 0
-  MoveSpeed: 0
+  MoveSpeed: {x: 0, y: 0}
   Targeting: 0
 --- !u!95 &3436704758842829465
 Animator:

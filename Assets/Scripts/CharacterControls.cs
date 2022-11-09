@@ -34,9 +34,9 @@ public class CharacterControls : MonoBehaviour
                 }
                 if (Reload >= 0.1f)
                 {
-                    Instantiate(Bullet, new(Pos.x+40, Pos.y), Quaternion.identity, BulletStorage.transform);
-                    Instantiate(Bullet, new(Pos.x, Pos.y+40), Quaternion.identity, BulletStorage.transform);
-                    Instantiate(Bullet, new(Pos.x-40, Pos.y), Quaternion.identity, BulletStorage.transform);
+                    Instantiate(Bullet, new(Pos.x+40, Pos.y), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
+                    Instantiate(Bullet, new(Pos.x, Pos.y+40), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
+                    Instantiate(Bullet, new(Pos.x-40, Pos.y), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
                     Reload = 0;
                 }
             }
