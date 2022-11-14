@@ -15,7 +15,7 @@ public class SpawnerTargetID : MonoBehaviour
     public enum Difficulties { Normal, Toasty, Burnt, Breadendary }
     public Difficulties difficulties;
     [HideInInspector]
-    public Color[] Colour = { Color.cyan, Color.blue, Color.red, Color.black };
+    public Color[] Colour = { new(0,100,100), new(0,100,62), new(0,100,30), Color.black };
 }
 [CustomEditor(typeof(SpawnerTargetID))]
 public class SpawnerTargetIDEditor : Editor

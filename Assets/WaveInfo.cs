@@ -32,7 +32,8 @@ public class WaveUpdate : Editor
             {
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.LabelField("Wave " + (i + 1), GUILayout.MaxWidth(50));
-                EditorGUILayout.IntField(Waveinfo.D1WaveNum[i]);
+                int IDK = EditorGUILayout.IntField(Waveinfo.D1WaveNum[i]);
+                Waveinfo.D1WaveNum[i] = IDK;
                 EditorGUILayout.EndHorizontal();
             }
         }
@@ -43,7 +44,8 @@ public class WaveUpdate : Editor
             {
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.LabelField("Wave " + (i + 1), GUILayout.MaxWidth(50));
-                EditorGUILayout.IntField(Waveinfo.D2WaveNum[i]);
+                int IDK = EditorGUILayout.IntField(Waveinfo.D2WaveNum[i]);
+                Waveinfo.D2WaveNum[i] = IDK;
                 EditorGUILayout.EndHorizontal();
             }
         }
@@ -54,7 +56,8 @@ public class WaveUpdate : Editor
             {
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.LabelField("Wave " + (i + 1), GUILayout.MaxWidth(50));
-                EditorGUILayout.IntField(Waveinfo.D3WaveNum[i]);
+                int IDK = EditorGUILayout.IntField(Waveinfo.D3WaveNum[i]);
+                Waveinfo.D3WaveNum[i] = IDK;
                 EditorGUILayout.EndHorizontal();
             }
         }
@@ -65,7 +68,8 @@ public class WaveUpdate : Editor
             {
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.LabelField("Wave " + (i + 1), GUILayout.MaxWidth(50));
-                EditorGUILayout.IntField(Waveinfo.D4WaveNum[i]);
+                int IDK = EditorGUILayout.IntField(Waveinfo.D4WaveNum[i]);
+                Waveinfo.D4WaveNum[i] = IDK;
                 EditorGUILayout.EndHorizontal();
             }
         }
