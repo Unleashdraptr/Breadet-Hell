@@ -27,7 +27,7 @@ public class WaveUpdate : Editor
         DrawDefaultInspector();
         if (Waveinfo.difficulties == WaveInfo.Difficulties.Normal)
         {
-            System.Array.Resize(ref Waveinfo.D1WaveNum, GameObject.Find("WaveManager").GetComponent<WaveManager>().WaveNum);
+            System.Array.Resize(ref Waveinfo.D1WaveNum, GameObject.Find("WaveManager").GetComponent<WaveManager>().TotalWaves);
             for (int i = 0; i < Waveinfo.D1WaveNum.Length; i++)
             {
                 EditorGUILayout.BeginHorizontal();
@@ -39,7 +39,7 @@ public class WaveUpdate : Editor
         }
         if (Waveinfo.difficulties == WaveInfo.Difficulties.Toasty)
         {
-            System.Array.Resize(ref Waveinfo.D2WaveNum, GameObject.Find("WaveManager").GetComponent<WaveManager>().WaveNum);
+            System.Array.Resize(ref Waveinfo.D2WaveNum, GameObject.Find("WaveManager").GetComponent<WaveManager>().TotalWaves);
             for (int i = 0; i < Waveinfo.D2WaveNum.Length; i++)
             {
                 EditorGUILayout.BeginHorizontal();
@@ -51,7 +51,7 @@ public class WaveUpdate : Editor
         }
         if (Waveinfo.difficulties == WaveInfo.Difficulties.Burnt)
         {
-            System.Array.Resize(ref Waveinfo.D3WaveNum, GameObject.Find("WaveManager").GetComponent<WaveManager>().WaveNum);
+            System.Array.Resize(ref Waveinfo.D3WaveNum, GameObject.Find("WaveManager").GetComponent<WaveManager>().TotalWaves);
             for (int i = 0; i < Waveinfo.D3WaveNum.Length; i++)
             {
                 EditorGUILayout.BeginHorizontal();
@@ -63,7 +63,7 @@ public class WaveUpdate : Editor
         }
         if (Waveinfo.difficulties == WaveInfo.Difficulties.Breadendary)
         {
-            System.Array.Resize(ref Waveinfo.D4WaveNum, GameObject.Find("WaveManager").GetComponent<WaveManager>().WaveNum);
+            System.Array.Resize(ref Waveinfo.D4WaveNum, GameObject.Find("WaveManager").GetComponent<WaveManager>().TotalWaves);
             for (int i = 0; i < Waveinfo.D4WaveNum.Length; i++)
             {
                 EditorGUILayout.BeginHorizontal();
@@ -73,7 +73,6 @@ public class WaveUpdate : Editor
                 EditorGUILayout.EndHorizontal();
             }
         }
-
     }
 }
 

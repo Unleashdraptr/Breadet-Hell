@@ -85,7 +85,7 @@ public class Snekzel_AI : MonoBehaviour
         if (Health <= 0 && (state == BossPhase.PHASE_3 && Variables.Difficulties >= 3 && LeaveTransition == false) || Health <= 0 && (state == BossPhase.PHASE_2 && Variables.Difficulties <= 3 && LeaveTransition == false))
         {
             state = BossPhase.WIN;
-            GameObject.Find("Canvas").GetComponent<GameState>().SnekzelDead = true;
+            GameObject.Find("Canvas").GetComponent<GameState>().EnemyDead = true;
             Destroy(gameObject);
         }
         //When in the higher difficulties he will transistion to Phase 3

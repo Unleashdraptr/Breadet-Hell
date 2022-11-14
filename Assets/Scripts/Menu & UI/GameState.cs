@@ -5,14 +5,14 @@ using TMPro;
 
 public class GameState : MonoBehaviour
 {
-    public bool SnekzelDead;
+    public bool EnemyDead;
     public bool PlayerDead;
 
     // Update is called once per frame
     void Update()
     {
         //Will go to a win state if Snekzel is dead
-        if(SnekzelDead == true)
+        if(EnemyDead == true)
         {
             Variables.Pause = true;
             transform.GetChild(2).gameObject.SetActive(true);

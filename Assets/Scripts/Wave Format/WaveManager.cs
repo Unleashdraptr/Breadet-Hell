@@ -15,7 +15,7 @@ public class WaveManager : MonoBehaviour
     public float Wait;
 
     [Range(1, 25)]
-    public int WaveNum;
+    public int TotalWaves;
     private void Start()
     {
         EnemyNums = new int[Spawners.transform.childCount];
@@ -24,11 +24,18 @@ public class WaveManager : MonoBehaviour
     }
     private void Update()
     {
-        Wait += 1 * Time.deltaTime;
-        if (Wait >= 10)
+        if (Variables.Pause != true)
+        {
+            Wait += 1 * Time.deltaTime;
+        }
+        if (Wait >= 10 && CurrentWave != TotalWaves+1)
         {
             StartCoroutine(SpawnEnemies());
             Wait = 0;
+        }
+        if (CurrentWave > TotalWaves && GameObject.Find("EnemyStorage").transform.childCount == 0)
+        {
+            GameObject.Find("Canvas").GetComponent<GameState>().EnemyDead = true;
         }
     }
 
@@ -55,11 +62,6 @@ public class WaveManager : MonoBehaviour
                     RotationNum = 0;
                     yield return new WaitForSeconds(0.75f);
                 }
-                if (Spawners.transform.GetChild(i).GetChild(RotationNum).GetComponent<WaveInfo>())
-                {
-
-
-                }
                 GameObject Clone = Instantiate(Enemies[i], Spawners.transform.GetChild(i).GetChild(RotationNum).position, Quaternion.identity, GameObject.Find("EnemyStorage").transform);
                 SetMove(Spawners.transform.GetChild(i).GetChild(RotationNum).GetComponent<SpawnerID>().directions);
                 CheckAI(Clone);
@@ -79,7 +81,7 @@ public class WaveManager : MonoBehaviour
         {
             for(int k = 0; k < Spawners.transform.GetChild(i).childCount; k++)
             {
-                if(Spawners.transform.GetChild(i).GetChild(k).GetComponent<SpawnerID>().DespawnNum <= CurrentWave)
+                if(Spawners.transform.GetChild(i).GetChild(k).GetComponent<SpawnerID>().DespawnNum < CurrentWave)
                 {
                     Destroy(Spawners.transform.GetChild(i).GetChild(k).gameObject);
                 }
@@ -89,18 +91,18 @@ public class WaveManager : MonoBehaviour
         {
             if(SpawnerLocations.transform.GetChild(i).GetComponent<SpawnerTargetID>().WaveSpawnNum == CurrentWave)
             {
-                GameObject Location = SpawnerLocations.transform.GetChild(i).gameObject;
-                Vector3 Pos = new(Location.transform.position.x, Location.transform.position.y, 0);
-                GameObject nSpawner = Instantiate(Spawner, Pos, Quaternion.identity, GameObject.Find(EnemyNames[Location.GetComponent<SpawnerTargetID>().EnemySpawnID-1]).transform);
-                nSpawner.GetComponent<SpawnerID>().DespawnNum = Location.GetComponent<SpawnerTargetID>().WaveDespawnNum;
-                nSpawner.GetComponent<SpawnerID>().directions = Location.GetComponent<SpawnerTargetID>().SpawnDirection;
-                Destroy(SpawnerLocations.transform.GetChild(i).gameObject);
+                if (((int)SpawnerLocations.transform.GetChild(i).GetComponent<SpawnerTargetID>().difficulties) <= Variables.Difficulties)
+                {
+                    GameObject Location = SpawnerLocations.transform.GetChild(i).gameObject;
+                    Vector3 Pos = new(Location.transform.position.x, Location.transform.position.y, 0);
+                    GameObject nSpawner = Instantiate(Spawner, Pos, Quaternion.identity, GameObject.Find(EnemyNames[Location.GetComponent<SpawnerTargetID>().EnemySpawnID - 1]).transform);
+                    nSpawner.GetComponent<SpawnerID>().DespawnNum = Location.GetComponent<SpawnerTargetID>().WaveDespawnNum;
+                    nSpawner.GetComponent<SpawnerID>().directions = Location.GetComponent<SpawnerTargetID>().SpawnDirection;
+                    Destroy(SpawnerLocations.transform.GetChild(i).gameObject);
+                }
             }
         }
     }
-
-
-
     void SetMove(SpawnerID.Directions Dir)
     {
         if(Dir == SpawnerID.Directions.Left)
@@ -143,7 +145,22 @@ public class WaveManager : MonoBehaviour
     {
         for(int i = 0; i < Spawners.transform.childCount; i++)
         {
-            EnemyNums[i] = Spawners.transform.GetChild(i).GetComponent<WaveInfo>().D1WaveNum[CurrentWave - 1];
+            if (Variables.Difficulties == 1)
+            {
+                EnemyNums[i] = Spawners.transform.GetChild(i).GetComponent<WaveInfo>().D1WaveNum[CurrentWave - 1];
+            }
+            if (Variables.Difficulties == 2)
+            {
+                EnemyNums[i] = Spawners.transform.GetChild(i).GetComponent<WaveInfo>().D2WaveNum[CurrentWave - 1];
+            }
+            if (Variables.Difficulties == 3)
+            {
+                EnemyNums[i] = Spawners.transform.GetChild(i).GetComponent<WaveInfo>().D3WaveNum[CurrentWave - 1];
+            }
+            if (Variables.Difficulties == 4)
+            {
+                EnemyNums[i] = Spawners.transform.GetChild(i).GetComponent<WaveInfo>().D4WaveNum[CurrentWave - 1];
+            }
         }
     }
 }
