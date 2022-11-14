@@ -9,6 +9,7 @@ TagManager:
   - EndPos
   - Enemy
   - BoundingBox
+  - PlayField
   layers:
   - Default
   - TransparentFX

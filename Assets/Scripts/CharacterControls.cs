@@ -31,6 +31,7 @@ public class CharacterControls : MonoBehaviour
                             angle = 360 - angle * -1;
                         animator.SetFloat("Angle", angle);
 
+
                         transform.position = new(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
                     }
                     if (Reload >= 0.1f)
