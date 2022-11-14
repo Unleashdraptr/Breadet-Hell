@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Toaster_AI : MonoBehaviour
+public class CrossSpiral : MonoBehaviour
 {
     //Enemy_AI that can shoot and contains health
     public GameObject Bullet;
@@ -89,32 +89,16 @@ public class Toaster_AI : MonoBehaviour
     }
 
 
-
-
     IEnumerator Explode()
     {
-        int Mult = Variables.Difficulties;
-        for (int i = 0; i < 9 * Mult; i++)
+        for (int j = 0; j < 1; j++)
         {
-            if (Variables.Difficulties > 0)
+            for (int i = 0; i < 12; i++)
             {
-                GameObject aBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, i * 40 / Mult), GameObject.Find("ProjectileStorage").transform);
-                aBullet.GetComponent<TurningBullet>().BulletSpeedInt = 400;
-                GameObject bBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, ((i * 40) + 20) / Mult), GameObject.Find("ProjectileStorage").transform);
-                bBullet.GetComponent<TurningBullet>().BulletSpeedInt = 300;
+                Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, i * 30), GameObject.Find("ProjectileStorage").transform);
+                Instantiate(BulletReverse, transform.position, Quaternion.Euler(0, 0, i * 30), GameObject.Find("ProjectileStorage").transform);
             }
-            if (Variables.Difficulties > 2)
-            {
-                GameObject aBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, i * 40 / Mult), GameObject.Find("ProjectileStorage").transform);
-                aBullet.GetComponent<TurningBullet>().BulletSpeedInt = 500;
-            }
-            if (Variables.Difficulties > 3)
-            {
-                GameObject aBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, ((i * 40)+20) / Mult), GameObject.Find("ProjectileStorage").transform);
-                aBullet.GetComponent<TurningBullet>().BulletSpeedInt = 600;
-            }
-
-        }
             yield return new WaitForSeconds(0.10f);
+        }
     }
 }
