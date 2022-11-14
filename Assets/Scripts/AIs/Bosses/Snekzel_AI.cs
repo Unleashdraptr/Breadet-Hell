@@ -17,10 +17,10 @@ public class Snekzel_AI : MonoBehaviour
     {
         //Game will start by setting Snekzel's health to what it should be and the salt drop time
         state = BossPhase.PHASE_1;
-        int TempHealth = 200;
+        int TempHealth = 250;
         for (int i = 0; i < Variables.Difficulties - 1; i++)
         {
-            TempHealth += (150 * Variables.BossMultiplers[0]) / 100;
+            TempHealth += (250 * Variables.BossMultiplers[0]) / 100;
         }
         Health = TempHealth;
         DropTime = 1.25f;
@@ -72,6 +72,7 @@ public class Snekzel_AI : MonoBehaviour
             //Snekzel will charge the player at the end of Phase 2
             if (LeaveTransition == true && state == BossPhase.PHASE_2)
             {
+                InvisTimer = 0;
                 transform.Translate(0, -550 * Time.deltaTime, 0);
             }
         }

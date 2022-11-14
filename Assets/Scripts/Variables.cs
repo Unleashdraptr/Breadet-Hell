@@ -7,7 +7,7 @@ public static class Variables
     public static int Difficulties = 1;
     public static bool PracticeMode = false;
 
-    public static int Progress = 4;
+    public static int Progress =  4;
     //Will pause the game state if true
     public static bool Pause;
 
@@ -24,4 +24,5 @@ public static class Variables
 
     //The multipler each boss will use for health scaling
     public static int[] BossMultiplers = {20 };
+    public static bool BossFight;
 }

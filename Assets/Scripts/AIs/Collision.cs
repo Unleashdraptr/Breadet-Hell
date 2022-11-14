@@ -29,7 +29,7 @@ public class Collision : MonoBehaviour
         {
             GetComponentInParent<Transform>().gameObject.SetActive(false);
             GetComponentInParent<Transform>().GetChild(1).gameObject.SetActive(true);
-            GetComponentInParent<Snekzel_AI>().UpdateHealth(70);
+            GetComponentInParent<Snekzel_AI>().UpdateHealth(60);
             GetComponentInParent<Snekzel_AI>().LeaveTransition = false;
             GetComponentInParent<Snekzel_AI>().InvisTimer = 0;
         }
