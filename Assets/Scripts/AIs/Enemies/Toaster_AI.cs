@@ -6,6 +6,7 @@ public class Toaster_AI : MonoBehaviour
 {
     //Enemy_AI that can shoot and contains health
     public GameObject Bullet;
+    public GameObject BulletReverse;
     public int Health;
     public float InvisTimer;
     public bool Moving;
@@ -33,7 +34,7 @@ public class Toaster_AI : MonoBehaviour
         }
         //its invinciblity frames and when it will shoot at certain times
         InvisTimer += 1 * Time.deltaTime;
-        int ShootDelay = Random.Range(4, 8);
+        int ShootDelay = Random.Range(8, 8);
         if (InvisTimer >= ShootDelay && Moving == false)
         {
             //To remove spamming the 5th Attack when moving off screen
@@ -92,10 +93,28 @@ public class Toaster_AI : MonoBehaviour
 
     IEnumerator Explode()
     {
-        for (int i = 0; i < 18; i++)
+        /*
+        for (int j = 0; j < 1; j++)
         {
-            Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, i * 20), GameObject.Find("ProjectileStorage").transform);
+            for (int i = 0; i < 18; i++)
+            {
+                Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, i * 20 - (j*3)), GameObject.Find("ProjectileStorage").transform);
+            }
+
+            yield return new WaitForSeconds(0.10f);
         }
-        yield return new WaitForSeconds(0.15f);
+        */
+
+        for (int j = 0; j < 1; j++)
+        {
+            for (int i = 0; i < 12; i++)
+            {
+                Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, i * 30), GameObject.Find("ProjectileStorage").transform);
+                Instantiate(BulletReverse, transform.position, Quaternion.Euler(0, 0, i * 30), GameObject.Find("ProjectileStorage").transform);
+            }
+
+            yield return new WaitForSeconds(0.10f);
+        }
+
     }
 }

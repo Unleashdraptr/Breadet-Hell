@@ -126,7 +126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 670f3ca2edc46f540ad6aefe25e2ed3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Bullet: {fileID: 8244138661295272704, guid: 15d44bf4f6e3b534aa7bc06a52428c9d, type: 3}
+  Bullet: {fileID: 8244138661295272704, guid: 7e62797669fff114799b0d0a82bad82b, type: 3}
+  BulletReverse: {fileID: 8244138661295272704, guid: aea540f9e86bc8142a7c87aaaea9994c, type: 3}
   Health: 0
   InvisTimer: 0
   Moving: 0

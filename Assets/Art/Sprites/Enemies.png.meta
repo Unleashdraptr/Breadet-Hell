@@ -868,7 +868,7 @@ TextureImporter:
         width: 7
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -876,6 +876,48 @@ TextureImporter:
       bones: []
       spriteID: b3657bafd59a4bb40829a58bf7303c7a
       internalID: 1982919821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Round_Blue_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 236
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a001d23e0852e4d488c4aff863fedfee
+      internalID: -132978596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Round_Red_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 260
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b69fa939d6682541bef99eaaf68ff35
+      internalID: -410854427
       vertices: []
       indices: 
       edges: []
@@ -896,6 +938,7 @@ TextureImporter:
       Torweino_8: 1735727736
       Hotdog_Walk_2: -1399143520
       Breadgehog_4: -460579321
+      Bullet_Round_Blue_5: -132978596
       Hotdog_Anger_1: 57702135
       Torweino_2: -1441818068
       Snekzlet_3: 113260907
@@ -919,6 +962,7 @@ TextureImporter:
       Snekzlet_2: 218576167
       Snekzlet_1: -2045227838
       Torweino_3: 113065446
+      Bullet_Round_Red_5: -410854427
       Hotdog_Reload_2: 22672668
       Torweino_6: 2108994012
       Torweino_5: 1714998586
