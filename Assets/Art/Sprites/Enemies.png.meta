@@ -658,7 +658,7 @@ TextureImporter:
         width: 22
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -666,6 +666,258 @@ TextureImporter:
       bones: []
       spriteID: 0b0c1d6e5d3f71a45b07beafb4de3a4b
       internalID: -669149809
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toaster_2
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 459
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0bb9de1890cf4064b85e8fec73459ea4
+      internalID: -178213407
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 435
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a123db4295734c547b1d691e29fccceb
+      internalID: 1948158922
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_2
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 435
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 98438a4a3983e8847ba46f4e93337db0
+      internalID: -1132392452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_3
+      rect:
+        serializedVersion: 2
+        x: 55
+        y: 435
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d1625fa0465344b4ba607dbfa0272edd
+      internalID: 1597220768
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_4
+      rect:
+        serializedVersion: 2
+        x: 82
+        y: 435
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fdd2b382a9ee02b45b43d8ad4712e6e9
+      internalID: -229389580
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Explosion_5
+      rect:
+        serializedVersion: 2
+        x: 109
+        y: 435
+        width: 26
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1974aad0edfdeba4fae8bb07d53b69a2
+      internalID: 425056565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Invisible
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 459
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9c3b554db11f124a89a8750dbbaffcc
+      internalID: -1350072628
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Burnt_4
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 295
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f817cbb27025545a4e3e99baf5bcf1
+      internalID: -494649869
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Burnt_3
+      rect:
+        serializedVersion: 2
+        x: 25
+        y: 295
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d2c7ace81f621ee4a84bb391676526f1
+      internalID: 863880796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Burnt_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 296
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b3657bafd59a4bb40829a58bf7303c7a
+      internalID: 1982919821
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Round_Blue_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 236
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a001d23e0852e4d488c4aff863fedfee
+      internalID: -132978596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Round_Red_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 260
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b69fa939d6682541bef99eaaf68ff35
+      internalID: -410854427
       vertices: []
       indices: 
       edges: []
@@ -686,6 +938,7 @@ TextureImporter:
       Torweino_8: 1735727736
       Hotdog_Walk_2: -1399143520
       Breadgehog_4: -460579321
+      Bullet_Round_Blue_5: -132978596
       Hotdog_Anger_1: 57702135
       Torweino_2: -1441818068
       Snekzlet_3: 113260907
@@ -693,21 +946,32 @@ TextureImporter:
       Breadgehog_2: 1001549235
       Torweino_7: -1229190185
       Hotdog_Empty_Walk_1: -1345793830
+      Invisible: -1350072628
       Toaster_1: -669149809
       Hotdog_Empty_Walk_2: -1615100505
+      Explosion_1: 1948158922
+      Explosion_4: -229389580
       Bullet_Round_Red_3: -47586938
       Hotdog_Walk_1: 1068569123
+      Bullet_Burnt_3: 863880796
+      Toaster_2: -178213407
+      Explosion_2: -1132392452
       Bullet_Spiked_1: 479867694
       Hotdog_Anger_3: -2098509867
       Hotdog_Reload_1: 323692220
       Snekzlet_2: 218576167
       Snekzlet_1: -2045227838
       Torweino_3: 113065446
+      Bullet_Round_Red_5: -410854427
       Hotdog_Reload_2: 22672668
       Torweino_6: 2108994012
       Torweino_5: 1714998586
+      Explosion_5: 425056565
       Breadgehog_1: -472526636
+      Bullet_Burnt_5: 1982919821
+      Explosion_3: 1597220768
       Breadgehog_3: 790726523
+      Bullet_Burnt_4: -494649869
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
