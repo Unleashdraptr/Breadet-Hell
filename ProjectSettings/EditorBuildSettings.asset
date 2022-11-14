@@ -8,12 +8,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Menu.unity
     guid: 94036927f7544af40bf63dec47fc0d8b
-  - enabled: 0
-    path: 
-    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/1-1 Basic.unity
-    guid: c8fad414b9a45d949b21730a30ccce17
+    path: Assets/Scenes/1-2 Bites.unity
+    guid: 889e2a5b29268144b88cd4b876ac0d1d
   - enabled: 1
     path: Assets/Scenes/Snekzel_Boss_Fight.unity
     guid: e0c60a749056416439e217ca016f4db7

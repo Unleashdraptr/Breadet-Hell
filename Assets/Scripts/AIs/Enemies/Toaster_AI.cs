@@ -6,7 +6,6 @@ public class Toaster_AI : MonoBehaviour
 {
     //Enemy_AI that can shoot and contains health
     public GameObject Bullet;
-    public GameObject BulletReverse;
     public int Health;
     public float InvisTimer;
     public bool Moving;
@@ -15,11 +14,14 @@ public class Toaster_AI : MonoBehaviour
     public int ShootMovment;
     public float MoveSpeed;
     private Animator animator;
+
+    private int Defeated = 0;
+
     public void Start()
     {
         animator = GetComponent<Animator>();
         //Sets up all the stats and gets the enemy moving to its location to fire
-        Health = Random.Range(1000, 1000);
+        Health = Random.Range(50, 50);
         Moving = true;
         ShootMovment = Random.Range(1, 10);
         MoveSpeed = 150f;
@@ -55,10 +57,11 @@ public class Toaster_AI : MonoBehaviour
     void DeathCheck()
     {
         //Removes the enemy once killed
-        if (Health <= 0)
+        if (Health == 0)
         {
+            Defeated = 1;
             GameObject.Find("Score").GetComponent<ScoreUpKeep>().Score += 1;
-            Destroy(gameObject);
+            StartCoroutine(Explode());
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -96,25 +99,30 @@ public class Toaster_AI : MonoBehaviour
         int Mult = Variables.Difficulties;
         for (int i = 0; i < 9 * Mult; i++)
         {
-            if (Variables.Difficulties > 0)
+            if (Variables.Difficulties - Defeated > -1)
             {
-                GameObject aBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, i * 40 / Mult), GameObject.Find("ProjectileStorage").transform);
-                aBullet.GetComponent<TurningBullet>().BulletSpeedInt = 400;
                 GameObject bBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, ((i * 40) + 20) / Mult), GameObject.Find("ProjectileStorage").transform);
                 bBullet.GetComponent<TurningBullet>().BulletSpeedInt = 300;
             }
-            if (Variables.Difficulties > 2)
+                
+            if (Variables.Difficulties - Defeated > 0)
+            {
+                GameObject aBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, i * 40 / Mult), GameObject.Find("ProjectileStorage").transform);
+                aBullet.GetComponent<TurningBullet>().BulletSpeedInt = 400;
+            }
+            if (Variables.Difficulties - Defeated > 2)
             {
                 GameObject aBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, i * 40 / Mult), GameObject.Find("ProjectileStorage").transform);
                 aBullet.GetComponent<TurningBullet>().BulletSpeedInt = 500;
             }
-            if (Variables.Difficulties > 3)
+            if (Variables.Difficulties - Defeated > 3)
             {
                 GameObject aBullet = Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, ((i * 40)+20) / Mult), GameObject.Find("ProjectileStorage").transform);
                 aBullet.GetComponent<TurningBullet>().BulletSpeedInt = 600;
             }
-
         }
-            yield return new WaitForSeconds(0.10f);
+        //Destroy(this);
+        yield return new WaitForSeconds(0.10f);
+        Destroy(gameObject);
     }
 }
