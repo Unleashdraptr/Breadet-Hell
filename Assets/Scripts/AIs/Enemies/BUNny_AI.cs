@@ -8,25 +8,44 @@ public class BUNny_AI : MonoBehaviour
     public GameObject Bullet;
     public int Health;
     public float InvisTimer;
-    public bool WithinField;
-    public Vector2 MoveSpeed;
+    public bool Moving;
+    public bool Stopped;
+    public int ShootTimes;
+    public int ShootMovment;
+    public float MoveSpeed;
     public void Start()
     {
+        //Sets up all the stats and gets the enemy moving to its location to fire
         Health = Random.Range(15, 50);
+        Moving = true;
+        ShootMovment = Random.Range(1, 10);
+        MoveSpeed = 150f;
     }
 
     void Update()
     {
-        transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y*Time.deltaTime, 0);
-        //its invinciblity frames and when it will shoot at certain times
-        if (WithinField)
+        //Tells the enemy to move unless it hits its target
+        if (Moving == true)
         {
-            InvisTimer += 1 * Time.deltaTime;
+            transform.Translate(0, MoveSpeed*Time.deltaTime, 0);
         }
-        if (InvisTimer >= 2)
+        //its invinciblity frames and when it will shoot at certain times
+        InvisTimer += 1 * Time.deltaTime;
+        int ShootDelay = Random.Range(1, 5);
+        if (InvisTimer >= ShootDelay && Moving == false)
         {
-            HomingBulletAttack();
-            InvisTimer = 0;
+            //To remove spamming the 5th Attack when moving off screen
+            if (ShootTimes != ShootMovment - 1)
+            {
+                HomingBulletAttack();
+            }
+                InvisTimer = 1;
+                ShootTimes += 1;
+        }
+        //Once shootTimes is as many as the random chance said it should shoot, it will start to move again
+        if(ShootTimes == ShootMovment)
+        {
+            Moving = true;
         }
     }
     void DeathCheck()
@@ -50,9 +69,11 @@ public class BUNny_AI : MonoBehaviour
         }
 
         //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.CompareTag("BoundingBox"))
+        if (collision.gameObject.CompareTag("EndPos") && Stopped == false)
         {
-            WithinField = true;
+            Moving = false;
+            MoveSpeed = 450f;
+            Stopped = true;
         }
 
         if (collision.gameObject.CompareTag("Player"))
