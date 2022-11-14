@@ -8,11 +8,9 @@ public class HotDog_AI : MonoBehaviour
     public GameObject Bullet;
     public int Health;
     public float InvisTimer;
+    public bool WithinField;
     public bool Moving;
-    public bool Stopped;
-    public int ShootTimes;
-    public int ShootMovment;
-    public float MoveSpeed;
+    public Vector2 MoveSpeed;
     public bool Targeting;
     private Animator animator;
 
@@ -22,38 +20,29 @@ public class HotDog_AI : MonoBehaviour
         //Sets up all the stats and gets the enemy moving to its location to fire
         Health = Random.Range(30, 30);
         Moving = true;
-        ShootMovment = Random.Range(1, 10);
-        MoveSpeed = 150f;
     }
 
     void Update()
     {
         //Tells the enemy to move unless it hits its target
-        if (Moving == true && Targeting == true)
+        if (Moving)
         {
-            transform.Translate(MoveSpeed * 3 * Time.deltaTime, 0, 0);
-        }
-        else if (Moving == true)
-        {
-            transform.Translate(0, MoveSpeed * Time.deltaTime, 0);
-        }
-        //its invinciblity frames and when it will shoot at certain times
-        InvisTimer += 1 * Time.deltaTime;
-        int ShootDelay = Random.Range(6, 6);
-        if (InvisTimer >= ShootDelay && Moving == false)
-        {
-            //To remove spamming the 5th Attack when moving off screen
-            if (ShootTimes != ShootMovment - 1)
+            transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y * Time.deltaTime, 0);
+            if (Targeting == true)
             {
-                StartCoroutine(SnipeAttack());
+                transform.Translate(MoveSpeed.x * 2 * Time.deltaTime, MoveSpeed.y * 2 * Time.deltaTime, 0);
             }
-            InvisTimer = 1;
-            ShootTimes += 1;
         }
-        //Once shootTimes is as many as the random chance said it should shoot, it will start to move again
-        if (ShootTimes == ShootMovment)
+
+        if (WithinField)
         {
-            Moving = true;
+            InvisTimer += 1 * Time.deltaTime;
+        }
+        if (InvisTimer >= 3)
+        {
+            Moving = false;
+            StartCoroutine(SnipeAttack());
+            InvisTimer = 0;
         }
     }
     void DeathCheck()
@@ -77,12 +66,10 @@ public class HotDog_AI : MonoBehaviour
         }
 
         //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.CompareTag("EndPos") && Stopped == false)
+        if (collision.gameObject.CompareTag("BoundingBox"))
         {
             animator.SetBool("Stalling", true);
-            Moving = false;
-            MoveSpeed = 450f;
-            Stopped = true;
+            WithinField = true;
         }
     }
 
@@ -114,8 +101,9 @@ public class HotDog_AI : MonoBehaviour
                     animator.SetBool("Angered", true);
                 yield return new WaitForSeconds(0.5f);
                 animator.SetBool("Stalling", false);
-                Moving = true;
                 Targeting = true;
+                Moving = true;
+                WithinField = false;
             }
         }
     }
