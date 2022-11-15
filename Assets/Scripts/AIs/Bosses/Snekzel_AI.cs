@@ -82,7 +82,7 @@ public class Snekzel_AI : MonoBehaviour
     public void DeathCheck()
     {
         //Checks if its the final phase (Depends on difficulty)
-        if (Health <= 0 && (state == BossPhase.PHASE_3 && Variables.Difficulties >= 3 && LeaveTransition == false) || Health <= 0 && (state == BossPhase.PHASE_2 && Variables.Difficulties <= 3 && LeaveTransition == false))
+        if (Health <= 0 && (state == BossPhase.PHASE_3 && Variables.Difficulties > 2 && LeaveTransition == false) || Health <= 0 && (state == BossPhase.PHASE_2 && Variables.Difficulties < 3 && LeaveTransition == false))
         {
             state = BossPhase.WIN;
             GameObject.Find("Canvas").GetComponent<GameState>().EnemyDead = true;

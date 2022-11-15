@@ -9,7 +9,10 @@ public class BulletSpeed : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Bullet with travel along the Y axis every frame
-        transform.Translate(0, BulletSpeedInt * Time.deltaTime, 0);
+        if (Variables.Pause == false)
+        {
+            //Bullet with travel along the Y axis every frame
+            transform.Translate(0, BulletSpeedInt * Time.deltaTime, 0);
+        }
     }
 }

@@ -9,7 +9,7 @@ public class Toaster_AI : MonoBehaviour
     public int Health;
     public float InvisTimer;
     public bool Moving;
-    public bool Stopped;
+    public bool WithinField;
     public int ShootTimes;
     public int ShootMovment;
     public float MoveSpeed;
@@ -48,7 +48,7 @@ public class Toaster_AI : MonoBehaviour
         {
             print("toast");
             animator.SetTrigger("Toast");
-            Toastyness = Toastyness - 1;
+            Toastyness--;
         }
 
         //Tells the enemy to move unless it hits its target
@@ -91,13 +91,13 @@ public class Toaster_AI : MonoBehaviour
         }
 
         //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.CompareTag("EndPos") && Stopped == false)
+        if (collision.gameObject.CompareTag("BoundingBox") && WithinField == false)
         {
             TimerObject.GetComponent<Timer>().StartTimer = true;
 
             Moving = false;
             MoveSpeed = 450f;
-            Stopped = true;
+            WithinField = true;
         }
 
         if (collision.gameObject.CompareTag("Player"))

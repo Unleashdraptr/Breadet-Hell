@@ -3450,7 +3450,7 @@ MonoBehaviour:
   - {fileID: 726186827911182192, guid: 67fc31cc595350f43ad14d8970cc24dd, type: 3}
   - {fileID: 726186827911182192, guid: 67fc31cc595350f43ad14d8970cc24dd, type: 3}
   - {fileID: 726186827911182192, guid: 67fc31cc595350f43ad14d8970cc24dd, type: 3}
-  - {fileID: 726186827911182192, guid: 67fc31cc595350f43ad14d8970cc24dd, type: 3}
+  - {fileID: 726186827911182192, guid: 609875335cc52bb4aa0ef9cf5134cd96, type: 3}
   Spawner: {fileID: 2484819228423080379, guid: 412bac1bdd0d94245a3f0ff3bed7d3c1, type: 3}
   SpawnerLocations: {fileID: 379014231}
   Spawners: {fileID: 1246513244}

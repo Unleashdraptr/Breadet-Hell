@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3841303571711263790}
   - component: {fileID: 3436704758842829465}
   m_Layer: 0
-  m_Name: SnipeShot
+  m_Name: Hot Dog
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

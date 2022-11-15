@@ -8,10 +8,11 @@ public class SnekzelAttackLibrary : MonoBehaviour
     public GameObject Salt;
     public GameObject SuperSalt;
     public GameObject P2Saltshakers;
+    public GameObject Toaster;
     public bool Charge;
     float ShootDelay = 0;
     float ShootTime = 0;
-    float[] ShootDelayTimes = { 1.45f, 1.475f, 1.5f, 1.525f };
+    readonly float[] ShootDelayTimes = { 1.45f, 1.475f, 1.475f, 1.5f };
     void Update()
     {
         //If he is charging in the 2nd phase he will perform this
@@ -83,14 +84,14 @@ public class SnekzelAttackLibrary : MonoBehaviour
 
     public IEnumerator Screencharge()
     {
-        //This decides what direction he will travel in and at waht height on the screen to do so
+        //This decides what direction he will travel in and at what height on the screen to do so
         int ScreenWidth = Random.Range(40, Screen.width/2 - 20);
         Vector2 Pos = new(0, ScreenWidth);
         int Screenside = Random.Range(1, 3);
         if (Screenside == 1)//Right
         {
             Pos.x = Screen.height + 2520;
-            transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 0, 180));
+            transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 180, 0));
         }
         if(Screenside == 2)//Left
         {
@@ -101,9 +102,17 @@ public class SnekzelAttackLibrary : MonoBehaviour
         yield return new WaitForSeconds(0.75f);
         Charge = true;
     }
-
+    bool HasMoved = false;
+    int MineCount;
     public IEnumerator TunnelUp()
     {
+        if (HasMoved == true && MineCount == 2)
+        {
+            GameObject Toasty = Instantiate(Toaster, GameObject.Find("Phase 3").transform.position, Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
+            Toasty.transform.GetChild(2).GetComponent<Timer>().totalTime = 2.5f;
+            Toasty.transform.GetChild(2).GetComponent<Timer>().countdown = 2.5f;
+            MineCount = 0;
+        }
         //Sets the head to false so the tell can show
         GameObject.Find("Phase 3").transform.GetChild(1).gameObject.SetActive(false);
         //Picks a random place on the screen to appear at
@@ -122,5 +131,7 @@ public class SnekzelAttackLibrary : MonoBehaviour
         {
             Instantiate(Salt, Head.position, Quaternion.Euler(0, 0, 10*i), GameObject.Find("ProjectileStorage").transform);
         }
+        HasMoved = true;
+        MineCount += 1;
     }
 }
