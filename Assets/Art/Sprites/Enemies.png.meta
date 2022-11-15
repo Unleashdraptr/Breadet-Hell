@@ -650,7 +650,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toaster_1
+      name: Toaster_1_In
       rect:
         serializedVersion: 2
         x: 0
@@ -671,10 +671,10 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Toaster_2
+      name: Toaster_1_Out
       rect:
         serializedVersion: 2
-        x: 22
+        x: 23
         y: 459
         width: 22
         height: 18
@@ -800,8 +800,8 @@ TextureImporter:
       name: Invisible
       rect:
         serializedVersion: 2
-        x: 45
-        y: 459
+        x: 477
+        y: 481
         width: 22
         height: 18
       alignment: 0
@@ -889,7 +889,7 @@ TextureImporter:
         width: 7
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -910,7 +910,7 @@ TextureImporter:
         width: 7
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -918,6 +918,174 @@ TextureImporter:
       bones: []
       spriteID: 7b69fa939d6682541bef99eaaf68ff35
       internalID: -410854427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toaster_2_In
+      rect:
+        serializedVersion: 2
+        x: 46
+        y: 459
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d78414d0b25053d478a43908280f4d1e
+      internalID: -778841493
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toaster_3_In
+      rect:
+        serializedVersion: 2
+        x: 92
+        y: 459
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2e10595f31643294d980643f663af71e
+      internalID: 455988686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toaster_4_In
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 459
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb452f4f9a355254f997bbacb5630100
+      internalID: 909924658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toaster_4_Out
+      rect:
+        serializedVersion: 2
+        x: 161
+        y: 459
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d579c58bf863c049bb666206c195c81
+      internalID: 1167251091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toaster_3_Out
+      rect:
+        serializedVersion: 2
+        x: 115
+        y: 459
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dea7efffaad53844f89a1984ca4e06a8
+      internalID: 1583448452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toaster_2_Out
+      rect:
+        serializedVersion: 2
+        x: 69
+        y: 459
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e3f676556c07de48abdc6a2b07de32b
+      internalID: 592166689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toaster_5_In
+      rect:
+        serializedVersion: 2
+        x: 184
+        y: 459
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45a05f469d9dae648b0d6a1fc7bbf271
+      internalID: 277793841
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Toaster_5_Out
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 459
+        width: 22
+        height: 18
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36bf3184058ebe044a3ff370c9e73562
+      internalID: -1870902881
       vertices: []
       indices: 
       edges: []
@@ -936,42 +1104,50 @@ TextureImporter:
       Torweino_1: -1341260035
       Hotdog_Anger_2: 883156547
       Torweino_8: 1735727736
-      Hotdog_Walk_2: -1399143520
       Breadgehog_4: -460579321
-      Bullet_Round_Blue_5: -132978596
+      Toaster_5_Out: -1870902881
       Hotdog_Anger_1: 57702135
-      Torweino_2: -1441818068
-      Snekzlet_3: 113260907
-      Torweino_4: 252090967
-      Breadgehog_2: 1001549235
+      Toaster_4_In: 909924658
+      Bullet_Burnt_3: 863880796
       Torweino_7: -1229190185
       Hotdog_Empty_Walk_1: -1345793830
-      Invisible: -1350072628
-      Toaster_1: -669149809
       Hotdog_Empty_Walk_2: -1615100505
-      Explosion_1: 1948158922
       Explosion_4: -229389580
-      Bullet_Round_Red_3: -47586938
       Hotdog_Walk_1: 1068569123
-      Bullet_Burnt_3: 863880796
-      Toaster_2: -178213407
       Explosion_2: -1132392452
       Bullet_Spiked_1: 479867694
-      Hotdog_Anger_3: -2098509867
+      Toaster_3_In: 455988686
       Hotdog_Reload_1: 323692220
       Snekzlet_2: 218576167
       Snekzlet_1: -2045227838
       Torweino_3: 113065446
       Bullet_Round_Red_5: -410854427
+      Toaster_2_In: -778841493
+      Explosion_3: 1597220768
+      Breadgehog_3: 790726523
+      Bullet_Burnt_4: -494649869
+      Toaster_5_In: 277793841
+      Hotdog_Walk_2: -1399143520
+      Bullet_Round_Blue_5: -132978596
+      Torweino_2: -1441818068
+      Snekzlet_3: 113260907
+      Torweino_4: 252090967
+      Breadgehog_2: 1001549235
+      Invisible: -1350072628
+      Explosion_1: 1948158922
+      Bullet_Round_Red_3: -47586938
+      Toaster_2_Out: 592166689
+      Toaster_1_In: -669149809
+      Toaster_3_Out: 1583448452
+      Hotdog_Anger_3: -2098509867
+      Toaster_4_Out: 1167251091
       Hotdog_Reload_2: 22672668
       Torweino_6: 2108994012
       Torweino_5: 1714998586
       Explosion_5: 425056565
       Breadgehog_1: -472526636
       Bullet_Burnt_5: 1982919821
-      Explosion_3: 1597220768
-      Breadgehog_3: 790726523
-      Bullet_Burnt_4: -494649869
+      Toaster_1_Out: -178213407
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
