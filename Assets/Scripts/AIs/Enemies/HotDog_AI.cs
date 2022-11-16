@@ -25,7 +25,7 @@ public class HotDog_AI : MonoBehaviour
     void Update()
     {
         //Tells the enemy to move unless it hits its target
-        if (Moving)
+        if (Moving == true)
         {
             transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y * Time.deltaTime, 0);
             if (Targeting == true)
@@ -89,7 +89,7 @@ public class HotDog_AI : MonoBehaviour
             yield return new WaitForSeconds(0.15f);
             Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, 0, angle));
+            transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, transform.localRotation.y, angle));
             Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);
             animator.SetTrigger("Shot");
             yield return new WaitForSeconds(0.15f);

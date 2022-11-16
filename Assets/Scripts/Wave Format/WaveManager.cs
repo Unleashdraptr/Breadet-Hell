@@ -56,14 +56,15 @@ public class WaveManager : MonoBehaviour
             }
             for (int j = 0; j < EnemyNums[i]; j++)
             {
-                if(RotationNum == NumPerLoop)
+                if (RotationNum == NumPerLoop)
                 {
                     SpawnerNum += 1;
                     RotationNum = 0;
                     yield return new WaitForSeconds(0.75f);
                 }
-                GameObject Clone = Instantiate(Enemies[i], Spawners.transform.GetChild(i).GetChild(RotationNum).position, Quaternion.identity, GameObject.Find("EnemyStorage").transform);
-                SetMove(Spawners.transform.GetChild(i).GetChild(RotationNum).GetComponent<SpawnerID>().directions);
+                Vector2 rotate = new();
+                SetMove(Spawners.transform.GetChild(i).GetChild(RotationNum).GetComponent<SpawnerID>().directions, ref rotate);
+                GameObject Clone = Instantiate(Enemies[i], Spawners.transform.GetChild(i).GetChild(RotationNum).position, Quaternion.Euler(rotate.x, rotate.y, 0), GameObject.Find("EnemyStorage").transform);
                 CheckAI(Clone);
                 RotationNum += 1;
             }
@@ -71,8 +72,11 @@ public class WaveManager : MonoBehaviour
             SpawnerNum = 0;
         }
         CurrentWave += 1;
-        UpdateWaveInfo();
-        UpdateSpawners();
+        if (CurrentWave != TotalWaves +1)
+        {
+            UpdateWaveInfo();
+            UpdateSpawners();
+        }
     }
 
     void UpdateSpawners()
@@ -91,7 +95,7 @@ public class WaveManager : MonoBehaviour
         {
             if(SpawnerLocations.transform.GetChild(i).GetComponent<SpawnerTargetID>().WaveSpawnNum == CurrentWave)
             {
-                if (((int)SpawnerLocations.transform.GetChild(i).GetComponent<SpawnerTargetID>().difficulties) <= Variables.Difficulties)
+                if (((int)SpawnerLocations.transform.GetChild(i).GetComponent<SpawnerTargetID>().difficulties) < Variables.Difficulties)
                 {
                     GameObject Location = SpawnerLocations.transform.GetChild(i).gameObject;
                     Vector3 Pos = new(Location.transform.position.x, Location.transform.position.y, 0);
@@ -103,11 +107,12 @@ public class WaveManager : MonoBehaviour
             }
         }
     }
-    void SetMove(SpawnerID.Directions Dir)
+    void SetMove(SpawnerID.Directions Dir, ref Vector2 Rotate)
     {
         if(Dir == SpawnerID.Directions.Left)
         {
-            MoveDirect = new(-150, 0);
+            Rotate = new(0, 180);
+            MoveDirect = new(150, 0);
         }
         if (Dir == SpawnerID.Directions.Up)
         {
@@ -136,7 +141,7 @@ public class WaveManager : MonoBehaviour
         {
             Clone.GetComponent<Bredgehog_AI>().MoveSpeed = MoveDirect;
         }
-        if (Clone.name == "SnipeShot(Clone)")
+        if (Clone.name == "Hot Dog(Clone)")
         {
             Clone.GetComponent<HotDog_AI>().MoveSpeed = MoveDirect;
         }

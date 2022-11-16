@@ -220,10 +220,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Player: {fileID: 419332384}
-  Salt: {fileID: 8244138661295272704, guid: 510ea106c7e760e4396776a097a8cbde, type: 3}
+  Salt: {fileID: 8244138661295272704, guid: ef88ce7dc96436d45a49a0b6cd693eb7, type: 3}
   SuperSalt: {fileID: 8244138661295272704, guid: 99a2608fd786a0a4ab6f972fd3af02bb, type: 3}
   P2Saltshakers: {fileID: 1762966958}
-  Toaster: {fileID: 0}
+  Toaster: {fileID: 726186827911182192, guid: 609875335cc52bb4aa0ef9cf5134cd96, type: 3}
   Charge: 0
 --- !u!1 &72882223
 GameObject:
@@ -403,7 +403,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.99117327, y: 0.3967743}
+  m_Offset: {x: -0.9911728, y: 0.26218694}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -414,7 +414,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 21.085598, y: 2.0247455}
+  m_Size: {x: 21.085598, y: 2.29392}
   m_EdgeRadius: 0
 --- !u!4 &90298299
 Transform:
