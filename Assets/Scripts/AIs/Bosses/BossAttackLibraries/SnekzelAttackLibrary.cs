@@ -82,7 +82,7 @@ public class SnekzelAttackLibrary : MonoBehaviour
         Instantiate(Salt, SaltShaker.position, Quaternion.Euler(0, 0, 180), GameObject.Find("ProjectileStorage").transform);
     }
 
-    public IEnumerator Screencharge()
+    public IEnumerator Screencharge(bool IsBoss)
     {
         //This decides what direction he will travel in and at what height on the screen to do so
         int ScreenWidth = Random.Range(40, Screen.width/2 - 20);
@@ -91,16 +91,19 @@ public class SnekzelAttackLibrary : MonoBehaviour
         if (Screenside == 1)//Right
         {
             Pos.x = Screen.height + 2520;
-            transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 180, 0));
+            transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 180, 180));
         }
         if(Screenside == 2)//Left
         {
             Pos.x = -440 ;
             transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 0, 0));
         }
-        //Then waits for a 0.75 seconds to show a tell to the player of which direction and where he will charge
-        yield return new WaitForSeconds(0.75f);
-        Charge = true;
+        if (IsBoss)
+        {
+            //Then waits for a 0.75 seconds to show a tell to the player of which direction and where he will charge
+            yield return new WaitForSeconds(0.75f);
+            Charge = true;
+        }
     }
     bool HasMoved = false;
     int MineCount;

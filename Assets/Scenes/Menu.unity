@@ -3251,7 +3251,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d43fd2d8ef5ff3749aaa5cbe44eaa4ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  SceneName: 1-2 Bites
+  SceneName: Test Scene
   ProgressRequirement: 1
 --- !u!1 &1354574170
 GameObject:

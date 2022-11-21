@@ -5,7 +5,7 @@ using UnityEngine;
 public class BulletSpeed : MonoBehaviour
 {
     public float Timer;
-    public int BulletSpeedInt;
+    public float BulletSpeedInt;
     // Update is called once per frame
     void Update()
     {
