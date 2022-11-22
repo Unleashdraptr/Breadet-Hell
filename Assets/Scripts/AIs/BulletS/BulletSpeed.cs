@@ -6,6 +6,7 @@ public class BulletSpeed : MonoBehaviour
 {
     public float Timer;
     public float BulletSpeedInt;
+    public bool Gravity;
     // Update is called once per frame
     void Update()
     {
@@ -13,6 +14,10 @@ public class BulletSpeed : MonoBehaviour
         {
             //Bullet with travel along the Y axis every frame
             transform.Translate(0, BulletSpeedInt * Time.deltaTime, 0);
+            if(Gravity)
+            {
+                BulletSpeedInt -= 10;
+            }
         }
     }
 }

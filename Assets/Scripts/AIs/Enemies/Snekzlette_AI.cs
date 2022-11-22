@@ -9,6 +9,7 @@ public class Snekzlette_AI : MonoBehaviour
     public float Delay;
     public int Health;
     public float DropDelay;
+    readonly float[] Speeeeed = { 1000, 1333, 1666, 2000 }; 
     private void Start()
     {
         //Sets up all the stats and gets the enemy moving to its location to fire
@@ -26,18 +27,22 @@ public class Snekzlette_AI : MonoBehaviour
             StartCoroutine(GetComponent<SnekzelAttackLibrary>().Screencharge(false));
             Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z+angle));
+            if (transform.position.x >= 2500)
+            {
+                transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z - angle));
+            }
+            else
+                transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z+angle));
             Delay = 0;
             Charge = true;
         }
         if (Charge == true)
         {
-            transform.Translate(1000*Variables.Difficulties * Time.deltaTime, 0, 0);
-            if(DropDelay >= 0.75f)
+            transform.Translate(Speeeeed[Variables.Difficulties-1] * Time.deltaTime, 0, 0);
+            if(DropDelay >= (0.75/Variables.Difficulties))
             {
                 DropDelay = 0;
-                int Spin = Random.Range(-30, 30);
-                Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, Spin), GameObject.Find("ProjectileStorage").transform);
+                Instantiate(Bullet, transform.position, Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
             }
             DropDelay += 1 * Time.deltaTime;
         }

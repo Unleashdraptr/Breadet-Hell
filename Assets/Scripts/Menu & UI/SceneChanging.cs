@@ -24,6 +24,7 @@ public class SceneChanging : MonoBehaviour
     //only occurs once when the scene starts
     private void Start()
     {
+        Variables.Pause = false;
         //Setting the variables as the game objects now
         //Important to do here, otherwise script can't find them when SetActive is false
         Normal = GameObject.Find("Normal");
@@ -36,8 +37,7 @@ public class SceneChanging : MonoBehaviour
 
     }
     void Update()
-    {
-        
+    {      
         if (SceneManager.GetActiveScene().name == "Menu")
         {
             //Checks the difficulty 1-Normal, 2-Toasty, 3-Burnt, 4-Breadendary
@@ -114,5 +114,12 @@ public class SceneChanging : MonoBehaviour
     public void PracticeOFFButton()
     {
         Variables.PracticeMode = false;
+    }
+
+
+
+    public void TestDebug()
+    {
+        SceneManager.LoadScene("Testing");
     }
 }

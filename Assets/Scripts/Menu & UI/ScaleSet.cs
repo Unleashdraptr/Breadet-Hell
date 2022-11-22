@@ -12,5 +12,6 @@ public class ScaleSet : MonoBehaviour
         Camera.orthographicSize = Screen.height/2;
         Vector3 Pos = new(Screen.height+40, Screen.height / 2, -10);
         transform.SetPositionAndRotation(Pos, transform.rotation);
+        GetComponent<BoxCollider2D>().size = new(Screen.width, Screen.height);
     }
 }
