@@ -62,13 +62,11 @@ public class PlayerHealth : MonoBehaviour
     {
         //animator.SetInteger("HP", Health);
 
-
-
-
         //Makes it so the player cant be hit anymore and reduces the players health
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         InvisTimer = 0;
         ReduceHealth();
+        animator.SetInteger("HP", Health);
         //Checks if theyre dead
         DeathCheck();
     }

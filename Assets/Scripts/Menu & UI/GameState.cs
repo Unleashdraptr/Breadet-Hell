@@ -15,7 +15,7 @@ public class GameState : MonoBehaviour
         if(EnemyDead == true)
         {
             Variables.Pause = true;
-            transform.GetChild(2).gameObject.SetActive(true);
+            transform.GetChild(1).gameObject.SetActive(true);
         }
         //Will go to a lose state if the player is dead, also tells the player what phase they were on when they died
         if (PlayerDead == true)
@@ -25,7 +25,7 @@ public class GameState : MonoBehaviour
             {
                 transform.GetChild(3).GetComponent<TextMeshProUGUI>().SetText(GameObject.Find("Snekzel").GetComponent<Snekzel_AI>().state.ToString());
             }
-            transform.GetChild(1).gameObject.SetActive(true);
+            transform.GetChild(0).gameObject.SetActive(true);
         }
     }
 }

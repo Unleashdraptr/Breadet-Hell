@@ -43,9 +43,9 @@ public class Bredgehog_AI : MonoBehaviour
     void DeathCheck()
     {
         //Removes the enemy once killed
-        if (Health <= 0)
+        if (Health == 0)
         {
-            GameObject.Find("Score").GetComponent<ScoreUpKeep>().Score += 1;
+            GameObject.Find("Score").GetComponent<ScoreUpKeep>().Score += 10;
             Destroy(gameObject);
         }
     }

@@ -172,7 +172,7 @@ TextureImporter:
         serializedVersion: 2
         x: 72
         y: 136
-        width: 23
+        width: 29
         height: 7
       alignment: 9
       pivot: {x: 1, y: 1}
@@ -193,7 +193,7 @@ TextureImporter:
         serializedVersion: 2
         x: 72
         y: 128
-        width: 23
+        width: 29
         height: 7
       alignment: 9
       pivot: {x: 1, y: 1}
@@ -214,7 +214,7 @@ TextureImporter:
         serializedVersion: 2
         x: 72
         y: 120
-        width: 23
+        width: 29
         height: 7
       alignment: 9
       pivot: {x: 1, y: 1}
@@ -235,10 +235,10 @@ TextureImporter:
         serializedVersion: 2
         x: 72
         y: 112
-        width: 23
+        width: 29
         height: 7
-      alignment: 9
-      pivot: {x: 1, y: 1}
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -733,6 +733,90 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Difficulty_P4_Breadendary
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 136
+        width: 29
+        height: 7
+      alignment: 9
+      pivot: {x: 1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b2be619baf758845aee06b5fece830c
+      internalID: -1172032565
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Difficulty_P3_Burnt
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 128
+        width: 29
+        height: 7
+      alignment: 9
+      pivot: {x: 1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7479fc32ff0b4734185f49787406500f
+      internalID: 1768204246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Difficulty_P2_Toasty
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 120
+        width: 29
+        height: 7
+      alignment: 9
+      pivot: {x: 1, y: 1}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5f43cd2852feb24ca600185ec541692
+      internalID: -286478996
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Difficulty_P1_Normal
+      rect:
+        serializedVersion: 2
+        x: 78
+        y: 112
+        width: 29
+        height: 7
+      alignment: 4
+      pivot: {x: 0, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05560c59bdeefdb40b1ba7cee70ab558
+      internalID: 1406485645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -747,7 +831,9 @@ TextureImporter:
       Difficulty_4_Breadendary: 536726321
       Hearts_Left_20: -659009253
       Hearts_Left_16: 1053508196
-      Hearts_Left_14: 1081043986
+      Difficulty_P2_Toasty: -286478996
+      Difficulty_P3_Burnt: 1768204246
+      Hearts_Left_4: -929220521
       Background_Left: 468696400
       Hearts_Left_6: -1205864768
       Difficulty_2_Toasty: 778801660
@@ -758,9 +844,11 @@ TextureImporter:
       Background_Right: -1190245362
       Hearts_Left_2: -625259455
       Hearts_Left_7: 706432002
+      Difficulty_P4_Breadendary: -1172032565
       Hearts_Left_9: -666613441
       Hearts_Left_15: 99538782
       Hearts_Left_17: -595145925
+      Difficulty_P1_Normal: 1406485645
       Hearts_Left_19: -51977578
       Hearts_Left_13: 766609824
       Toaster_Empty: 91137980
@@ -772,8 +860,8 @@ TextureImporter:
       Hearts_Left_5: 1916711625
       Hearts_Left_10: -1387119093
       Hearts_Left_1: -1702334166
-      Hearts_Left_4: -929220521
       Hearts_Right_0: -298417128
+      Hearts_Left_14: 1081043986
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

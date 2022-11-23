@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ScoreUpKeep : MonoBehaviour
 {
@@ -9,6 +10,6 @@ public class ScoreUpKeep : MonoBehaviour
     void Update()
     {
         //Updates the score everytime an enemy is killed
-        transform.GetComponent<TextMeshProUGUI>().text = ("Score: " + Score);
+        transform.GetComponent<Text>().text = (Score.ToString("000000"));
     }
 }
