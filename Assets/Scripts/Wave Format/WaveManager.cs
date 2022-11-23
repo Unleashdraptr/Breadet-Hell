@@ -4,16 +4,21 @@ using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
+    [Tooltip(" The prefabs that are used ")]
     public GameObject[] Enemies;
     public GameObject Spawner;
 
     public GameObject SpawnerLocations;
     public GameObject Spawners;
+    [Tooltip(" The current Wave ")]
     public int CurrentWave;
+    [Tooltip("The total that will spawn for the wave, seperated per enemy")]
     public int[] EnemyNums;
-    readonly string[] EnemyNames = { "BUNny", "Nyaan Bread", "Breadgehog", "Hot Dog", "Homing", "Croissidile", "Bosslings", "Mines" };
+    readonly string[] EnemyNames = { "BUNny", "Nyaan Bread", "Breadgehog", "Hot Dog", "Croissidile", "Bosslings", "Toaster" };
+    [Tooltip("Time between wave")]
     public float Wait;
 
+    [Tooltip("The total waves for the level")]
     [Range(1, 25)]
     public int TotalWaves;
     private void Start()
@@ -28,7 +33,7 @@ public class WaveManager : MonoBehaviour
         {
             Wait += 1 * Time.deltaTime;
         }
-        if (Wait >= 10 && CurrentWave != TotalWaves+1)
+        if (Wait >= 10 && CurrentWave != TotalWaves + 1)
         {
             StartCoroutine(SpawnEnemies());
             Wait = 0;
@@ -38,16 +43,12 @@ public class WaveManager : MonoBehaviour
             GameObject.Find("Canvas").GetComponent<GameState>().EnemyDead = true;
         }
     }
-
-
-    public int SpawnerNum = 0;
-    public int RotationNum;
-    public int NumPerLoop;
+    int RotationNum;
+    int NumPerLoop;
     Vector2 MoveDirect;
     IEnumerator SpawnEnemies()
     {
         RotationNum = 0;
-        SpawnerNum = 0;
         for (int i = 0; i < Spawners.transform.childCount; i++)
         {
             if (Spawners.transform.GetChild(i).childCount != 0)
@@ -57,8 +58,7 @@ public class WaveManager : MonoBehaviour
             for (int j = 0; j < EnemyNums[i]; j++)
             {
                 if (RotationNum == NumPerLoop)
-                {
-                    SpawnerNum += 1;
+                { 
                     RotationNum = 0;
                     yield return new WaitForSeconds(0.75f);
                 }
@@ -69,7 +69,6 @@ public class WaveManager : MonoBehaviour
                 RotationNum += 1;
             }
             RotationNum = 0;
-            SpawnerNum = 0;
         }
         CurrentWave += 1;
         if (CurrentWave != TotalWaves +1)
