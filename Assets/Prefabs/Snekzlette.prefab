@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 266727414390566121}
   - component: {fileID: 266727414390566126}
   - component: {fileID: 266727414390566125}
+  - component: {fileID: 7420114615527594180}
   m_Layer: 0
   m_Name: Snekzlette
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -129,6 +130,7 @@ MonoBehaviour:
   Charge: 0
   Delay: 0
   Health: 0
+  WithinField: 0
   DropDelay: 0
 --- !u!114 &266727414390566125
 MonoBehaviour:
@@ -148,3 +150,23 @@ MonoBehaviour:
   P2Saltshakers: {fileID: 0}
   Toaster: {fileID: 0}
   Charge: 0
+--- !u!95 &7420114615527594180
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 266727414390566124}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 5516fd49e625ed146b8dbd38222fe6a6, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

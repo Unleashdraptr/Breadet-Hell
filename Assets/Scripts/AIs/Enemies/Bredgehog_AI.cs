@@ -72,6 +72,13 @@ public class Bredgehog_AI : MonoBehaviour
             collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
         }
     }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("BoundingBox"))
+        {
+            WithinField = false;
+        }
+    }
 
 
 

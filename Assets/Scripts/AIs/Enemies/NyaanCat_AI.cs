@@ -9,7 +9,7 @@ public class NyaanCat_AI : MonoBehaviour
     public int Health;
     public float InvisTimer;
     public bool Moving;
-    public bool Stopped;
+    public bool WithinField;
     public int ShootTimes;
     public int ShootMovment;
     public Vector2 MoveSpeed;
@@ -68,16 +68,23 @@ public class NyaanCat_AI : MonoBehaviour
         }
 
         //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.CompareTag("PlayField") && Stopped == false)
+        if (collision.gameObject.CompareTag("PlayField") && WithinField == false)
         {
 
-            Stopped = true;
+            WithinField = true;
         }
 
         if (collision.gameObject.CompareTag("Player"))
         {
             //Player took contact damage and is telling the player
             collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("BoundingBox"))
+        {
+            WithinField = false;
         }
     }
 

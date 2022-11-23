@@ -22,11 +22,12 @@ public class BUNny_AI : MonoBehaviour
         if (WithinField)
         {
             InvisTimer += 1 * Time.deltaTime;
-        }
-        if (InvisTimer >= 2)
-        {
-            HomingBulletAttack();
-            InvisTimer = 0;
+
+            if (InvisTimer >= 2)
+            {
+                HomingBulletAttack();
+                InvisTimer = 0;
+            }
         }
     }
     void DeathCheck()
@@ -61,8 +62,13 @@ public class BUNny_AI : MonoBehaviour
             collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
         }
     }
-
-
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("BoundingBox"))
+        {
+            WithinField = false;
+        }
+    }
 
 
     void HomingBulletAttack()

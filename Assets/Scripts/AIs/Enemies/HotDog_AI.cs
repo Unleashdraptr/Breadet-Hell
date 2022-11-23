@@ -72,7 +72,13 @@ public class HotDog_AI : MonoBehaviour
             WithinField = true;
         }
     }
-
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("BoundingBox"))
+        {
+            WithinField = false;
+        }
+    }
 
 
 

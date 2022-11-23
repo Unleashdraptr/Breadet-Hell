@@ -8,6 +8,7 @@ public class Snekzlette_AI : MonoBehaviour
     public bool Charge;
     public float Delay;
     public int Health;
+    public bool WithinField;
     public float DropDelay;
     readonly float[] Speeeeed = { 1000, 1333, 1666, 2000 }; 
     private void Start()
@@ -39,12 +40,15 @@ public class Snekzlette_AI : MonoBehaviour
         if (Charge == true)
         {
             transform.Translate(Speeeeed[Variables.Difficulties-1] * Time.deltaTime, 0, 0);
-            if(DropDelay >= (0.75/Variables.Difficulties))
+            if (WithinField)
             {
-                DropDelay = 0;
-                Instantiate(Bullet, transform.position, Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
+                if (DropDelay >= (0.75 / Variables.Difficulties))
+                {
+                    DropDelay = 0;
+                    Instantiate(Bullet, transform.position, Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
+                }
+                DropDelay += 1 * Time.deltaTime;
             }
-            DropDelay += 1 * Time.deltaTime;
         }
     }
     void DeathCheck()
@@ -71,12 +75,17 @@ public class Snekzlette_AI : MonoBehaviour
             //Player took contact damage and is telling the player
             collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
         }
+        if (collision.gameObject.CompareTag("BoundingBox"))
+        {
+            WithinField = true;
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("BoundingBox"))
         {
             Charge = false;
+            WithinField = false;
         }
     }
 }
