@@ -1057,7 +1057,7 @@ TextureImporter:
         width: 22
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1078,7 +1078,7 @@ TextureImporter:
         width: 22
         height: 18
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1086,6 +1086,69 @@ TextureImporter:
       bones: []
       spriteID: 36bf3184058ebe044a3ff370c9e73562
       internalID: -1870902881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BUNny_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 490
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a752ad711667dc4c945fd760bc1905a
+      internalID: -207429108
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BUNny_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 18
+        y: 490
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76d3469e46672034e92cc7753aff43bd
+      internalID: 1134485450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BUNny_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 490
+        width: 16
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fcce5d47f41c309458db812d08f3f398
+      internalID: -885364347
       vertices: []
       indices: 
       edges: []
@@ -1107,6 +1170,7 @@ TextureImporter:
       Breadgehog_4: -460579321
       Toaster_5_Out: -1870902881
       Hotdog_Anger_1: 57702135
+      BUNny_Walk_3: -885364347
       Toaster_4_In: 909924658
       Bullet_Burnt_3: 863880796
       Torweino_7: -1229190185
@@ -1131,7 +1195,9 @@ TextureImporter:
       Bullet_Round_Blue_5: -132978596
       Torweino_2: -1441818068
       Snekzlet_3: 113260907
+      BUNny_Walk_2: 1134485450
       Torweino_4: 252090967
+      BUNny_Walk_1: -207429108
       Breadgehog_2: 1001549235
       Invisible: -1350072628
       Explosion_1: 1948158922
