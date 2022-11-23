@@ -29,7 +29,7 @@ public class Snekzlette_AI : MonoBehaviour
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             if (transform.position.x >= 2500)
             {
-                transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z - angle));
+                transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, transform.eulerAngles.y, 180-angle));
             }
             else
                 transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z+angle));

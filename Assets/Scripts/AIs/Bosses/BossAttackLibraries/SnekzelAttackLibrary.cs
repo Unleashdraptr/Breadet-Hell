@@ -91,7 +91,7 @@ public class SnekzelAttackLibrary : MonoBehaviour
         if (Screenside == 1)//Right
         {
             Pos.x = Screen.height + 2520;
-            transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 180, 180));
+            transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 180, 0));
         }
         if(Screenside == 2)//Left
         {
