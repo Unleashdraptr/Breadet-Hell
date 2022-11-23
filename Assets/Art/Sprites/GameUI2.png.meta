@@ -111,8 +111,8 @@ TextureImporter:
         y: 0
         width: 52
         height: 144
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      alignment: 9
+      pivot: {x: 0, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -747,7 +747,7 @@ TextureImporter:
       Difficulty_4_Breadendary: 536726321
       Hearts_Left_20: -659009253
       Hearts_Left_16: 1053508196
-      Hearts_Right_0: -298417128
+      Hearts_Left_14: 1081043986
       Background_Left: 468696400
       Hearts_Left_6: -1205864768
       Difficulty_2_Toasty: 778801660
@@ -772,8 +772,8 @@ TextureImporter:
       Hearts_Left_5: 1916711625
       Hearts_Left_10: -1387119093
       Hearts_Left_1: -1702334166
-      Hearts_Left_14: 1081043986
       Hearts_Left_4: -929220521
+      Hearts_Right_0: -298417128
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
