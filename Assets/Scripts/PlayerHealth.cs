@@ -7,22 +7,24 @@ using TMPro;
 
 public class PlayerHealth : MonoBehaviour
 {
-    //Healthbar
-    public Slider HealthNum;
-    //Invinceiblity Frames
+
+    public int Health;
     public float InvisTimer;
+
+    public Animator animator;
+
     void Start()
     {
-        //Sets healthbar in UI
-        HealthNum.maxValue = Variables.PlayerHealth[Variables.Difficulties - 1];
-        HealthNum.value = Variables.PlayerHealth[Variables.Difficulties - 1];
+        Health = Variables.PlayerHealth[Variables.Difficulties - 1];
         if (Variables.PracticeMode == true)
         {
-            HealthNum.maxValue = 20;
-            HealthNum.value = 20;
+            Health = 20;
         }
-        GameObject.Find("HP").GetComponent<TextMeshProUGUI>().text = HealthNum.value.ToString();
+
+        animator.SetInteger("HP", Health);
+
     }
+
     private void Update()
     {
         //Timer after getting hit, is shorter the higher the difficuly
@@ -31,19 +33,25 @@ public class PlayerHealth : MonoBehaviour
         {
             gameObject.GetComponent<CircleCollider2D>().enabled = true;
         }
+
+
+
+
+
     }
+
+
+
 
 
     void ReduceHealth()
     {
-        //Reduces health on UI aswell as the value
-        HealthNum.value -= 1;
-        GameObject.Find("HP").GetComponent<TextMeshProUGUI>().text = HealthNum.value.ToString();
+        Health -= 1;
     }
     void DeathCheck()
     {
         //Destroys the player gameobject when its has 0HP, also updates the UI to tell the player and stop the game completely
-        if (HealthNum.value <= 0)
+        if (Health <= 0)
         {
             GameObject.Find("Canvas").GetComponent<GameState>().PlayerDead = true;
             Destroy(gameObject);
@@ -52,13 +60,17 @@ public class PlayerHealth : MonoBehaviour
 
     public void BeenHit()
     {
+        //animator.SetInteger("HP", Health);
+
         //Makes it so the player cant be hit anymore and reduces the players health
         gameObject.GetComponent<CircleCollider2D>().enabled = false;
         InvisTimer = 0;
         ReduceHealth();
+        animator.SetInteger("HP", Health);
         //Checks if theyre dead
         DeathCheck();
     }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Enemy_Bullet"))
