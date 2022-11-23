@@ -19,6 +19,12 @@ public class Collision : MonoBehaviour
             //Player took contact damage and is telling the player
             collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
         }
+        if (collision.gameObject.CompareTag("CosnumeMode"))
+        {
+            GetComponentInParent<Snekzel_AI>().Health -= 1;
+            //Also checks if the enemy is dead
+            GetComponentInParent<Snekzel_AI>().DeathCheck();
+        }
     }
     
     private void OnCollisionExit2D(Collision2D collision)
