@@ -126,4 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Timer: 0
   BulletSpeedInt: 300
-  Gravity: 0
+  Gravity: 1
