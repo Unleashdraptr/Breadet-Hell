@@ -5,7 +5,8 @@ using UnityEngine;
 public class BulletSpeed : MonoBehaviour
 {
     public float Timer;
-    public int BulletSpeedInt;
+    public float BulletSpeedInt;
+    public bool Gravity;
     // Update is called once per frame
     void Update()
     {
@@ -13,6 +14,10 @@ public class BulletSpeed : MonoBehaviour
         {
             //Bullet with travel along the Y axis every frame
             transform.Translate(0, BulletSpeedInt * Time.deltaTime, 0);
+            if(Gravity)
+            {
+                BulletSpeedInt -= 10;
+            }
         }
     }
 }

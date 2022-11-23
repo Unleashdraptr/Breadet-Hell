@@ -48,7 +48,7 @@ public class Snekzel_AI : MonoBehaviour
             if (state == BossPhase.PHASE_2 && InvisTimer >= 2)
             {
                 Attacking = true;
-                StartCoroutine(GetComponent<SnekzelAttackLibrary>().Screencharge());
+                StartCoroutine(GetComponent<SnekzelAttackLibrary>().Screencharge(true));
                 InvisTimer = 0;
             }
             //After the time period snekzel will perform his Tunneling that has a warning on it

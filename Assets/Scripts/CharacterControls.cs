@@ -7,6 +7,7 @@ public class CharacterControls : MonoBehaviour
     //The bullet and where its stored in the heiarchy for cleaness sake
     public GameObject Bullet;
     private Animator animator;
+    public Vector2 PrevPosition;
     float Reload;
     void Update()
     {
@@ -18,30 +19,40 @@ public class CharacterControls : MonoBehaviour
             //Spawns the bullet at the player everytime the screen is touched (Work in progress)
             if (Input.touchCount > 0)
             {
-                Vector2 Player = new(transform.position.x, transform.position.y);
-                float Distance = Vector2.Distance(Input.GetTouch(0).position, Player);
-                if (Distance < 200)
+                if (PrevPosition.x != 0 && PrevPosition.y != 0)
                 {
-                    if (Input.GetTouch(0).position.x <= 2910 && Input.GetTouch(0).position.x >= 735 && Input.GetTouch(0).position.y >= 20)
+                    float Distance = Vector2.Distance(Input.GetTouch(0).position, PrevPosition);
+                    if (Distance < 200)
                     {
+                        Vector2 dir;
+                        dir.x = Input.GetTouch(0).position.x - PrevPosition.x;
+                        dir.y = Input.GetTouch(0).position.y - PrevPosition.y;
                         //Animator Direction
-                        Vector3 dir = new(Input.GetTouch(0).position.x - transform.position.x, Input.GetTouch(0).position.y - transform.position.y);
                         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                         if (angle < 0)
                             angle = 360 - angle * -1;
                         animator.SetFloat("Angle", angle);
-
-                        transform.position = new(Input.GetTouch(0).position.x, Input.GetTouch(0).position.y);
-                    }
-                    if (Reload >= 0.1f)
-                    {
-                        Instantiate(Bullet, new(Pos.x + 40, Pos.y), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
-                        Instantiate(Bullet, new(Pos.x, Pos.y + 40), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
-                        Instantiate(Bullet, new(Pos.x - 40, Pos.y), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
-                        Reload = 0;
+                        if (transform.position.x + dir.x <= Screen.width - 200 && transform.position.x + dir.x >= 735 && transform.position.y + dir.y >= 100 && transform.position.y + dir.y <= Screen.height - 100)
+                        {
+                            transform.position = new(transform.position.x + dir.x, transform.position.y + dir.y);
+                            PrevPosition = Input.GetTouch(0).position;
+                        }
+                        if (Reload >= 0.1f)
+                        {
+                            Instantiate(Bullet, new(Pos.x + 40, Pos.y), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
+                            Instantiate(Bullet, new(Pos.x, Pos.y + 40), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
+                            Instantiate(Bullet, new(Pos.x - 40, Pos.y), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
+                            Reload = 0;
+                        }
                     }
                 }
+                else
+                    PrevPosition = Input.GetTouch(0).position;
             }
+        }
+        if(Input.touchCount == 0)
+        {
+            PrevPosition = new(0, 0);
         }
     }
 }
