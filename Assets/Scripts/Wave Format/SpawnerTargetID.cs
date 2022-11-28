@@ -49,7 +49,7 @@ public class SpawnerTargetIDEditor : Editor
             Tar.GetComponent<SpriteRenderer>().color = Tar.Colour[3];
         }
         EditorGUILayout.BeginHorizontal();
-        Sprite sprite = EditorGUILayout.ObjectField(Tar.Enemies[Tar.EnemySpawnID-1], typeof(Sprite), true, GUILayout.Height(48), GUILayout.Width(48)) as Sprite;
+        //Sprite sprite = EditorGUILayout.ObjectField(Tar.Enemies[Tar.EnemySpawnID-1], typeof(Sprite), true, GUILayout.Height(48), GUILayout.Width(48)) as Sprite;
         EditorGUILayout.EndHorizontal();
         EditorApplication.QueuePlayerLoopUpdate();
     }

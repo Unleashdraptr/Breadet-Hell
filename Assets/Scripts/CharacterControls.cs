@@ -22,7 +22,7 @@ public class CharacterControls : MonoBehaviour
                 if (PrevPosition.x != 0 && PrevPosition.y != 0)
                 {
                     float Distance = Vector2.Distance(Input.GetTouch(0).position, PrevPosition);
-                    if (Distance < 200)
+                    if (Distance < 2000)
                     {
                         Vector2 dir;
                         dir.x = Input.GetTouch(0).position.x - PrevPosition.x;
