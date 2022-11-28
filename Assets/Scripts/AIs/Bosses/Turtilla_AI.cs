@@ -73,7 +73,7 @@ public class Turtilla_AI : MonoBehaviour
             transform.position += new Vector3(Xdirect * Time.deltaTime, Ydirect * Time.deltaTime, 0);
             //Only pins the sprite child of turtilla so that the direction isn't affected
             print(spinDirection * (P1sprite.transform.rotation.eulerAngles.z + (100 + 75 * Variables.Difficulties) * Time.deltaTime));
-            P1sprite.transform.rotation = Quaternion.Euler(0, 0, spinDirection *(P1sprite.transform.rotation.eulerAngles.z + (100 + 75*Variables.Difficulties) * Time.deltaTime));
+            P1sprite.transform.rotation = Quaternion.Euler(0, 0,  P1sprite.transform.rotation.eulerAngles.z + spinDirection * (100 + 100*Variables.Difficulties) * Time.deltaTime);
         }    
     }
 
@@ -108,10 +108,9 @@ public class Turtilla_AI : MonoBehaviour
             Xdirect = totalForce * dir.x;
 
             if (((XOriginal > 0) && (Xdirect < 0) || ((XOriginal < 0) && (Xdirect < 0)) && (other.gameObject.name == "Top Wall" || other.gameObject.name == "Bottom Wall")))
-                return;
+                spinDirection *= -1;
             if (((YOriginal > 0) && (Ydirect < 0) || ((YOriginal < 0) && (Ydirect < 0)) && (other.gameObject.name == "Right Wall" || other.gameObject.name == "Left Wall")))
-                return;
-            spinDirection *= -1;
+                spinDirection *= -1;
         }
 
     }
