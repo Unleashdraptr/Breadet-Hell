@@ -33,7 +33,7 @@ public class WaveManager : MonoBehaviour
         {
             Wait += 1 * Time.deltaTime;
         }
-        if (Wait >= 10 && CurrentWave != TotalWaves + 1)
+        if (GameObject.Find("EnemyStorage").transform.childCount < 1 && CurrentWave != TotalWaves + 1)
         {
             StartCoroutine(SpawnEnemies());
             Wait = 0;
