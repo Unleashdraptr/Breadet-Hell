@@ -511,7 +511,7 @@ TextureImporter:
         width: 41
         height: 12
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -519,6 +519,27 @@ TextureImporter:
       bones: []
       spriteID: facc0774a9e70634f89a66bd5db21872
       internalID: -806661513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Title_2-4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 385
+        width: 64
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 587210b83e98b514a855566b940b4ac2
+      internalID: -490170695
       vertices: []
       indices: 
       edges: []
@@ -548,6 +569,7 @@ TextureImporter:
       Title_1-3: -1347489579
       Crown_White_Burnt: 1643053816
       Crown_Boss_Toasty: 807603771
+      Title_2-4: -490170695
       Difficulty_Practice_Off: -806661513
       Difficulty_Normal: -836625017
       Crown_Boss_Burnt: 1213619340
