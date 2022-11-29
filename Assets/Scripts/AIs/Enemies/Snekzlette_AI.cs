@@ -28,12 +28,13 @@ public class Snekzlette_AI : MonoBehaviour
             StartCoroutine(GetComponent<SnekzelAttackLibrary>().Screencharge(false));
             Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Vector3 Pos = new(transform.position.x, transform.position.y, -1f);
             if (transform.position.x >= 2500)
             {
-                transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, transform.eulerAngles.y, 180-angle));
+                transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, transform.eulerAngles.y, 180-angle));
             }
             else
-                transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z+angle));
+                transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z+angle));
             Delay = 0;
             Charge = true;
         }
