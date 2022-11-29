@@ -1099,7 +1099,7 @@ TextureImporter:
         width: 16
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1120,7 +1120,7 @@ TextureImporter:
         width: 16
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1141,7 +1141,7 @@ TextureImporter:
         width: 16
         height: 10
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1149,6 +1149,27 @@ TextureImporter:
       bones: []
       spriteID: fcce5d47f41c309458db812d08f3f398
       internalID: -885364347
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Mega_1
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 358
+        width: 29
+        height: 29
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1f8225588a36f124b952b110595e3380
+      internalID: 1847972631
       vertices: []
       indices: 
       edges: []
@@ -1186,6 +1207,7 @@ TextureImporter:
       Snekzlet_1: -2045227838
       Torweino_3: 113065446
       Bullet_Round_Red_5: -410854427
+      Bullet_Mega_1: 1847972631
       Toaster_2_In: -778841493
       Explosion_3: 1597220768
       Breadgehog_3: 790726523

@@ -17,16 +17,19 @@ public class BUNny_AI : MonoBehaviour
 
     void Update()
     {
-        transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y*Time.deltaTime, 0);
-        //its invinciblity frames and when it will shoot at certain times
-        if (WithinField)
+        if (Variables.Pause == false)
         {
-            InvisTimer += 1 * Time.deltaTime;
-
-            if (InvisTimer >= 2)
+            transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y * Time.deltaTime, 0);
+            //its invinciblity frames and when it will shoot at certain times
+            if (WithinField)
             {
-                HomingBulletAttack();
-                InvisTimer = 0;
+                InvisTimer += 1 * Time.deltaTime;
+
+                if (InvisTimer >= 2)
+                {
+                    HomingBulletAttack();
+                    InvisTimer = 0;
+                }
             }
         }
     }
