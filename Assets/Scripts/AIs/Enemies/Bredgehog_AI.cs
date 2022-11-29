@@ -45,7 +45,7 @@ public class Bredgehog_AI : MonoBehaviour
         //Removes the enemy once killed
         if (Health == 0)
         {
-            GameObject.Find("Score").GetComponent<ScoreUpKeep>().Score += 10;
+            GameObject.Find("Canvas").GetComponent<ScoreUpKeep>().Score += 10;
             Destroy(gameObject);
         }
     }
@@ -70,6 +70,12 @@ public class Bredgehog_AI : MonoBehaviour
         {
             //Player took contact damage and is telling the player
             collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
+        }
+        if (collision.gameObject.CompareTag("CosnumeMode"))
+        {
+            Health -= 100000;
+            //Also checks if the enemy is dead
+            DeathCheck();
         }
     }
     private void OnCollisionExit2D(Collision2D collision)

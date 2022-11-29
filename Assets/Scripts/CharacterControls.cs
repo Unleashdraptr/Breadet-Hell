@@ -37,7 +37,7 @@ public class CharacterControls : MonoBehaviour
                             transform.position = new(transform.position.x + dir.x, transform.position.y + dir.y);
                             PrevPosition = Input.GetTouch(0).position;
                         }
-                        if (Reload >= 0.1f)
+                        if (Reload >= 0.1f && gameObject.CompareTag("Player"))
                         {
                             Instantiate(Bullet, new(Pos.x + 40, Pos.y), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
                             Instantiate(Bullet, new(Pos.x, Pos.y + 40), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);

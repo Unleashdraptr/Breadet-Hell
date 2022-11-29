@@ -38,7 +38,7 @@ public class BUNny_AI : MonoBehaviour
         //Removes the enemy once killed
         if(Health <= 0)
         {
-            GameObject.Find("Score").GetComponent<ScoreUpKeep>().Score += 1;
+            GameObject.Find("Canvas").GetComponent<ScoreUpKeep>().Score += 10;
             Destroy(gameObject);
         }
     }

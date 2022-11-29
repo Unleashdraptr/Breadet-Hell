@@ -13,13 +13,9 @@ public static class Variables
 
     //Player side of stats that change for each difficulty
     public static int[] PlayerHealth = { 5, 5, 3, 1 };
+    public static int[] HungerNum = { 20, 30, 40, 50 };
     public static float[] InvisTimer = { 2, 1.6f, 1.2f, 0.9f };
 
-    //Temporary
-    //Enemy Spawning side changing shooting mechanics and spawn chances
-    public static int[] ShootDelayMin = { 5, 4, 3, 3 };
-    public static int[] ShootDelayMax = { 20, 15, 12, 12 };
-    public static int[] ShootRandomness = { 3, 5, 8, 12 };
     public static int[] SpawnChance = { 10, 11, 12, 12 };
 
     //The multipler each boss will use for health scaling

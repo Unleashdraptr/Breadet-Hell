@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - BoundingBox
   - PlayField
+  - CosnumeMode
   layers:
   - Default
   - TransparentFX
