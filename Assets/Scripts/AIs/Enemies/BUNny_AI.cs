@@ -10,17 +10,16 @@ public class BUNny_AI : MonoBehaviour
     public float InvisTimer;
     public bool WithinField;
     public Vector2 MoveSpeed;
-    public void Start()
+    private void Start()
     {
-        Health = Random.Range(15, 50);
+        Health = 25;
     }
-
     void Update()
     {
         if (Variables.Pause == false)
         {
             transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y * Time.deltaTime, 0);
-            //its invinciblity frames and when it will shoot at certain times
+            
             if (WithinField)
             {
                 InvisTimer += 1 * Time.deltaTime;

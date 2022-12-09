@@ -8,43 +8,28 @@ public class NyaanCat_AI : MonoBehaviour
     public GameObject Bullet;
     public int Health;
     public float InvisTimer;
-    public bool Moving;
     public bool WithinField;
-    public int ShootTimes;
-    public int ShootMovment;
     public Vector2 MoveSpeed;
-    public void Start()
+    private void Start()
     {
-        //Sets up all the stats and gets the enemy moving to its location to fire
-        Health = Random.Range(15, 50);
-        Moving = true;
-        ShootMovment = Random.Range(1, 10);
+        Health = 20;
     }
-
     void Update()
     {
-        //Tells the enemy to move unless it hits its target
-        if (Moving == true)
+        if (Variables.Pause == false)
         {
             transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y * Time.deltaTime, 0);
-        }
-        //its invinciblity frames and when it will shoot at certain times
-        InvisTimer += 1 * Time.deltaTime;
-        int ShootDelay = Random.Range(2, 6);
-        if (InvisTimer >= ShootDelay && Moving == false)
-        {
-            //To remove spamming the 5th Attack when moving off screen
-            if (ShootTimes != ShootMovment - 1)
+
+            if (WithinField)
             {
-                TripleAttack();
+                
+                InvisTimer += 1 * Time.deltaTime;
+                if (InvisTimer >= 2)
+                {
+                    StartCoroutine(TripleAttack());
+                    InvisTimer = 0;
+                }
             }
-            InvisTimer = 1;
-            ShootTimes += 1;
-        }
-        //Once shootTimes is as many as the random chance said it should shoot, it will start to move again
-        if (ShootTimes == ShootMovment)
-        {
-            Moving = true;
         }
     }
     void DeathCheck()
@@ -68,9 +53,8 @@ public class NyaanCat_AI : MonoBehaviour
         }
 
         //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.CompareTag("PlayField") && WithinField == false)
+        if (collision.gameObject.CompareTag("BoundingBox") && WithinField == false)
         {
-
             WithinField = true;
         }
 
@@ -88,15 +72,16 @@ public class NyaanCat_AI : MonoBehaviour
         }
     }
 
-
-
-
-    void TripleAttack()
+    IEnumerator TripleAttack()
     {
-        Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);
-        Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 50), GameObject.Find("ProjectileStorage").transform);
-        Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 130), GameObject.Find("ProjectileStorage").transform);
+        for (int i = 0; i < 3; i++)
+        {
+            Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 80), GameObject.Find("ProjectileStorage").transform);
+            Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);
+            Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 100), GameObject.Find("ProjectileStorage").transform);
+            yield return new WaitForSeconds(0.25f);
+        }
     }
 }

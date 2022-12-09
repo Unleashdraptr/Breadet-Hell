@@ -7,14 +7,14 @@ public class SpawnerTargetID : MonoBehaviour
 {
     [HideInInspector]
     public GameObject[] Enemies;
-    [Tooltip(" 1 = BUNny, 2 = Nyaan, 3 = Breadgehog, 4 = Hot Dog, 5 = (Not added yet), 6 = Bossling, 7 = Toaster ")]
-    [Range(1,7)]
+    [Tooltip(" 1 = BUNny, 2 = Nyaan, 3 = Breadgehog, 4 = Hot Dog, 5 = Bossling, 6 = Toaster ")]
+    [Range(1,6)]
     public int EnemySpawnID;
     [Tooltip(" Wave the spawner appears in the level ")]
-    [Range(1, 12)]
+    [Range(1, 15)]
     public int WaveSpawnNum;
     [Tooltip(" (at the end) Wave the spawner disappears in the level ")]
-    [Range(1, 12)]
+    [Range(1, 15)]
     public int WaveDespawnNum;
     [Tooltip(" The direction the enemies will walk after spawning ")]
     public SpawnerID.Directions SpawnDirection;

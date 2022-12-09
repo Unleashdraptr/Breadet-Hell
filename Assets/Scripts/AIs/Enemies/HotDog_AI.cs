@@ -17,9 +17,8 @@ public class HotDog_AI : MonoBehaviour
     public void Start()
     {
         animator = GetComponent<Animator>();
-        //Sets up all the stats and gets the enemy moving to its location to fire
-        Health = Random.Range(30, 30);
         Moving = true;
+        Health = 30;
     }
 
     void Update()

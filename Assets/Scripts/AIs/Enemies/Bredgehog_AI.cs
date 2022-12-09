@@ -13,14 +13,10 @@ public class Bredgehog_AI : MonoBehaviour
 
     public Vector2 MoveSpeed;
     private Animator animator;
-    public void Start()
+    private void Start()
     {
-        animator = GetComponent<Animator>();
-        //Sets up all the stats and gets the enemy moving to its location to fire
-        Health = Random.Range(15, 50);
-        Moving = true;
+        Health = 45;
     }
-
     void Update()
     {
         //Tells the enemy to move unless it hits its target

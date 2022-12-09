@@ -10,13 +10,11 @@ public class Snekzlette_AI : MonoBehaviour
     public int Health;
     public bool WithinField;
     public float DropDelay;
-    readonly float[] Speeeeed = { 1000, 1333, 1666, 2000 }; 
+    readonly float[] Speeeeed = { 1000, 1333, 1666, 2000 };
     private void Start()
     {
-        //Sets up all the stats and gets the enemy moving to its location to fire
-        Health = Random.Range(15, 50);
+        Health = 75;
     }
-    // Update is called once per frame
     void Update()
     {
         if (Charge == false)

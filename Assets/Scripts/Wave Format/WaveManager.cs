@@ -73,8 +73,8 @@ public class WaveManager : MonoBehaviour
         CurrentWave += 1;
         if (CurrentWave != TotalWaves +1)
         {
-            UpdateWaveInfo();
             UpdateSpawners();
+            UpdateWaveInfo();
         }
     }
 

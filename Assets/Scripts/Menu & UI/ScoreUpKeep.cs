@@ -12,6 +12,6 @@ public class ScoreUpKeep : MonoBehaviour
     {
         //Updates the score everytime an enemy is killed
         transform.GetChild(2).GetChild(2).GetComponent<Text>().text = Score.ToString("000000");
-        transform.GetChild(2).GetChild(3).GetComponent<Text>().text = ConScore.ToString("000000");
+        transform.GetChild(2).GetChild(4).GetComponent<Text>().text = ConScore.ToString("000000");
     }
 }

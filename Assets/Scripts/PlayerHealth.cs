@@ -40,17 +40,23 @@ public class PlayerHealth : MonoBehaviour
         {
             CosNumeTimer += 1 * Time.deltaTime;
         }
-        //Timer after getting hit, is shorter the higher the difficuly
-        InvisTimer += 2 * Time.deltaTime;
+
         if(InvisTimer >= Variables.InvisTimer[Variables.Difficulties - 1])
         {
             gameObject.GetComponent<CircleCollider2D>().enabled = true;
         }
-        HungerTimer.value -= 1 * Time.deltaTime;
+
+        if(Variables.Pause != true)
+        {
+            HungerTimer.value -= 1 * Time.deltaTime;
+            InvisTimer += 2 * Time.deltaTime;
+        }
+
         if(HungerTimer.value <= 0)
         {
             EatButton.gameObject.SetActive(true);
         }
+
         if(CosNumeTimer >= 20)
         {
             gameObject.tag = "Player";
