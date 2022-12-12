@@ -4,25 +4,27 @@ using UnityEngine;
 
 public class NyaanCat_AI : MonoBehaviour
 {
-    //Enemy_AI that can shoot and contains health
+    //Health and AI necessities needed for movement 
     public GameObject Bullet;
     public int Health;
     public float InvisTimer;
     public bool WithinField;
     public Vector2 MoveSpeed;
+
     private void Start()
     {
         Health = 20;
     }
+
     void Update()
     {
+        //NyaanCat's movement and stops if the game is paused
         if (Variables.Pause == false)
         {
             transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y * Time.deltaTime, 0);
-
+            //If the player can see it, it starts shooting
             if (WithinField)
-            {
-                
+            { 
                 InvisTimer += 1 * Time.deltaTime;
                 if (InvisTimer >= 2)
                 {
@@ -66,6 +68,7 @@ public class NyaanCat_AI : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
+        //If the player cant see it, it wont shoot
         if (collision.gameObject.CompareTag("BoundingBox"))
         {
             WithinField = false;
@@ -74,6 +77,7 @@ public class NyaanCat_AI : MonoBehaviour
 
     IEnumerator TripleAttack()
     {
+        //Fires out 3 sets of 3 bullets at the players position relative to itself
         for (int i = 0; i < 3; i++)
         {
             Vector3 dir = GameObject.Find("Player").transform.position - transform.position;

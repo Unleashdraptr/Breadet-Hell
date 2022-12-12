@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class CrossSpiral : MonoBehaviour
 {
+    //Unused
     //Enemy_AI that can shoot and contains health
     public GameObject Bullet;
     public GameObject BulletReverse;

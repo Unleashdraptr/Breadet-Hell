@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Toaster_AI : MonoBehaviour
 {
-    //Enemy_AI that can shoot and contains health
+    //Health and AI necessities needed for movement
     public GameObject Bullet;
     public int Health;
     public float InvisTimer;
-    public bool Moving;
     public bool WithinField;
-    public int ShootTimes;
-    public int ShootMovment;
-    public float MoveSpeed;
     private Animator animator;
     Animator ExplosionAnimator;
 
@@ -31,11 +27,7 @@ public class Toaster_AI : MonoBehaviour
         ExplosionAnimator = Explosion.GetComponent<Animator>();
         animator = GetComponent<Animator>();
         //Sets up all the stats and gets the enemy moving to its location to fire
-        Health = Random.Range(50, 50);
-        Moving = true;
-        ShootMovment = Random.Range(1, 10);
-        MoveSpeed = 150f;
-
+        Health = 50;
 
         ToastProgress = TimerObject.GetComponent<Timer>().totalTime / (Variables.Difficulties + 1);
         Toastyness = Variables.Difficulties;
@@ -50,23 +42,12 @@ public class Toaster_AI : MonoBehaviour
             animator.SetTrigger("Toast");
             Toastyness--;
         }
-
-        //Tells the enemy to move unless it hits its target
-        if (Moving == true)
-        {
-            transform.Translate(0, -MoveSpeed * Time.deltaTime, 0);
-        }
         //its invinciblity frames and when it will shoot at certain times
 
         if (TimerObject.GetComponent<Timer>().countdown <= 0 && Exploded == false)
         {
             Exploded = true;
             StartCoroutine(Explode());
-        }
-        //Once shootTimes is as many as the random chance said it should shoot, it will start to move again
-        if (ShootTimes == ShootMovment)
-        {
-            Moving = true;
         }
     }
     void DeathCheck()
@@ -94,9 +75,6 @@ public class Toaster_AI : MonoBehaviour
         if (collision.gameObject.CompareTag("BoundingBox") && WithinField == false)
         {
             TimerObject.GetComponent<Timer>().StartTimer = true;
-
-            Moving = false;
-            MoveSpeed = 450f;
             WithinField = true;
         }
 
@@ -147,7 +125,6 @@ public class Toaster_AI : MonoBehaviour
                 aBullet.GetComponent<TurningBullet>().BulletSpeedInt = 600;
             }
         }
-        //Destroy(this);
         yield return new WaitForSeconds(0.10f);
         Destroy(gameObject);
     }
