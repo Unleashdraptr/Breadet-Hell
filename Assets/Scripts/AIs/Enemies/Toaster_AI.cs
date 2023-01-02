@@ -22,32 +22,42 @@ public class Toaster_AI : MonoBehaviour
     private float ToastProgress;
     private int Toastyness;
 
+    public bool ExplodeTime;
+
     public void Start()
     {
         ExplosionAnimator = Explosion.GetComponent<Animator>();
         animator = GetComponent<Animator>();
         //Sets up all the stats and gets the enemy moving to its location to fire
         Health = 50;
-
+        transform.position = new(transform.position.x, transform.position.y, -10);
         ToastProgress = TimerObject.GetComponent<Timer>().totalTime / (Variables.Difficulties + 1);
         Toastyness = Variables.Difficulties;
     }
-
+    float Distance;
     void Update()
     {
-
-        if (TimerObject.GetComponent<Timer>().countdown < (ToastProgress * Toastyness) - ToastProgress/3 && (Toastyness != 0))
+        if (ExplodeTime == true)
         {
-            print("toast");
-            animator.SetTrigger("Toast");
-            Toastyness--;
+            transform.GetChild(2).GetComponent<Timer>().StartTimer = true;
+            if (TimerObject.GetComponent<Timer>().countdown < (ToastProgress * Toastyness) - ToastProgress / 3 && (Toastyness != 0))
+            {
+                animator.SetTrigger("Toast");
+                Toastyness--;
+            }
+            //its invinciblity frames and when it will shoot at certain times
+
+            if (TimerObject.GetComponent<Timer>().countdown <= 0 && Exploded == false)
+            {
+                Exploded = true;
+                StartCoroutine(Explode());
+            }
         }
-        //its invinciblity frames and when it will shoot at certain times
-
-        if (TimerObject.GetComponent<Timer>().countdown <= 0 && Exploded == false)
+        Distance = Vector2.Distance(transform.position, GameObject.Find("Player").transform.position);
+        if(Distance <= 400)
         {
-            Exploded = true;
-            StartCoroutine(Explode());
+            transform.position = new(transform.position.x, transform.position.y, -1);
+            ExplodeTime = true;
         }
     }
     void DeathCheck()
@@ -56,7 +66,7 @@ public class Toaster_AI : MonoBehaviour
         if (Health == 0)
         {
             Defeated = 1;
-            GameObject.Find("Score").GetComponent<ScoreUpKeep>().Score += 1;
+            GameObject.Find("Canvas").GetComponent<ScoreUpKeep>().Score += 1;
             StartCoroutine(Explode());
         }
     }
@@ -69,19 +79,6 @@ public class Toaster_AI : MonoBehaviour
             Health -= 1;
             //Also checks if the enemy is dead
             DeathCheck();
-        }
-
-        //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.CompareTag("BoundingBox") && WithinField == false)
-        {
-            TimerObject.GetComponent<Timer>().StartTimer = true;
-            WithinField = true;
-        }
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            //Player took contact damage and is telling the player
-            collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
         }
     }
 

@@ -82,6 +82,10 @@ public class Bredgehog_AI : MonoBehaviour
         {
             WithinField = false;
         }
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 

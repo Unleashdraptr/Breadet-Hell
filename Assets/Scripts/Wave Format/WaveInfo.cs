@@ -17,7 +17,7 @@ public class WaveInfo : MonoBehaviour
     [Tooltip(" The lowest difficulty the spawner will be used on ")]
     public Difficulties difficulties;
 }
-
+/*
 [CustomEditor(typeof(WaveInfo))]
 public class WaveUpdate : Editor
 {
@@ -152,4 +152,5 @@ public class WaveUpdate : Editor
         EditorGUILayout.EndHorizontal();
     }
 }
+*/
 

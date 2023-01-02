@@ -95,7 +95,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void FullnessCheck()
     {
-        if(Fullness.value == Fullness.maxValue)
+        if(Fullness.value >= Fullness.maxValue)
         {
             gameObject.tag = "Player";
             EatButton.gameObject.SetActive(false);
@@ -119,19 +119,17 @@ public class PlayerHealth : MonoBehaviour
             Destroy(collision.gameObject);
             BeenHit();
         }
-        else if (collision.gameObject.CompareTag("Enemy_Bullet") && gameObject.CompareTag("CosnumeMode"))
+        if (collision.gameObject.CompareTag("Enemy_Bullet") && gameObject.CompareTag("CosnumeMode"))
         {
             Destroy(collision.gameObject);
             Fullness.value += 1;
             Scores.GetComponent<ScoreUpKeep>().ConScore += 1;
-            FullnessCheck();
         }
-        if(collision.gameObject.CompareTag("Enemy") && gameObject.CompareTag("CosnumeMode"))
+        if (collision.gameObject.CompareTag("Enemy") && gameObject.CompareTag("CosnumeMode"))
         {
             Destroy(collision.gameObject);
             Fullness.value += 10;
             Scores.GetComponent<ScoreUpKeep>().ConScore += 10;
-            FullnessCheck();
         }
     }
 }

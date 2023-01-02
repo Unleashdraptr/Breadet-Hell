@@ -20,7 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Bosses/2-4 Tortillas.unity
     guid: 1c13f36a8f7127c4eae086df171d08b0
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Testing.unity
     guid: 889e2a5b29268144b88cd4b876ac0d1d
   m_configObjects: {}

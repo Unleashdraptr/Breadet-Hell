@@ -14,7 +14,7 @@ public class WaveManager : MonoBehaviour
     public int CurrentWave;
     [Tooltip("The total that will spawn for the wave, seperated per enemy")]
     public int[] EnemyNums;
-    readonly string[] EnemyNames = { "BUNny", "Nyaan Bread", "Breadgehog", "Hot Dog", "Croissidile", "Bosslings", "Toaster" };
+    readonly string[] EnemyNames = { "BUNny", "Nyaan Bread", "Breadgehog", "Hot Dog", "Bosslings", "Toaster" };
     [Tooltip("Time between wave")]
     public float Wait;
 
@@ -97,8 +97,8 @@ public class WaveManager : MonoBehaviour
                 if (((int)SpawnerLocations.transform.GetChild(i).GetComponent<SpawnerTargetID>().difficulties) < Variables.Difficulties)
                 {
                     GameObject Location = SpawnerLocations.transform.GetChild(i).gameObject;
-                    Vector3 Pos = new(Location.transform.position.x, Location.transform.position.y, 0);
-                    GameObject nSpawner = Instantiate(Spawner, Pos, Quaternion.identity, GameObject.Find(EnemyNames[Location.GetComponent<SpawnerTargetID>().EnemySpawnID - 1]).transform);
+                    Vector3 Pos = new(Location.transform.position.x, Location.transform.position.y, Location.transform.position.z);
+                    GameObject nSpawner = Instantiate(Spawner, Pos, Quaternion.identity, GameObject.Find(EnemyNames[Location.GetComponent<SpawnerTargetID>().EnemySpawnID-1]).transform);
                     nSpawner.GetComponent<SpawnerID>().DespawnNum = Location.GetComponent<SpawnerTargetID>().WaveDespawnNum;
                     nSpawner.GetComponent<SpawnerID>().directions = Location.GetComponent<SpawnerTargetID>().SpawnDirection;
                     Destroy(SpawnerLocations.transform.GetChild(i).gameObject);

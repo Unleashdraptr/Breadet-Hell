@@ -128,11 +128,9 @@ MonoBehaviour:
   Bullet: {fileID: 8244138661295272704, guid: ebd64d7afbce0e54d8e27dff3d51abb1, type: 3}
   Health: 0
   InvisTimer: 0
-  Moving: 0
-  Stopped: 0
-  ShootTimes: 0
-  ShootMovment: 0
-  MoveSpeed: 0
+  Moving: 1
+  WithinField: 0
+  MoveSpeed: {x: 0, y: 0}
 --- !u!95 &7289889581953835871
 Animator:
   serializedVersion: 4

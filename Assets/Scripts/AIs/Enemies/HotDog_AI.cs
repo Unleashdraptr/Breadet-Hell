@@ -42,6 +42,7 @@ public class HotDog_AI : MonoBehaviour
         if (InvisTimer >= 3)
         {
             Moving = false;
+            WithinField = false;
             StartCoroutine(SnipeAttack());
             InvisTimer = 0;
         }
@@ -80,6 +81,10 @@ public class HotDog_AI : MonoBehaviour
         {
             WithinField = false;
         }
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 
@@ -93,7 +98,7 @@ public class HotDog_AI : MonoBehaviour
             ShootAmount *= 2;
         }
         //For the amount it will shoot
-        for (int i = 0; i <= ShootAmount; i++)
+        for (int i = 0; i < ShootAmount; i++)
         {
             //Play an animate
             animator.SetTrigger("Reloading");
@@ -102,31 +107,29 @@ public class HotDog_AI : MonoBehaviour
             Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             //Figure out what side of the map its on
+            Vector3 Pos = new(transform.position.x, transform.position.y, transform.position.z);
             if (transform.position.x >= 2500)
             {
-                transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, transform.localRotation.y, -angle));
+                transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, transform.eulerAngles.y, 180-angle));
             }
             else
-                transform.SetPositionAndRotation(transform.position, Quaternion.Euler(0, transform.localRotation.y, angle));
+                transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z+angle));
             //Spawn the hot dog
             Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);
             animator.SetTrigger("Shot");
             yield return new WaitForSeconds(0.15f);
-
-            if (i == ShootAmount)
-            {
-                //It will wait and check if its low enough on burnt and higher
-                yield return new WaitForSeconds(0.5f);
-                if (Variables.Difficulties >= 3 && Health < 25)
-                    //Once angered, he will turn into a hot dog
-                    animator.SetBool("Angered", true);
-                yield return new WaitForSeconds(0.5f);
-                //Sets up for his charging state
-                animator.SetBool("Stalling", false);
-                Targeting = true;
-                Moving = true;
-                WithinField = false;
-            }
         }
+        //It will wait and check if its low enough on burnt and higher
+        yield return new WaitForSeconds(0.5f);
+        if (Variables.Difficulties >= 3 && Health < 25)
+        {
+            //Once angered, he will turn into a hot dog
+            animator.SetBool("Angered", true);
+        }
+        yield return new WaitForSeconds(0.5f);
+        //Sets up for his charging state
+        animator.SetBool("Stalling", false);
+        Targeting = true;
+        Moving = true;
     }
 }

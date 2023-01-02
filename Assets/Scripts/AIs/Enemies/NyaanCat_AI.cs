@@ -73,6 +73,10 @@ public class NyaanCat_AI : MonoBehaviour
         {
             WithinField = false;
         }
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            Destroy(gameObject);
+        }
     }
 
     IEnumerator TripleAttack()

@@ -32,7 +32,7 @@ public class CharacterControls : MonoBehaviour
                         if (angle < 0)
                             angle = 360 - angle * -1;
                         animator.SetFloat("Angle", angle);
-                        if (transform.position.x + dir.x <= Screen.width - 200 && transform.position.x + dir.x >= 735 && transform.position.y + dir.y >= 100 && transform.position.y + dir.y <= Screen.height - 100)
+                        if (transform.position.x + dir.x <= Screen.width + 500 && transform.position.x + dir.x >= 735 && transform.position.y + dir.y >= 100 && transform.position.y + dir.y <= Screen.height +250)
                         {
                             transform.position = new(transform.position.x + dir.x, transform.position.y + dir.y);
                             PrevPosition = Input.GetTouch(0).position;
