@@ -24,7 +24,7 @@ public class SpawnerTargetID : MonoBehaviour
     [HideInInspector]
     public Color[] Colour = { new(0,100,100), new(0,100,62), new(0,100,30), Color.black };
 }
-/*
+
 [CustomEditor(typeof(SpawnerTargetID))]
 public class SpawnerTargetIDEditor : Editor
 {
@@ -56,4 +56,3 @@ public class SpawnerTargetIDEditor : Editor
         EditorApplication.QueuePlayerLoopUpdate();
     }
 }
-*/

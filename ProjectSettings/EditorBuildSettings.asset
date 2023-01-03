@@ -15,12 +15,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Levels/1-2 Bites.unity
     guid: 4c727c023281fbd4b89443b578551920
   - enabled: 1
+    path: Assets/Scenes/Levels/1-3 Flatbreads.unity
+    guid: ceb4bb70da0d5df4988ea842fa3a78e1
+  - enabled: 1
     path: Assets/Scenes/Bosses/Snekzel_Boss_Fight.unity
     guid: 6435f4d99971b384e8b1883a70a345f6
-  - enabled: 1
-    path: Assets/Scenes/Bosses/2-4 Tortillas.unity
-    guid: 1c13f36a8f7127c4eae086df171d08b0
-  - enabled: 0
-    path: Assets/Scenes/Testing.unity
-    guid: 889e2a5b29268144b88cd4b876ac0d1d
   m_configObjects: {}

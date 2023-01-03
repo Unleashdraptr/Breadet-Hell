@@ -148,3 +148,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Timer: 0
   BulletSpeedInt: 600
+  TurnAngle: 0.3

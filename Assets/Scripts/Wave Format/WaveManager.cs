@@ -64,7 +64,8 @@ public class WaveManager : MonoBehaviour
                 }
                 Vector2 rotate = new();
                 SetMove(Spawners.transform.GetChild(i).GetChild(RotationNum).GetComponent<SpawnerID>().directions, ref rotate);
-                GameObject Clone = Instantiate(Enemies[i], Spawners.transform.GetChild(i).GetChild(RotationNum).position, Quaternion.Euler(rotate.x, rotate.y, 0), GameObject.Find("EnemyStorage").transform);
+                Vector3 Pos = new(Spawners.transform.GetChild(i).GetChild(RotationNum).position.x, Spawners.transform.GetChild(i).GetChild(RotationNum).position.y, 0);
+                GameObject Clone = Instantiate(Enemies[i], Pos, Quaternion.Euler(rotate.x, rotate.y, 0), GameObject.Find("EnemyStorage").transform);
                 CheckAI(Clone);
                 RotationNum += 1;
             }

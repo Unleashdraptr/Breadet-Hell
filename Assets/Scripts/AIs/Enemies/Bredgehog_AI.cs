@@ -12,7 +12,7 @@ public class Bredgehog_AI : MonoBehaviour
     public bool WithinField;
 
     public Vector2 MoveSpeed;
-    private Animator animator;
+    public Animator animator;
     private void Start()
     {
         //Sets health

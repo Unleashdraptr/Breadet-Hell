@@ -131,6 +131,7 @@ MonoBehaviour:
   Moving: 1
   WithinField: 0
   MoveSpeed: {x: 0, y: 0}
+  animator: {fileID: 7289889581953835871}
 --- !u!95 &7289889581953835871
 Animator:
   serializedVersion: 4

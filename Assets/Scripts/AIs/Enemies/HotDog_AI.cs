@@ -107,21 +107,16 @@ public class HotDog_AI : MonoBehaviour
             Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             //Figure out what side of the map its on
-            Vector3 Pos = new(transform.position.x, transform.position.y, transform.position.z);
-            if (transform.position.x >= 2500)
-            {
-                transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, transform.eulerAngles.y, 180-angle));
-            }
-            else
-                transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, transform.eulerAngles.y, transform.eulerAngles.z+angle));
+            Vector3 Pos = new(transform.position.x, transform.position.y, -1f);
+            transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, transform.eulerAngles.y, angle));
             //Spawn the hot dog
-            Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);
+            Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle-90), GameObject.Find("ProjectileStorage").transform);
             animator.SetTrigger("Shot");
             yield return new WaitForSeconds(0.15f);
         }
         //It will wait and check if its low enough on burnt and higher
         yield return new WaitForSeconds(0.5f);
-        if (Variables.Difficulties >= 3 && Health < 25)
+        if (Variables.Difficulties >= 3 && Health < 15)
         {
             //Once angered, he will turn into a hot dog
             animator.SetBool("Angered", true);
@@ -131,5 +126,6 @@ public class HotDog_AI : MonoBehaviour
         animator.SetBool("Stalling", false);
         Targeting = true;
         Moving = true;
+        MoveSpeed = new(300, 0);
     }
 }
