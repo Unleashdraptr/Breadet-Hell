@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class Toaster_AI : MonoBehaviour
 {
-    //Enemy_AI that can shoot and contains health
+    //Health and AI necessities needed for movement
     public GameObject Bullet;
     public int Health;
     public float InvisTimer;
-    public bool Moving;
     public bool WithinField;
-    public int ShootTimes;
-    public int ShootMovment;
-    public float MoveSpeed;
     private Animator animator;
     Animator ExplosionAnimator;
 
@@ -26,47 +22,42 @@ public class Toaster_AI : MonoBehaviour
     private float ToastProgress;
     private int Toastyness;
 
+    public bool ExplodeTime;
+
     public void Start()
     {
         ExplosionAnimator = Explosion.GetComponent<Animator>();
         animator = GetComponent<Animator>();
         //Sets up all the stats and gets the enemy moving to its location to fire
-        Health = Random.Range(50, 50);
-        Moving = true;
-        ShootMovment = Random.Range(1, 10);
-        MoveSpeed = 150f;
-
-
+        Health = 50;
+        transform.position = new(transform.position.x, transform.position.y, -10);
         ToastProgress = TimerObject.GetComponent<Timer>().totalTime / (Variables.Difficulties + 1);
         Toastyness = Variables.Difficulties;
     }
-
+    float Distance;
     void Update()
     {
+        if (ExplodeTime == true)
+        {
+            transform.GetChild(2).GetComponent<Timer>().StartTimer = true;
+            if (TimerObject.GetComponent<Timer>().countdown < (ToastProgress * Toastyness) - ToastProgress / 3 && (Toastyness != 0))
+            {
+                animator.SetTrigger("Toast");
+                Toastyness--;
+            }
+            //its invinciblity frames and when it will shoot at certain times
 
-        if (TimerObject.GetComponent<Timer>().countdown < (ToastProgress * Toastyness) - ToastProgress/3 && (Toastyness != 0))
-        {
-            print("toast");
-            animator.SetTrigger("Toast");
-            Toastyness--;
+            if (TimerObject.GetComponent<Timer>().countdown <= 0 && Exploded == false)
+            {
+                Exploded = true;
+                StartCoroutine(Explode());
+            }
         }
-
-        //Tells the enemy to move unless it hits its target
-        if (Moving == true)
+        Distance = Vector2.Distance(transform.position, GameObject.Find("Player").transform.position);
+        if(Distance <= 400)
         {
-            transform.Translate(0, -MoveSpeed * Time.deltaTime, 0);
-        }
-        //its invinciblity frames and when it will shoot at certain times
-
-        if (TimerObject.GetComponent<Timer>().countdown <= 0 && Exploded == false)
-        {
-            Exploded = true;
-            StartCoroutine(Explode());
-        }
-        //Once shootTimes is as many as the random chance said it should shoot, it will start to move again
-        if (ShootTimes == ShootMovment)
-        {
-            Moving = true;
+            transform.position = new(transform.position.x, transform.position.y, -1);
+            ExplodeTime = true;
         }
     }
     void DeathCheck()
@@ -75,7 +66,7 @@ public class Toaster_AI : MonoBehaviour
         if (Health == 0)
         {
             Defeated = 1;
-            GameObject.Find("Score").GetComponent<ScoreUpKeep>().Score += 1;
+            GameObject.Find("Canvas").GetComponent<ScoreUpKeep>().Score += 1;
             StartCoroutine(Explode());
         }
     }
@@ -88,22 +79,6 @@ public class Toaster_AI : MonoBehaviour
             Health -= 1;
             //Also checks if the enemy is dead
             DeathCheck();
-        }
-
-        //Checks if it the enemy has hit its intented target to start shooting.
-        if (collision.gameObject.CompareTag("BoundingBox") && WithinField == false)
-        {
-            TimerObject.GetComponent<Timer>().StartTimer = true;
-
-            Moving = false;
-            MoveSpeed = 450f;
-            WithinField = true;
-        }
-
-        if (collision.gameObject.CompareTag("Player"))
-        {
-            //Player took contact damage and is telling the player
-            collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
         }
     }
 
@@ -147,7 +122,6 @@ public class Toaster_AI : MonoBehaviour
                 aBullet.GetComponent<TurningBullet>().BulletSpeedInt = 600;
             }
         }
-        //Destroy(this);
         yield return new WaitForSeconds(0.10f);
         Destroy(gameObject);
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class TurningBullet2 : MonoBehaviour
 {
+    //Unused
     public float Timer;
     public int BulletSpeedInt;
     private Vector3 originalPosition;
@@ -15,8 +16,6 @@ public class TurningBullet2 : MonoBehaviour
 
         transform.Translate(0, BulletSpeedInt * 10 * Direction * Time.deltaTime, 0);
     }
-
-    // Update is called once per frame
     void Update()
     {
         Vector3 dir = originalPosition - transform.position;

@@ -22,6 +22,7 @@ public class TurtillaAttackLibrary : MonoBehaviour
     //Phase 2 Attack
     public IEnumerator ShedAttack()
     {
+        //Starts spawning massive amounts of bullets as he splits and goes to phase 3
         Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, 180), GameObject.Find("ProjectileStorage").transform);
         yield return new WaitForSeconds(0.3f);
         Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, 180), GameObject.Find("ProjectileStorage").transform);
@@ -32,6 +33,7 @@ public class TurtillaAttackLibrary : MonoBehaviour
     //Phase 3 Attack
     public IEnumerator SplitUp()
     {
+        //Since he split he now shakes out his contents
         Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, 180), GameObject.Find("ProjectileStorage").transform);
         yield return new WaitForSeconds(0.2f);
         Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, 180), GameObject.Find("ProjectileStorage").transform);

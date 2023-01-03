@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Shotgun_AI : MonoBehaviour
 {
+    //Unused
     //Enemy_AI that can shoot and contains health
     public GameObject Bullet;
     public int Health;
@@ -52,7 +53,7 @@ public class Shotgun_AI : MonoBehaviour
         //Removes the enemy once killed
         if (Health <= 0)
         {
-            GameObject.Find("Score").GetComponent<ScoreUpKeep>().Score += 1;
+            GameObject.Find("Canvas").GetComponent<ScoreUpKeep>().Score += 10;
             Destroy(gameObject);
         }
     }

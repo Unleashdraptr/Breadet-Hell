@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class SnekzelAttackLibrary : MonoBehaviour
 {
+    //Objects and positisons that Snekzel needs
     public GameObject Player;
     public GameObject Salt;
     public GameObject SuperSalt;
@@ -15,7 +16,7 @@ public class SnekzelAttackLibrary : MonoBehaviour
     readonly float[] ShootDelayTimes = { 1.45f, 1.475f, 1.475f, 1.5f };
     void Update()
     {
-        //If he is charging in the 2nd phase he will perform this
+        //If he is charging he will perform the code bellow, he will only charge in Phase 2
         if (Charge == true)
         {
             //He charges across the screen VERY quickly while shooting out salt
@@ -24,7 +25,7 @@ public class SnekzelAttackLibrary : MonoBehaviour
             //ShootDelay depends on the difficulty
             if (ShootDelay >= (1.55f - ShootDelayTimes[Variables.Difficulties - 1]))
             {
-                //Faster salt is shot out in higher difficulties
+                //Faster salt is shot out in higher difficulties (Burnt & Breadendary)
                 if (Variables.Difficulties > 1)
                 {
                     Instantiate(SuperSalt, P2Saltshakers.transform.GetChild(2).position, Quaternion.Euler(0, 0, 120), GameObject.Find("ProjectileStorage").transform);
@@ -39,9 +40,11 @@ public class SnekzelAttackLibrary : MonoBehaviour
             ShootTime += 1*Time.deltaTime;
             if(ShootTime >= 2)
             {
+                //Stops the charge and prevents him to charge again while he changes forms
                 Charge = false;
                 GetComponent<Snekzel_AI>().Attacking = false;
                 ShootTime = 0;
+                //Sets up for Phase 3
                 if(GetComponent<Snekzel_AI>().state == Snekzel_AI.BossPhase.PHASE_3)
                 {
                     GetComponent<Snekzel_AI>().UpdateHealth(175);
@@ -55,7 +58,7 @@ public class SnekzelAttackLibrary : MonoBehaviour
     //Phase 1 Attack
     public void SaltThrow()
     {
-        //Finds the players locations and the angle it is away from Snekzel
+        //Finds the players locations and the angle it to hit the player
         Vector3 dir = Player.transform.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Transform Head = GameObject.Find("P1Head").transform;
@@ -63,12 +66,11 @@ public class SnekzelAttackLibrary : MonoBehaviour
         {
             //Randomly checks if some should fire out faster bullets
             int Speed = Random.Range(1, 11);
-            //Slower bullets that are fired from the head
+            //bullets that are fired from the head
             if (Speed < (8 - Variables.Difficulties))
             {
                 Instantiate(Salt, Head.position, Quaternion.Euler(0, 0, angle - (i + 6) * 10), GameObject.Find("ProjectileStorage").transform);
             }
-            //Faster bullets that are fired from the head
             if (Speed >= (8 - Variables.Difficulties))
             {
                 Instantiate(SuperSalt, Head.position, Quaternion.Euler(0, 0, angle - (i + 6) * 10), GameObject.Find("ProjectileStorage").transform);
@@ -84,7 +86,7 @@ public class SnekzelAttackLibrary : MonoBehaviour
 
     public IEnumerator Screencharge(bool IsBoss)
     {
-        //This decides what direction he will travel in and at what height on the screen to do so
+        //This decides what side of the screen he will start to travel from and at what height on the screen to do so
         int ScreenWidth = Random.Range(40, Screen.width/2 - 20);
         Vector2 Pos = new(0, ScreenWidth);
         int Screenside = Random.Range(1, 3);
@@ -98,9 +100,10 @@ public class SnekzelAttackLibrary : MonoBehaviour
             Pos.x = -440 ;
             transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 0, 0));
         }
+        //This checks if its Snekzel or Snekzlette is using the position decider
         if (IsBoss)
         {
-            //Then waits for a 0.75 seconds to show a tell to the player of which direction and where he will charge
+            //Then waits for a 0.75 seconds to show a tell to the player of where Snekzel is about to charge fromm
             yield return new WaitForSeconds(0.75f);
             Charge = true;
         }
@@ -109,9 +112,11 @@ public class SnekzelAttackLibrary : MonoBehaviour
     int MineCount;
     public IEnumerator TunnelUp()
     {
+        //Places a mine every 2 times he stops tunneling up
         if (HasMoved == true && MineCount == 2)
         {
             GameObject Toasty = Instantiate(Toaster, GameObject.Find("Phase 3").transform.position, Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
+            //Aceelerates the mine to explode faster
             Toasty.transform.GetChild(2).GetComponent<Timer>().totalTime = 2.5f;
             Toasty.transform.GetChild(2).GetComponent<Timer>().countdown = 2.5f;
             MineCount = 0;

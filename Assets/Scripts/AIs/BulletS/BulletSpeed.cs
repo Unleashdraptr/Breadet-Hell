@@ -14,6 +14,7 @@ public class BulletSpeed : MonoBehaviour
         {
             //Bullet with travel along the Y axis every frame
             transform.Translate(0, BulletSpeedInt * Time.deltaTime, 0);
+            //If it has gravity it will slow and then start to fall
             if(Gravity)
             {
                 BulletSpeedInt -= 10;

@@ -4,38 +4,43 @@ using UnityEngine;
 
 public class BUNny_AI : MonoBehaviour
 {
-    //Enemy_AI that can shoot and contains health
+    //Health and AI necessities needed for movement 
     public GameObject Bullet;
     public int Health;
     public float InvisTimer;
     public bool WithinField;
     public Vector2 MoveSpeed;
-    public void Start()
+
+    private void Start()
     {
-        Health = Random.Range(15, 50);
+        Health = 25;
     }
 
     void Update()
     {
-        transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y*Time.deltaTime, 0);
-        //its invinciblity frames and when it will shoot at certain times
-        if (WithinField)
+        //BUNny's movement and stops if the game is paused
+        if (Variables.Pause == false)
         {
-            InvisTimer += 1 * Time.deltaTime;
-
-            if (InvisTimer >= 2)
+            transform.Translate(MoveSpeed.x * Time.deltaTime, MoveSpeed.y * Time.deltaTime, 0);
+            //If the player can see it, it starts shooting
+            if (WithinField)
             {
-                HomingBulletAttack();
-                InvisTimer = 0;
+                InvisTimer += 1 * Time.deltaTime;
+
+                if (InvisTimer >= 2)
+                {
+                    HomingBulletAttack();
+                    InvisTimer = 0;
+                }
             }
         }
     }
     void DeathCheck()
     {
-        //Removes the enemy once killed
+        //Removes the enemy once killed and add to score
         if(Health <= 0)
         {
-            GameObject.Find("Score").GetComponent<ScoreUpKeep>().Score += 1;
+            GameObject.Find("Canvas").GetComponent<ScoreUpKeep>().Score += 10;
             Destroy(gameObject);
         }
     }
@@ -64,15 +69,21 @@ public class BUNny_AI : MonoBehaviour
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
+        //Stops shooting when out of players view
         if (collision.gameObject.CompareTag("BoundingBox"))
         {
             WithinField = false;
+        }
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            Destroy(gameObject);
         }
     }
 
 
     void HomingBulletAttack()
     {
+        //Finds the player position and then changes the angle depending on where they are relative to the player
         Vector3 dir = GameObject.Find("Player").transform.position - transform.position;
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, angle - 90), GameObject.Find("ProjectileStorage").transform);

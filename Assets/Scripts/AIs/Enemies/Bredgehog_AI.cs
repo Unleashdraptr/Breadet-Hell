@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Bredgehog_AI : MonoBehaviour
 {
-    //Enemy_AI that can shoot and contains health
+    //Health and AI necessities needed for movement 
     public GameObject Bullet;
     public int Health;
     public float InvisTimer;
@@ -12,15 +12,12 @@ public class Bredgehog_AI : MonoBehaviour
     public bool WithinField;
 
     public Vector2 MoveSpeed;
-    private Animator animator;
-    public void Start()
+    public Animator animator;
+    private void Start()
     {
-        animator = GetComponent<Animator>();
-        //Sets up all the stats and gets the enemy moving to its location to fire
-        Health = Random.Range(15, 50);
-        Moving = true;
+        //Sets health
+        Health = 45;
     }
-
     void Update()
     {
         //Tells the enemy to move unless it hits its target
@@ -42,10 +39,10 @@ public class Bredgehog_AI : MonoBehaviour
     }
     void DeathCheck()
     {
-        //Removes the enemy once killed
+        //Removes the enemy once killed and adds to the score
         if (Health == 0)
         {
-            GameObject.Find("Score").GetComponent<ScoreUpKeep>().Score += 10;
+            GameObject.Find("Canvas").GetComponent<ScoreUpKeep>().Score += 10;
             Destroy(gameObject);
         }
     }
@@ -71,12 +68,23 @@ public class Bredgehog_AI : MonoBehaviour
             //Player took contact damage and is telling the player
             collision.gameObject.GetComponent<PlayerHealth>().BeenHit();
         }
+        if (collision.gameObject.CompareTag("CosnumeMode"))
+        {
+            Health -= 100000;
+            //Also checks if the enemy is dead
+            DeathCheck();
+        }
     }
     private void OnCollisionExit2D(Collision2D collision)
     {
+        //Stops shooting when outside the players view
         if (collision.gameObject.CompareTag("BoundingBox"))
         {
             WithinField = false;
+        }
+        if (collision.gameObject.CompareTag("Finish"))
+        {
+            Destroy(gameObject);
         }
     }
 
@@ -85,6 +93,7 @@ public class Bredgehog_AI : MonoBehaviour
 
     IEnumerator SpiralAttack()
     {
+        //Starts to the animation of Breadgehog curling up and then spams out his bullets in a spiral pattern
         animator.SetTrigger("Spike");
         yield return new WaitForSeconds(0.75f);
         for (int i = 0; i < 25; i++)
@@ -96,9 +105,10 @@ public class Bredgehog_AI : MonoBehaviour
                 Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, 90 + i * 20), GameObject.Find("ProjectileStorage").transform);
                 Instantiate(Bullet, transform.position, Quaternion.Euler(0, 0, 270 + i * 20), GameObject.Find("ProjectileStorage").transform);
             }
-            
+            //To stagger them and not have a wall of bullets
             yield return new WaitForSeconds(0.15f);
         }
+        //Uncurls and then starts to move again
         animator.SetTrigger("UnSpike");
         yield return new WaitForSeconds(0.75f);
         WithinField = true;

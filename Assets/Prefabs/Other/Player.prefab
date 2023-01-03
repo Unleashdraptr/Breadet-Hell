@@ -169,7 +169,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 0.21, y: 0.18}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -225,7 +225,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bullet: {fileID: 8244138661295272704, guid: 386e829cd9551e841a36dc6aedb16e97, type: 3}
-  BulletStorage: {fileID: 8244138661295272704, guid: 386e829cd9551e841a36dc6aedb16e97, type: 3}
+  PrevPosition: {x: 0, y: 0}
 --- !u!114 &3217280099705351417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -238,8 +238,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f656e1a1c2fdfba4abd675cfdf7e5080, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  HealthNum: {fileID: 0}
+  Health: 0
   InvisTimer: 0
+  animator: {fileID: 0}
 --- !u!95 &3217280099705351396
 Animator:
   serializedVersion: 4

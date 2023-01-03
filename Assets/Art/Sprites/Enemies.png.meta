@@ -1162,7 +1162,7 @@ TextureImporter:
         width: 29
         height: 29
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1170,6 +1170,27 @@ TextureImporter:
       bones: []
       spriteID: 1f8225588a36f124b952b110595e3380
       internalID: 1847972631
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Round_Yellow_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 248
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53e1f3a98f2452049a46197099d594bb
+      internalID: -1923913227
       vertices: []
       indices: 
       edges: []
@@ -1222,6 +1243,7 @@ TextureImporter:
       BUNny_Walk_1: -207429108
       Breadgehog_2: 1001549235
       Invisible: -1350072628
+      Bullet_Round_Yellow_5: -1923913227
       Explosion_1: 1948158922
       Bullet_Round_Red_3: -47586938
       Toaster_2_Out: 592166689

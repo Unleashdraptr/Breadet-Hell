@@ -32,12 +32,27 @@ public class CharacterControls : MonoBehaviour
                         if (angle < 0)
                             angle = 360 - angle * -1;
                         animator.SetFloat("Angle", angle);
-                        if (transform.position.x + dir.x <= Screen.width - 200 && transform.position.x + dir.x >= 735 && transform.position.y + dir.y >= 100 && transform.position.y + dir.y <= Screen.height - 100)
+                        if (transform.position.x + dir.x <= 700)
                         {
-                            transform.position = new(transform.position.x + dir.x, transform.position.y + dir.y);
-                            PrevPosition = Input.GetTouch(0).position;
+                            dir.x = 0;
                         }
-                        if (Reload >= 0.1f)
+                        else if (transform.position.x + dir.x >= Screen.width - 100)
+                        {
+                            dir.x = 0;
+                        }
+                        if (transform.position.y + dir.y >= Screen.height - 100)
+                        {
+                            dir.y = 0;
+                        }
+                        else if (transform.position.y + dir.y <= 100)
+                        {
+                            dir.y = 0;
+                        }
+                        transform.position = new(transform.position.x + dir.x, transform.position.y + dir.y);
+                        PrevPosition = Input.GetTouch(0).position;
+
+
+                        if (Reload >= 0.1f && gameObject.CompareTag("Player"))
                         {
                             Instantiate(Bullet, new(Pos.x + 40, Pos.y), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
                             Instantiate(Bullet, new(Pos.x, Pos.y + 40), Quaternion.identity, GameObject.Find("ProjectileStorage").transform);
