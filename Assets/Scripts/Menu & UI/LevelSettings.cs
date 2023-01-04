@@ -15,7 +15,7 @@ public class LevelSettings : MonoBehaviour
         if (Variables.Progress < ProgressRequirement)
         {
             //Removes the level listing from the menu
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
         //checks if the current progress is equal to the target
         else if (Variables.Progress == ProgressRequirement)
@@ -25,14 +25,15 @@ public class LevelSettings : MonoBehaviour
             transform.Find("Eats").gameObject.SetActive(false);
             transform.Find("Hits").gameObject.SetActive(false);
             transform.Find("Crown").gameObject.SetActive(false);
+            transform.position = new(transform.position.x, transform.position.y, 0);
         }
         //checks if the current progress is more than the target
         else if (Variables.Progress > ProgressRequirement)
         {
             //finds the NEW sprite and disactivates it
             transform.Find("NEW").gameObject.SetActive(false);
+            transform.position = new(transform.position.x, transform.position.y, 0);
         }
-
     }
 
     //function for when the play button is pressed

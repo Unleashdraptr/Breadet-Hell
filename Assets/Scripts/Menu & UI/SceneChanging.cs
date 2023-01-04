@@ -11,6 +11,7 @@ public class SceneChanging : MonoBehaviour
     {
         Variables.Pause = false;
         SceneManager.LoadScene("Menu");
+
     }
 
     //Create new variables to hold the button game objects
@@ -114,12 +115,5 @@ public class SceneChanging : MonoBehaviour
     public void PracticeOFFButton()
     {
         Variables.PracticeMode = false;
-    }
-
-
-
-    public void TestDebug()
-    {
-        SceneManager.LoadScene("Testing");
     }
 }

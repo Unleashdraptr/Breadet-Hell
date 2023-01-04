@@ -4386,6 +4386,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EnemyDead: 0
   PlayerDead: 0
+  NextLevel: 2
 --- !u!114 &1209349445
 MonoBehaviour:
   m_ObjectHideFlags: 0
