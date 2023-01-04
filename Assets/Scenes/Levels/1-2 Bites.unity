@@ -635,7 +635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 441
+      value: 472
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -704,7 +704,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 441
+      value: 472
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -775,7 +775,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 909, y: 454}
+  m_AnchoredPosition: {x: 928, y: -156}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &244977678
@@ -798,7 +798,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You can press anywhere to move him
+  m_text: Press the button to find out what happens
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -825,8 +825,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 84
-  m_fontSizeBase: 84
+  m_fontSize: 96
+  m_fontSizeBase: 96
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -1300,7 +1300,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -309, y: 218}
+  m_AnchoredPosition: {x: 629, y: 762}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &486988334
@@ -1323,7 +1323,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Do this to dodge enemy attacks and shoot them back
+  m_text: Good luck!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -1513,7 +1513,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 441
+      value: 472
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -2040,7 +2040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 23, y: -227}
+  m_AnchoredPosition: {x: -708, y: -318}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &657665104
@@ -2063,7 +2063,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: This is you!
+  m_text: All that bread sure made Sir Squeadly hungry!
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2090,8 +2090,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 128
-  m_fontSizeBase: 128
+  m_fontSize: 96
+  m_fontSizeBase: 96
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2126,7 +2126,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -451.96484, w: -72.8645}
+  m_margin: {x: 0, y: 0, z: -867.70636, w: -72.8645}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3757,7 +3757,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -825, y: -546}
+  m_AnchoredPosition: {x: 530, y: 338}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1072173820
@@ -3780,7 +3780,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <- This is the pause button
+  m_text: Once it reaches 0 a button will appear
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3807,8 +3807,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 128
-  m_fontSizeBase: 128
+  m_fontSize: 96
+  m_fontSizeBase: 96
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -3843,7 +3843,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: -1343.4702, w: -72.8645}
+  m_margin: {x: 0, y: 0, z: -853.1852, w: -72.8645}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -3890,7 +3890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1344
+      value: 1388
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3967,7 +3967,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1313
+      value: -1414
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4210,11 +4210,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1245
+      value: 1293
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 385
+      value: 420
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -4573,7 +4573,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 476
+      value: 507
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5081,7 +5081,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -309, y: 218}
+  m_AnchoredPosition: {x: -174, y: 194}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1570069177
@@ -5104,7 +5104,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Good luck!
+  m_text: O! Theres more enemies by the way :)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -5216,7 +5216,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -464, y: 418}
+  m_AnchoredPosition: {x: -532, y: 563}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1601099102
@@ -5438,7 +5438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1341
+      value: 1385
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5527,7 +5527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1341
+      value: 1385
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
@@ -5608,11 +5608,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1319
+      value: -1354
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 358
+      value: 393
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -5911,7 +5911,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 441
+      value: 472
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6053,7 +6053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1341
+      value: 1385
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6214,7 +6214,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 441
+      value: 472
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.z
@@ -6285,7 +6285,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -843, y: 659}
+  m_AnchoredPosition: {x: -853, y: -86}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2097117551
@@ -6308,7 +6308,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: <- This is your health!
+  m_text: <- This is the hunger bar
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -6411,7 +6411,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 441
+      value: 472
       objectReference: {fileID: 0}
     - target: {fileID: 6000510695675674339, guid: 9caed4cc97e8c744a89fd7f61124ba03, type: 3}
       propertyPath: m_LocalPosition.z
