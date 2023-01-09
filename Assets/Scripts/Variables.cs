@@ -7,7 +7,7 @@ public static class Variables
     public static int Difficulties = 1;
     public static bool PracticeMode = false;
 
-    public static int Progress =  0;
+    public static int Progress =  5;
     //Will pause the game state if true
     public static bool Pause;
 

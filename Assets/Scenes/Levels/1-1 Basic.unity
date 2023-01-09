@@ -2809,6 +2809,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentNum: 0
+  TutorialID: 1
   WaveManager: {fileID: 1831214887}
   Dummy: {fileID: 726186827911182192, guid: c62532d77845eb94da8a385b19ec9dce, type: 3}
 --- !u!1 &624703021
@@ -3710,6 +3711,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: 0
   ConScore: 0
+  ScoreText: {fileID: 0}
+  ConScoreText: {fileID: 0}
 --- !u!114 &813973152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5814,7 +5817,7 @@ PrefabInstance:
     - target: {fileID: 3217280099705351417, guid: 481755acd5f940141b2f6c393e5d0695, type: 3}
       propertyPath: Scores
       value: 
-      objectReference: {fileID: 1375209617}
+      objectReference: {fileID: 1209349438}
     - target: {fileID: 3217280099705351417, guid: 481755acd5f940141b2f6c393e5d0695, type: 3}
       propertyPath: Fullness
       value: 
@@ -6036,6 +6039,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Score: 0
   ConScore: 0
+  ScoreText: {fileID: 1375209619}
+  ConScoreText: {fileID: 89693556}
 --- !u!1 &1246513244
 GameObject:
   m_ObjectHideFlags: 0

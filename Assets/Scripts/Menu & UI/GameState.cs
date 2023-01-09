@@ -15,13 +15,11 @@ public class GameState : MonoBehaviour
         //Will go to a win state if Snekzel is dead
         if(EnemyDead == true)
         {
-            Debug.Log("Won: " + Variables.Progress);
             if(NextLevel - 1 == Variables.Progress)
             {
                 Debug.Log("Next Level");
                 Variables.Progress += 1;
             }
-            Debug.Log("After: " + Variables.Progress);
             Variables.Pause = true;
             transform.GetChild(1).gameObject.SetActive(true);
         }

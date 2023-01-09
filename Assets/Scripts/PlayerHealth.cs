@@ -139,6 +139,16 @@ public class PlayerHealth : MonoBehaviour
             Fullness.value += 10;
             Scores.GetComponent<ScoreUpKeep>().ConScore += 10;
         }
+
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Boss") && gameObject.CompareTag("CosnumeMode"))
+        {
+            Fullness.value += 1;
+            collision.transform.GetComponentInParent<Snekzel_AI>().Health -= 1;
+            Scores.GetComponent<ScoreUpKeep>().ConScore += 1;
+        }
     }
 }
 

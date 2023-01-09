@@ -397,7 +397,7 @@ GameObject:
   - component: {fileID: 71962462}
   m_Layer: 0
   m_Name: Snekzel
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -455,6 +455,7 @@ MonoBehaviour:
   P2Saltshakers: {fileID: 1762966958}
   Toaster: {fileID: 726186827911182192, guid: 609875335cc52bb4aa0ef9cf5134cd96, type: 3}
   Charge: 0
+  P3Anim: {fileID: 582394225}
 --- !u!1 &72882223
 GameObject:
   m_ObjectHideFlags: 0
@@ -468,11 +469,11 @@ GameObject:
   - component: {fileID: 72882225}
   m_Layer: 0
   m_Name: P3Head
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &72882224
 Transform:
   m_ObjectHideFlags: 0
@@ -527,6 +528,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee4d0e5e489a5d4b9055deca6c0ed00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Scores: {fileID: 1209349438}
 --- !u!1 &85187553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1451,7 +1453,7 @@ PrefabInstance:
     - target: {fileID: 3217280099705351417, guid: 481755acd5f940141b2f6c393e5d0695, type: 3}
       propertyPath: Scores
       value: 
-      objectReference: {fileID: 2014926739}
+      objectReference: {fileID: 1209349438}
     - target: {fileID: 3217280099705351417, guid: 481755acd5f940141b2f6c393e5d0695, type: 3}
       propertyPath: Fullness
       value: 
@@ -1546,7 +1548,7 @@ GameObject:
   - component: {fileID: 310472894}
   m_Layer: 0
   m_Name: Phase 2
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1606,6 +1608,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee4d0e5e489a5d4b9055deca6c0ed00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Scores: {fileID: 1209349438}
 --- !u!1 &321193008
 GameObject:
   m_ObjectHideFlags: 0
@@ -2901,6 +2904,7 @@ GameObject:
   m_Component:
   - component: {fileID: 582394223}
   - component: {fileID: 582394224}
+  - component: {fileID: 582394225}
   m_Layer: 0
   m_Name: P1Head
   m_TagString: Untagged
@@ -2964,7 +2968,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 540771967, guid: 8015e0fb7ee865248b38262bee338182, type: 3}
+  m_Sprite: {fileID: 1182965555, guid: 8015e0fb7ee865248b38262bee338182, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2975,6 +2979,26 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &582394225
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582394222}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0980eaf095f53304bbc8482944725742, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &640186081
 GameObject:
   m_ObjectHideFlags: 0
@@ -3349,7 +3373,7 @@ Transform:
   - {fileID: 1403891276}
   - {fileID: 1267781900}
   m_Father: {fileID: 933158284}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713808176
 GameObject:
@@ -4142,8 +4166,8 @@ Transform:
   - {fileID: 203371884}
   - {fileID: 27743153}
   - {fileID: 2014926740}
-  - {fileID: 1401893670}
   - {fileID: 711874299}
+  - {fileID: 1401893670}
   - {fileID: 2112291098}
   - {fileID: 353142836}
   m_Father: {fileID: 1209349442}
@@ -4366,7 +4390,7 @@ GameObject:
   - component: {fileID: 1024636024}
   m_Layer: 0
   m_Name: Phase 1
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4426,6 +4450,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: eee4d0e5e489a5d4b9055deca6c0ed00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Scores: {fileID: 1209349438}
 --- !u!1 &1040730358
 GameObject:
   m_ObjectHideFlags: 0
@@ -4765,7 +4790,7 @@ GameObject:
   - component: {fileID: 1208280180}
   m_Layer: 0
   m_Name: Phase 3
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4801,6 +4826,7 @@ GameObject:
   - component: {fileID: 1209349439}
   - component: {fileID: 1209349443}
   - component: {fileID: 1209349444}
+  - component: {fileID: 1209349445}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4839,7 +4865,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_UiScaleMode: 0
   m_ReferencePixelsPerUnit: 100
-  m_ScaleFactor: 1
+  m_ScaleFactor: 1.1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0.5
@@ -4922,6 +4948,22 @@ MonoBehaviour:
   EnemyDead: 0
   PlayerDead: 0
   NextLevel: 5
+--- !u!114 &1209349445
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1209349438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17483f8a81bc7d14c9809bc228d5b033, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Score: 0
+  ConScore: 0
+  ScoreText: {fileID: 2014926741}
+  ConScoreText: {fileID: 1401893671}
 --- !u!1 &1225231183
 GameObject:
   m_ObjectHideFlags: 0
@@ -5210,7 +5252,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 933158284}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6232,8 +6274,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1558835287}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 100, y: 100, z: 1}
+  m_LocalPosition: {x: 0, y: -139, z: 1}
+  m_LocalScale: {x: 1000, y: 1000, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1208280180}
@@ -6280,8 +6322,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 0.3962264, g: 0.2474366, b: 0, a: 1}
+  m_Sprite: {fileID: -657037446, guid: 8015e0fb7ee865248b38262bee338182, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

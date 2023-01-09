@@ -11,6 +11,7 @@ TagManager:
   - BoundingBox
   - PlayField
   - CosnumeMode
+  - Boss
   layers:
   - Default
   - TransparentFX
