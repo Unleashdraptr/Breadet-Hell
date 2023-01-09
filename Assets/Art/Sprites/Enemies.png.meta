@@ -1183,7 +1183,7 @@ TextureImporter:
         width: 7
         height: 7
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -1191,6 +1191,279 @@ TextureImporter:
       bones: []
       spriteID: 53e1f3a98f2452049a46197099d594bb
       internalID: -1923913227
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_1
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a177af6c6c7a080449590e7b37afd535
+      internalID: -990863709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_2
+      rect:
+        serializedVersion: 2
+        x: 15
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 419c918095d3dc241ada5c4bff0613a4
+      internalID: -586747065
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_3
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9fe9c7927ccd78946a3afd42725e1b4d
+      internalID: 336594699
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_4
+      rect:
+        serializedVersion: 2
+        x: 43
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: adf24989c77447345981c14d1ddeafc5
+      internalID: -1516212874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_5
+      rect:
+        serializedVersion: 2
+        x: 57
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be3d8b06f6d77834592acbbf521efc85
+      internalID: -1370842572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_6
+      rect:
+        serializedVersion: 2
+        x: 71
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2e39ca185e00b34581ca7b851a29dbc
+      internalID: 1636004387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_7
+      rect:
+        serializedVersion: 2
+        x: 85
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd11ebb8c5446054089bfa9632b112f3
+      internalID: 1560808984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_8
+      rect:
+        serializedVersion: 2
+        x: 99
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5098bdc96f68eab459f27b911b2dcd86
+      internalID: 1419621111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_9
+      rect:
+        serializedVersion: 2
+        x: 113
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 974945f34e6421149ae961dfe4b87a8f
+      internalID: 623070554
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_10
+      rect:
+        serializedVersion: 2
+        x: 127
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 120f2cc1763565547b914764df4fc099
+      internalID: -1139867508
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_11
+      rect:
+        serializedVersion: 2
+        x: 141
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b6ef215b5921c264f9cf75297dfdf0eb
+      internalID: -360174178
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Dummy_12
+      rect:
+        serializedVersion: 2
+        x: 155
+        y: 211
+        width: 13
+        height: 22
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c060254d20e119b49ba6e51d84c86719
+      internalID: -1826903685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Bullet_Round_Purple_5
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 272
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 771b6a7ff92bb614e92803f40578e195
+      internalID: 1840644482
       vertices: []
       indices: 
       edges: []
@@ -1213,26 +1486,37 @@ TextureImporter:
       Toaster_5_Out: -1870902881
       Hotdog_Anger_1: 57702135
       BUNny_Walk_3: -885364347
+      Dummy_7: 1560808984
       Toaster_4_In: 909924658
       Bullet_Burnt_3: 863880796
       Torweino_7: -1229190185
       Hotdog_Empty_Walk_1: -1345793830
+      Dummy_11: -360174178
       Hotdog_Empty_Walk_2: -1615100505
       Explosion_4: -229389580
+      Dummy_4: -1516212874
       Hotdog_Walk_1: 1068569123
       Explosion_2: -1132392452
       Bullet_Spiked_1: 479867694
       Toaster_3_In: 455988686
+      Dummy_9: 623070554
       Hotdog_Reload_1: 323692220
       Snekzlet_2: 218576167
+      Dummy_8: 1419621111
       Snekzlet_1: -2045227838
       Torweino_3: 113065446
+      Dummy_5: -1370842572
       Bullet_Round_Red_5: -410854427
+      Dummy_12: -1826903685
+      Dummy_6: 1636004387
       Bullet_Mega_1: 1847972631
       Toaster_2_In: -778841493
+      Dummy_2: -586747065
+      Dummy_3: 336594699
       Explosion_3: 1597220768
       Breadgehog_3: 790726523
       Bullet_Burnt_4: -494649869
+      Bullet_Round_Purple_5: 1840644482
       Toaster_5_In: 277793841
       Hotdog_Walk_2: -1399143520
       Bullet_Round_Blue_5: -132978596
@@ -1242,15 +1526,17 @@ TextureImporter:
       Torweino_4: 252090967
       BUNny_Walk_1: -207429108
       Breadgehog_2: 1001549235
-      Invisible: -1350072628
       Bullet_Round_Yellow_5: -1923913227
+      Invisible: -1350072628
       Explosion_1: 1948158922
+      Dummy_10: -1139867508
       Bullet_Round_Red_3: -47586938
       Toaster_2_Out: 592166689
       Toaster_1_In: -669149809
       Toaster_3_Out: 1583448452
       Hotdog_Anger_3: -2098509867
       Toaster_4_Out: 1167251091
+      Dummy_1: -990863709
       Hotdog_Reload_2: 22672668
       Torweino_6: 2108994012
       Torweino_5: 1714998586

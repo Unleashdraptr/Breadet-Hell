@@ -18,6 +18,9 @@ public class PlayerHealth : MonoBehaviour
     public Slider Fullness;
     float CosNumeTimer;
 
+    //public GameObject Container; Ignore this stuff, as unity decided to crash and i lost 2 hours of work
+    //private Animator ContainerAnim;
+
     public Animator animator;
 
     void Start()
@@ -32,6 +35,7 @@ public class PlayerHealth : MonoBehaviour
 
         animator.SetInteger("HP", Health);
 
+        //ContainerAnim = Container.GetComponent<Animator>();
     }
 
     private void Update()
@@ -55,16 +59,19 @@ public class PlayerHealth : MonoBehaviour
         if(HungerTimer.value <= 0)
         {
             EatButton.gameObject.SetActive(true);
+            //Container.gameObject.SetActive(false);
         }
 
         if(CosNumeTimer >= 20)
         {
             gameObject.tag = "Player";
             EatButton.gameObject.SetActive(false);
+            //Container.gameObject.SetActive(true);
             HungerTimer.value = HungerTimer.maxValue;
             Fullness.value = 0;
             CosNumeTimer = 0;
         }
+        //ContainerAnim.SetFloat("Fill", HungerTimer.value);
     }
     void ReduceHealth()
     {
@@ -99,6 +106,7 @@ public class PlayerHealth : MonoBehaviour
         {
             gameObject.tag = "Player";
             EatButton.gameObject.SetActive(false);
+            //Container.gameObject.SetActive(true);
             HungerTimer.value = HungerTimer.maxValue;
             Fullness.value = 0;
             CosNumeTimer = 0;
