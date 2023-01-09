@@ -817,6 +817,468 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Hunger_Bar_1
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 128
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76a80e088e782e346b258259ed1df20d
+      internalID: -1813521325
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Bar_2
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 112
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a26cde14aa55d90429c05d63b1181313
+      internalID: -1940634583
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Bar_3
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 96
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d12460588e5f63d4cb9ec3f3ce50f805
+      internalID: -804122367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Bar_4
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 80
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9acec83585bc53c40b2997ed69ada7f7
+      internalID: 1431841811
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Bar_5
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 64
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82d66c5da87717f448dcc56cdd004b15
+      internalID: -1399877029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Bar_6
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 48
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29eede35ad0c0654d9e8e5b5bdc15ffd
+      internalID: 484232146
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Bar_7
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 32
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc1aeeb76fcb0ab46911810b987baef2
+      internalID: -1360341304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Bar_8
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 16
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 812c93486d4181049a131f8747ace2e6
+      internalID: -1030582457
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Bar_9
+      rect:
+        serializedVersion: 2
+        x: 296
+        y: 0
+        width: 43
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3f9c78c5e1dfb444c8db1cbc24350522
+      internalID: 1048107303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Drain_Start_1
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 132
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39d2787f8c1cc3147a303f902d821c93
+      internalID: 1635704022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Drain_Start_2
+      rect:
+        serializedVersion: 2
+        x: 346
+        y: 132
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37690ed83f5afd64ca36b77d1aa1cf87
+      internalID: -1648654791
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Drain_Start_3
+      rect:
+        serializedVersion: 2
+        x: 351
+        y: 132
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 559c8c996f4c18340b00f8a379f04dca
+      internalID: -1734824616
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Drain_Flow_1
+      rect:
+        serializedVersion: 2
+        x: 357
+        y: 132
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 106f9954828a21a4c90358d9bf934c04
+      internalID: 846162466
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Drain_Flow_2
+      rect:
+        serializedVersion: 2
+        x: 362
+        y: 132
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0102696fef3eafc4b839664a627be208
+      internalID: 1616638111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Drain_Flow_3
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 132
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6faed3ddabbb9524c82318a5da82b3a4
+      internalID: -1711120459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Drain_Flow_4
+      rect:
+        serializedVersion: 2
+        x: 372
+        y: 132
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 89423673abcd55948840ac850e749e24
+      internalID: 1303601034
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Drain_Empty_1
+      rect:
+        serializedVersion: 2
+        x: 378
+        y: 132
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ba9fa9994466a5b428a261be25ed1a84
+      internalID: -702498213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Drain_Empty_2
+      rect:
+        serializedVersion: 2
+        x: 383
+        y: 132
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 81731e54adcc21e43978ba032556557b
+      internalID: 1734874887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Drain_Empty_3
+      rect:
+        serializedVersion: 2
+        x: 388
+        y: 132
+        width: 4
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82abf9ac5e5a8094ba23504b6ef509cf
+      internalID: -1699618468
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Button_Select
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 108
+        width: 41
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 57b6491cf982a9040838aab180e84a30
+      internalID: -397274986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Button_Default
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 92
+        width: 41
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea48ff689b3e1447ad665b6dd96b00e
+      internalID: -745815604
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hunger_Button_Activated
+      rect:
+        serializedVersion: 2
+        x: 341
+        y: 76
+        width: 41
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05cdd61b21b202c47a362e23990fd8e8
+      internalID: -635131264
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -829,39 +1291,61 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Difficulty_4_Breadendary: 536726321
-      Hearts_Left_20: -659009253
       Hearts_Left_16: 1053508196
-      Difficulty_P2_Toasty: -286478996
-      Difficulty_P3_Burnt: 1768204246
-      Hearts_Left_4: -929220521
+      Hunger_Drain_Flow_4: 1303601034
+      Hunger_Drain_Flow_1: 846162466
+      Hunger_Bar_2: -1940634583
+      Hunger_Bar_4: 1431841811
       Background_Left: 468696400
-      Hearts_Left_6: -1205864768
       Difficulty_2_Toasty: 778801660
+      Hunger_Bar_5: -1399877029
       Hearts_Left_11: 1848829851
       Difficulty_3_Burnt: 512735338
-      Hearts_Left_18: -495669664
       Hearts_Left_12: 349042440
       Background_Right: -1190245362
       Hearts_Left_2: -625259455
       Hearts_Left_7: 706432002
-      Difficulty_P4_Breadendary: -1172032565
+      Hunger_Bar_6: 484232146
       Hearts_Left_9: -666613441
+      Hunger_Drain_Start_2: -1648654791
       Hearts_Left_15: 99538782
-      Hearts_Left_17: -595145925
-      Difficulty_P1_Normal: 1406485645
-      Hearts_Left_19: -51977578
+      Hunger_Drain_Start_1: 1635704022
+      Hunger_Drain_Flow_2: 1616638111
       Hearts_Left_13: 766609824
-      Toaster_Empty: 91137980
       Hearts_Left_8: 1916522793
       Hearts_Left_3: 138308887
+      Hunger_Button_Select: -397274986
+      Hunger_Drain_Empty_3: -1699618468
+      Hunger_Bar_7: -1360341304
+      Hunger_Drain_Start_3: -1734824616
+      Hunger_Bar_9: 1048107303
+      Hearts_Left_5: 1916711625
+      Hunger_Drain_Flow_3: -1711120459
+      Hearts_Left_10: -1387119093
+      Hunger_Bar_8: -1030582457
+      Hearts_Left_4: -929220521
+      Hearts_Right_0: -298417128
+      Hunger_Button_Activated: -635131264
+      Difficulty_P3_Burnt: 1768204246
+      Hearts_Left_20: -659009253
+      Hearts_Left_14: 1081043986
+      Difficulty_P2_Toasty: -286478996
+      Hearts_Left_6: -1205864768
+      Hunger_Bar_3: -804122367
+      Hearts_Left_18: -495669664
+      Difficulty_P4_Breadendary: -1172032565
+      Difficulty_P1_Normal: 1406485645
+      Hearts_Left_17: -595145925
+      Hearts_Left_19: -51977578
+      Toaster_Empty: 91137980
+      Hunger_Drain_Empty_2: 1734874887
+      Hunger_Button_Default: -745815604
       Background_X: 463802596
       Hearts_Left_0: -1632374002
+      Hunger_Drain_Empty_1: -702498213
+      Hunger_Bar_1: -1813521325
       Difficulty_1_Normal: -1256857540
-      Hearts_Left_5: 1916711625
-      Hearts_Left_10: -1387119093
       Hearts_Left_1: -1702334166
-      Hearts_Right_0: -298417128
-      Hearts_Left_14: 1081043986
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

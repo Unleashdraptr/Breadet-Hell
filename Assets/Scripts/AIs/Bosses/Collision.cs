@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Collision : MonoBehaviour
 {
+    public GameObject Scores;
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Bullet"))
@@ -11,6 +12,7 @@ public class Collision : MonoBehaviour
             //Same as player where the character cant be hit for a bit and loses health
             Destroy(collision.gameObject);
             GetComponentInParent<Snekzel_AI>().Health -= 1;
+            Scores.GetComponent<ScoreUpKeep>().Score += 1;
             //Also checks if the enemy is dead
             GetComponentInParent<Snekzel_AI>().DeathCheck();
         }
