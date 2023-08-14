@@ -7,6 +7,7 @@ public class CharacterControls : MonoBehaviour
     //The bullet and where its stored in the heiarchy for cleaness sake
     public GameObject Bullet;
     private Animator animator;
+    public Vector2 dir;
     public Vector2 PrevPosition;
     float Reload;
     void Update()
@@ -17,16 +18,16 @@ public class CharacterControls : MonoBehaviour
             Reload += 1 * Time.deltaTime;
             Vector2 Pos = new(transform.position.x, transform.position.y + 30);
             //Spawns the bullet at the player everytime the screen is touched (Work in progress)
-            if (Input.touchCount > 0)
+            if (Input.GetMouseButton(0))
             {
+
                 if (PrevPosition.x != 0 && PrevPosition.y != 0)
                 {
-                    float Distance = Vector2.Distance(Input.GetTouch(0).position, PrevPosition);
+                    float Distance = Vector2.Distance(Input.mousePosition, PrevPosition);
                     if (Distance < 2000)
                     {
-                        Vector2 dir;
-                        dir.x = Input.GetTouch(0).position.x - PrevPosition.x;
-                        dir.y = Input.GetTouch(0).position.y - PrevPosition.y;
+                        dir.x = Input.mousePosition.x - PrevPosition.x;
+                        dir.y = Input.mousePosition.y - PrevPosition.y;
                         //Animator Direction
                         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
                         if (angle < 0)
@@ -36,11 +37,12 @@ public class CharacterControls : MonoBehaviour
                         {
                             dir.x = 0;
                         }
-                        else if (transform.position.x + dir.x >= Screen.width - 100)
+                        else if (transform.position.x + dir.x >= 2650)
                         {
+                            Debug.Log("fdgjhm,jgmf");
                             dir.x = 0;
                         }
-                        if (transform.position.y + dir.y >= Screen.height - 100)
+                        if (transform.position.y + dir.y >= 1400)
                         {
                             dir.y = 0;
                         }
@@ -49,7 +51,7 @@ public class CharacterControls : MonoBehaviour
                             dir.y = 0;
                         }
                         transform.position = new(transform.position.x + dir.x, transform.position.y + dir.y);
-                        PrevPosition = Input.GetTouch(0).position;
+                        PrevPosition = Input.mousePosition;
 
 
                         if (Reload >= 0.1f && gameObject.CompareTag("Player"))
@@ -62,12 +64,10 @@ public class CharacterControls : MonoBehaviour
                     }
                 }
                 else
-                    PrevPosition = Input.GetTouch(0).position;
+                    PrevPosition = Input.mousePosition;
             }
-        }
-        if(Input.touchCount == 0)
-        {
-            PrevPosition = new(0, 0);
+            else
+                PrevPosition = new(0, 0);
         }
     }
 }
