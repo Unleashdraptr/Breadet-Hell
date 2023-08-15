@@ -39,7 +39,6 @@ public class CharacterControls : MonoBehaviour
                         }
                         else if (transform.position.x + dir.x >= 2650)
                         {
-                            Debug.Log("fdgjhm,jgmf");
                             dir.x = 0;
                         }
                         if (transform.position.y + dir.y >= 1400)

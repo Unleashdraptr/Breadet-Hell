@@ -87,17 +87,17 @@ public class SnekzelAttackLibrary : MonoBehaviour
     public IEnumerator Screencharge(bool IsBoss)
     {
         //This decides what side of the screen he will start to travel from and at what height on the screen to do so
-        int ScreenWidth = Random.Range(150, Screen.height + 40);
+        int ScreenWidth = Random.Range(150, 1400);
         Vector2 Pos = new(0, ScreenWidth);
         int Screenside = Random.Range(1, 3);
         if (Screenside == 1)//Right
         {
-            Pos.x = Screen.width + 900;
+            Pos.x = 3750;
             transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 180, 0));
         }
         if(Screenside == 2)//Left
         {
-            Pos.x = -540 ;
+            Pos.x = -340 ;
             transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 0, 0));
         }
         //This checks if its Snekzel or Snekzlette is using the position decider
@@ -126,8 +126,8 @@ public class SnekzelAttackLibrary : MonoBehaviour
         //Sets the head to false so the tell can show
         GameObject.Find("Phase 3").transform.GetChild(1).gameObject.SetActive(false);
         //Picks a random place on the screen to appear at
-        int ScreenY = Random.Range(200, (Screen.height - 200));
-        int ScreenX = Random.Range(850, (Screen.width - 400));
+        int ScreenY = Random.Range(200, (1450 - 200));
+        int ScreenX = Random.Range(850, (2650 - 400));
         //Sets the positions which is shown with the tell
         Vector2 Pos = new(ScreenX, ScreenY);
         transform.SetPositionAndRotation(Pos, Quaternion.Euler(0, 0, 0));
